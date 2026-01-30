@@ -213,9 +213,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8027735662981058453}
   - component: {fileID: 6806542489430259804}
-  - component: {fileID: 8190117960293538147}
+  - component: {fileID: 5578803558988874029}
+  - component: {fileID: 123549174962061178}
   m_Layer: 0
-  m_Name: Presence
+  m_Name: Visibility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -290,7 +291,7 @@ PolygonCollider2D:
       - {x: -2.0911334, y: -3.0724294}
       - {x: 5.0514417, y: -3.0806358}
   m_UseDelaunayMesh: 0
---- !u!114 &8190117960293538147
+--- !u!114 &5578803558988874029
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -299,12 +300,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1789924981987382004}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31aec251590948069f7caf8c5ae6338a, type: 3}
+  m_Script: {fileID: 11500000, guid: fb0294201d6e432c82c0ede0ce169689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 8026167056403842981}
   duration: 0.5
   persist: 0
+--- !u!114 &123549174962061178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789924981987382004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39eca31fe1e43f38ca031445fc4484f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 5578803558988874029}
 --- !u!1 &2210919785238275967
 GameObject:
   m_ObjectHideFlags: 0

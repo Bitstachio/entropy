@@ -1,12 +1,9 @@
 using System.Collections;
-using Shared.Constants;
-using Shared.Utils;
 using UnityEngine;
 
-namespace Shared.Behaviours
+namespace Features.Visibility.Scripts
 {
-    [RequireComponent(typeof(Collider2D))]
-    public sealed class SpriteFadeController : MonoBehaviour
+    public class VisibilityController : MonoBehaviour
     {
         private const float MinAlpha = 0f;
         private const float MaxAlpha = 1f;
@@ -17,9 +14,20 @@ namespace Shared.Behaviours
 
         private Coroutine _fadeRoutine;
 
-        private void OnValidate() => ComponentValidationUtils.ValidateSingleTrigger(GetComponents<Collider2D>());
+        //===== Lifecycle =====
 
         private void Awake() => SetAlpha(MinAlpha);
+
+        //===== Public Methods =====
+        
+        public void FadeIn() => FadeTo(MaxAlpha);
+
+        public void FadeOut()
+        {
+            if (!persist) FadeTo(MinAlpha);
+        }
+
+        //===== Utilities =====
 
         private void FadeTo(float targetAlpha)
         {
@@ -49,16 +57,6 @@ namespace Shared.Behaviours
             var color = spriteRenderer.color;
             color.a = alpha;
             spriteRenderer.color = color;
-        }
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.CompareTag(Tags.Player)) FadeTo(MaxAlpha);
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            if (!persist && other.CompareTag(Tags.Player)) FadeTo(MinAlpha);
         }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Features.Player.Scripts
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Movement : MonoBehaviour
+    public sealed class Movement : MonoBehaviour
     {
         [SerializeField] private float speed = 5f;
 

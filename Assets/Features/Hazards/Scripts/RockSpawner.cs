@@ -1,4 +1,4 @@
-using Shared.Providers;
+using Shared.Interfaces;
 using UnityEngine;
 using VContainer;
 
@@ -13,10 +13,15 @@ namespace Features.Hazards.Scripts
 
         //===== Dependency Injection =====
 
-        private HorizontalBoundsProvider _boundsProvider;
+        private IBoundsProvider _boundsProvider;
+        private RockFactory _rockFactory;
 
         [Inject]
-        public void Construct(HorizontalBoundsProvider boundsProvider) => _boundsProvider = boundsProvider;
+        public void Construct(IBoundsProvider boundsProvider, RockFactory rockFactory)
+        {
+            _boundsProvider = boundsProvider;
+            _rockFactory = rockFactory;
+        }
 
         //===== Lifecycle =====
 
@@ -27,7 +32,7 @@ namespace Features.Hazards.Scripts
 
             var position = transform.position;
             position.x = Random.Range(_boundsProvider.Min, _boundsProvider.Max);
-            Instantiate(rock, position, Quaternion.identity);
+            _rockFactory.Create(position);
 
             _timer = 0f;
         }

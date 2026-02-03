@@ -1002,6 +1002,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   horizontalBoundsProvider: {fileID: 152018617}
+  rockPrefab: {fileID: 2156115695398247023, guid: 64ca9af46b9354e5fbd5a8e1c508d4fe, type: 3}
 --- !u!4 &2037558911
 Transform:
   m_ObjectHideFlags: 0

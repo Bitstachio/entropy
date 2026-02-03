@@ -1,8 +1,9 @@
+using Shared.Interfaces;
 using UnityEngine;
 
 namespace Shared.Providers
 {
-    public class HorizontalBoundsProvider : MonoBehaviour
+    public class HorizontalBoundsProvider : MonoBehaviour, IBoundsProvider
     {
         public float Min { get; private set; }
         public float Max { get; private set; }

@@ -4,18 +4,17 @@ namespace Shared.Providers
 {
     public class HorizontalBoundsProvider : MonoBehaviour
     {
-        public static HorizontalBoundsProvider Instance { get; private set; }
         public float Min { get; private set; }
         public float Max { get; private set; }
 
         // Prevent rocks from spawning flush against the screen edges
         private const float Padding = 1f;
 
-        private void Awake()
-        {
-            Instance = this;
-            UpdateBounds();
-        }
+        //===== Lifecycle =====
+
+        private void Awake() => UpdateBounds();
+
+        //===== Context Menu =====
 
         [ContextMenu("Refresh Bounds")]
         public void UpdateBounds()

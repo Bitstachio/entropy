@@ -1,5 +1,6 @@
 using Shared.Providers;
 using UnityEngine;
+using VContainer;
 
 namespace Features.Hazards.Scripts
 {
@@ -8,12 +9,16 @@ namespace Features.Hazards.Scripts
         [SerializeField] private Rock rock;
         [SerializeField] private float interval = 3f;
 
-        private HorizontalBoundsProvider _boundsProvider;
         private float _timer;
 
-        //===== Lifecycle =====
+        //===== Dependency Injection =====
 
-        private void Awake() => _boundsProvider = HorizontalBoundsProvider.Instance;
+        private HorizontalBoundsProvider _boundsProvider;
+
+        [Inject]
+        public void Construct(HorizontalBoundsProvider boundsProvider) => _boundsProvider = boundsProvider;
+
+        //===== Lifecycle =====
 
         private void Update()
         {

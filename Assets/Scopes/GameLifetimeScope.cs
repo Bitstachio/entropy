@@ -9,13 +9,12 @@ namespace Scopes
 {
     public sealed class GameLifetimeScope : LifetimeScope
     {
-        [Header("Providers")]
-        [SerializeField] private HorizontalBoundsProvider horizontalBoundsProvider;
+        [Header("Providers")] [SerializeField] private HorizontalBoundsProvider horizontalBoundsProvider;
 
-        [Header("Settings")]
-        [SerializeField] private Rock rockPrefab;
+        [Header("Settings")] [SerializeField] private Rock rockPrefab;
         [SerializeField] private float spawnInterval = 3f;
         [SerializeField] private Transform spawnOrigin;
+        [SerializeField] private float spawnXSpeedBound = 2f;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -28,7 +27,8 @@ namespace Scopes
             // Systems
             builder.RegisterEntryPoint<RockSpawner>()
                 .WithParameter("interval", spawnInterval)
-                .WithParameter("originPosition", spawnOrigin.position);
+                .WithParameter("originPosition", spawnOrigin.position)
+                .WithParameter("xSpeedBound", spawnXSpeedBound);
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Features.Hazards.Scripts
         private readonly RockFactory _rockFactory;
         private readonly Vector3 _originPosition;
         private readonly float _interval;
+        private readonly float _xSpeedBound;
 
         private float _timer;
 
@@ -17,12 +18,14 @@ namespace Features.Hazards.Scripts
             IBoundsProvider boundsProvider,
             RockFactory rockFactory,
             Vector3 originPosition,
-            float interval)
+            float interval,
+            float xSpeedBound)
         {
             _boundsProvider = boundsProvider;
             _rockFactory = rockFactory;
             _originPosition = originPosition;
             _interval = interval;
+            _xSpeedBound = xSpeedBound;
         }
 
         public void Tick()
@@ -32,7 +35,11 @@ namespace Features.Hazards.Scripts
 
             var x = Random.Range(_boundsProvider.Min, _boundsProvider.Max);
             var position = new Vector3(x, _originPosition.y, 0);
-            _rockFactory.Create(position);
+            var rock = _rockFactory.Create(position);
+
+            var horizontalSpeed = Random.Range(-_xSpeedBound, _xSpeedBound);
+            var rb = rock.GetComponent<Rigidbody2D>();
+            if (rb != null) rb.linearVelocity = new Vector2(horizontalSpeed, rb.linearVelocity.y);
 
             _timer = 0f;
         }

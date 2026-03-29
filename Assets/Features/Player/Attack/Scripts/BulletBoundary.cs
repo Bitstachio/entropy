@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.Player.Scripts
+namespace Features.Player.Attack.Scripts
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public sealed class BulletBoundary : MonoBehaviour

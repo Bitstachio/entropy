@@ -1,6 +1,7 @@
+using Features.Player.Shared.Scripts;
 using UnityEngine;
 
-namespace Features.Player.Scripts
+namespace Features.Player.Movement.Scripts
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public sealed class Movement : MonoBehaviour

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.Player.Scripts
+namespace Features.Player.Shared.Scripts
 {
     [CreateAssetMenu(menuName = "Player/Stats Container")]
     public class PlayerStats : ScriptableObject

@@ -1,6 +1,7 @@
+using Features.Player.Shared.Scripts;
 using UnityEngine;
 
-namespace Features.Player.Scripts
+namespace Features.Player.Attack.Scripts
 {
     public sealed class Shooter : MonoBehaviour
     {

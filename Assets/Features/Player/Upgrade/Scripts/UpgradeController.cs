@@ -12,10 +12,11 @@ namespace Features.Player.Upgrade.Scripts
         [SerializeField] private GameObject offerPanel;
         [SerializeField] private Button[] options;
         [SerializeField] private Options.Upgrade[] upgrades;
+        
+        private static readonly Random Rng = new Random();
 
         private float _elapsed;
         private bool _isOpen;
-        private Random _rng;
 
         //===== Lifecycle =====
 
@@ -35,7 +36,7 @@ namespace Features.Player.Upgrade.Scripts
 
         private void BindOptionListeners()
         {
-            ArrayUtils.Shuffle(upgrades, _rng);
+            ArrayUtils.Shuffle(upgrades, Rng);
 
             // TODO: Assert upgrades.Length >= options.Length
             for (var i = 0; i < options.Length; i++)

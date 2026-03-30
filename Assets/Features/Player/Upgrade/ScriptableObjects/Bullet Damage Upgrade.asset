@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: Bullet Damage Upgrade
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 638bcf7c4ca6b4db39e16e18b73ba575, type: 2}
+  description: Bullet Damage Upgrade
   amount: 2

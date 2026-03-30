@@ -33,10 +33,13 @@ namespace Features.Player.Upgrade.Scripts
         {
             foreach (var option in options)
             {
-                // TODO: Improve exception handling when `UpgradeOption` behaviour is null
-                var upgrade = option.GetComponent<UpgradeOption>()?.Upgrade;
-                // TODO: Improve exception handling when `upgrade` is null
-                if (upgrade) option.onClick.AddListener(upgrade.Apply);
+                var behaviour = option.GetComponent<UpgradeOption>();
+                var upgrade = behaviour?.Upgrade;
+
+                // TODO: Improve exception handling when `behaviour` or `upgrade` is null
+                if (!upgrade) continue;
+                behaviour.SetContent(upgrade.Description);
+                option.onClick.AddListener(upgrade.Apply);
             }
         }
 

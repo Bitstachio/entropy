@@ -1,6 +1,8 @@
 using Features.Player.Upgrade.Scripts.UI;
+using Features.Shared.Utils;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = System.Random;
 
 namespace Features.Player.Upgrade.Scripts
 {
@@ -9,9 +11,11 @@ namespace Features.Player.Upgrade.Scripts
         [SerializeField] private float intervalSeconds;
         [SerializeField] private GameObject offerPanel;
         [SerializeField] private Button[] options;
+        [SerializeField] private Options.Upgrade[] upgrades;
 
         private float _elapsed;
         private bool _isOpen;
+        private Random _rng;
 
         //===== Lifecycle =====
 
@@ -31,15 +35,14 @@ namespace Features.Player.Upgrade.Scripts
 
         private void BindOptionListeners()
         {
-            foreach (var option in options)
-            {
-                var behaviour = option.GetComponent<UpgradeOption>();
-                var upgrade = behaviour?.Upgrade;
+            ArrayUtils.Shuffle(upgrades, _rng);
 
-                // TODO: Improve exception handling when `behaviour` or `upgrade` is null
-                if (!upgrade) continue;
-                behaviour.SetContent(upgrade.Description);
-                option.onClick.AddListener(upgrade.Apply);
+            // TODO: Assert upgrades.Length >= options.Length
+            for (var i = 0; i < options.Length; i++)
+            {
+                var behaviour = options[i].GetComponent<UpgradeOption>();
+                behaviour.SetContent(upgrades[i].Description);
+                options[i].onClick.AddListener(upgrades[i].Apply);
             }
         }
 

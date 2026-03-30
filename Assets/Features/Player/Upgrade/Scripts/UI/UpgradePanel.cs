@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.Upgrade.Scripts
+namespace Features.Player.Upgrade.Scripts.UI
 {
     public class UpgradePanel : MonoBehaviour
     {

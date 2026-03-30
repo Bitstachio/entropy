@@ -5,6 +5,8 @@ namespace Features.Player.Upgrade.Scripts.Options
 {
     public abstract class Upgrade : ScriptableObject
     {
-        public abstract void Apply(PlayerStats stats);
+        [SerializeField] protected PlayerStats stats;
+
+        public abstract void Apply();
     }
 }

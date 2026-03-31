@@ -6,8 +6,8 @@ namespace Features.Player.Attack.Scripts
 {
     public sealed class Bullet : MonoBehaviour
     {
-        [SerializeField] private PlayerStats stats;
-        
+        private PlayerManager _playerManager;
+
         private Rigidbody2D _rb;
 
         //===== Lifecycle =====
@@ -17,11 +17,14 @@ namespace Features.Player.Attack.Scripts
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!other.CompareTag("Hazard")) return;
-            other.GetComponent<IDamageable>()?.Damage(stats.bulletDamage);
+            if (_playerManager != null)
+                other.GetComponent<IDamageable>()?.Damage(_playerManager.CurrentStats.bulletDamage);
             Destroy(gameObject);
         }
 
         //===== API =====
+
+        public void SetPlayerManager(PlayerManager playerManager) => _playerManager = playerManager;
 
         public void Launch(Vector2 direction, float speed) => _rb.linearVelocity = direction * speed;
     }

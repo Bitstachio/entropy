@@ -320,6 +320,7 @@ GameObject:
   - component: {fileID: 438074790}
   - component: {fileID: 438074794}
   - component: {fileID: 438074793}
+  - component: {fileID: 438074795}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -456,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c358f4abbc64b90b406274cfaa361de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 638bcf7c4ca6b4db39e16e18b73ba575, type: 2}
+  playerManager: {fileID: 438074795}
 --- !u!50 &438074794
 Rigidbody2D:
   serializedVersion: 5
@@ -484,6 +485,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &438074795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438074789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97793764fdf445de829795b2320f3a20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baselineStats: {fileID: 11400000, guid: 638bcf7c4ca6b4db39e16e18b73ba575, type: 2}
 --- !u!1 &471736771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,7 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 231b13866776472780a97232a654fc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 638bcf7c4ca6b4db39e16e18b73ba575, type: 2}
+  playerManager: {fileID: 438074795}
   bullet: {fileID: 8117209321149302590, guid: bd5fff1f763994b568c96bfb095045ad, type: 3}
 --- !u!1 &770042413
 GameObject:
@@ -2187,12 +2201,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b631dad3a6b469b9e6447067fc88d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intervalSeconds: 3
+  intervalSeconds: 30
   offerPanel: {fileID: 1576094112}
   options:
   - {fileID: 1140956385}
   - {fileID: 770042415}
   - {fileID: 1391714714}
+  upgrades:
+  - {fileID: 11400000, guid: 07aed37e7049343dda01928bba73e28e, type: 2}
+  - {fileID: 11400000, guid: e54e022728adc440b99eca395ff2b190, type: 2}
+  - {fileID: 11400000, guid: 02115a7f62bd34d3d9031d6c4c2f4a33, type: 2}
 --- !u!1 &1576094112
 GameObject:
   m_ObjectHideFlags: 0

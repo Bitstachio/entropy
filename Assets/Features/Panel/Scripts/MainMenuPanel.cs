@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Features.Panel.Enums;
+using Features.Shared.Constants;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,13 +29,13 @@ namespace Features.Panel.Scripts
 
         //===== Event Handlers =====
 
-        public void StartGame() => SceneManager.LoadScene("GameScene");
+        public void LoadGameScene() => SceneManager.LoadScene(Scenes.Game);
         
-        public void OpenMainPage() => ShowPage(MainMenuPage.Main);
+        public void ShowMainPage() => ShowPage(MainMenuPage.Main);
 
-        public void OpenGuidePage() => ShowPage(MainMenuPage.Guide);
+        public void ShowGuidePage() => ShowPage(MainMenuPage.Guide);
 
-        public void OpenCreditsPage() => ShowPage(MainMenuPage.Credits);
+        public void ShowCreditsPage() => ShowPage(MainMenuPage.Credits);
 
         //===== Utilities =====
 

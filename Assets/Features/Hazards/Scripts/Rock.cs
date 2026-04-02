@@ -1,4 +1,5 @@
 using Features.Shared.Interfaces;
+using Features.Shared.Managers.Scripts;
 using TMPro;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace Features.Hazards.Scripts
     [RequireComponent(typeof(Rigidbody2D), typeof(CircleCollider2D))]
     public sealed class Rock : MonoBehaviour, IDamageable
     {
+        [SerializeField] private GameManager gameManager;
         [SerializeField] private float maxDurability;
         [SerializeField] private TextMeshPro durabilityText;
 
@@ -24,8 +26,19 @@ namespace Features.Hazards.Scripts
 
         public void Damage(float amount)
         {
-            if ((_durability -= amount) <= 0) Destroy(gameObject);
-            else UpdateDurabilityText();
+            if ((_durability -= amount) > 0) UpdateDurabilityText();
+            else
+            {
+                Destroy(gameObject);
+                gameManager.OnRockDestroyed(maxDurability);
+            }
+        }
+
+        //===== Event Handlers =====
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.CompareTag("Player")) gameManager.OnPlayerHitRock();
         }
 
         //===== Utilities =====

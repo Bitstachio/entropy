@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c011f2d2484a445f8f92631682e4e92a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 3104258753916693221, guid: 7cce17e9c64154525985d35a9d39d2aa, type: 3}
   maxDurability: 3
   durabilityText: {fileID: 751212647404681237}
 --- !u!1 &2222924617152117095

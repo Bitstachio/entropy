@@ -1,0 +1,48 @@
+# --- Language Statistics Overrides ---
+# Treat all shaders and related files as documentation (hides them from stats)
+**.shader linguist-documentation
+**.compute linguist-documentation
+**.cginc linguist-documentation
+**.hlsl linguist-documentation
+**.glslinc linguist-documentation
+
+# Mark entire folders as "vendored" (GitHub ignores their content for stats)
+Assets/Plugins/** linguist-vendored
+Assets/Samples/** linguist-vendored
+Packages/** linguist-vendored
+Library/** linguist-vendored
+
+# Exclude Unity-generated data from being counted as "code"
+*.unity -linguist-detectable
+*.mat -linguist-detectable
+*.asset -linguist-detectable
+*.prefab -linguist-detectable
+
+# --- Git LFS ---
+# Ensure binary assets are tracked by LFS
+*.psd filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
+*.obj filter=lfs diff=lfs merge=lfs -text
+*.wav filter=lfs diff=lfs merge=lfs -text
+*.mp3 filter=lfs diff=lfs merge=lfs -text
+*.tga filter=lfs diff=lfs merge=lfs -text
+*.cubemap filter=lfs diff=lfs merge=lfs -text
+*.dll filter=lfs diff=lfs merge=lfs -text
+
+# --- Text Handling & Line Endings ---
+# Force consistent line endings for scripts (prevents "mixed line ending" warnings)
+*.cs text diff=csharp
+*.asmdef text
+*.json text
+*.yaml text
+
+# Treat Unity text-based files as text
+*.shader text
+*.cginc text
+*.compute text
+*.unity text
+*.asset text
+*.prefab text
+*.mat text

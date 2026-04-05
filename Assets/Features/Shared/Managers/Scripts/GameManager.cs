@@ -1,5 +1,7 @@
+using Features.Shared.Constants;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Features.Shared.Managers.Scripts
 {
@@ -15,7 +17,7 @@ namespace Features.Shared.Managers.Scripts
     /// is a planned follow-up when there is time to refactor.
     /// </remarks>
     // TODO: Remove log statements
-    public class GameManager : MonoBehaviour
+    public sealed class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
 
@@ -44,9 +46,6 @@ namespace Features.Shared.Managers.Scripts
 
         public void OnRockDestroyed(float rockValue) => _onScoreUpdated.Invoke(_score += rockValue);
 
-        public void OnPlayerHitRock()
-        {
-            Debug.Log("Player hit rock!");
-        }
+        public void OnPlayerHitRock() => SceneManager.LoadScene(Scenes.GameOver);
     }
 }

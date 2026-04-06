@@ -1,17 +1,18 @@
 using System;
+using Core.Events.Interfaces;
 using UnityEngine;
 
 namespace Core.Events.Base
 {
     [CreateAssetMenu(menuName = "Events/Void Event Channel")]
-    public sealed class VoidEventChannel : EventChannelBase
+    public sealed class VoidEventChannel : EventChannelBase, IEventPublisher
     {
-        public event Action OnEventRaised;
+        public event Action OnPublished;
 
-        public void RaiseEvent()
+        public void Publish()
         {
-            if (OnEventRaised == null) LogNoListeners();
-            else OnEventRaised.Invoke();
+            if (OnPublished == null) LogNoListeners();
+            else OnPublished.Invoke();
         }
     }
 }

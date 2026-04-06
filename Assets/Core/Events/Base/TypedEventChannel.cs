@@ -1,15 +1,16 @@
 using System;
+using Core.Events.Interfaces;
 
 namespace Core.Events.Base
 {
-    public abstract class TypedEventChannel<T> : EventChannelBase
+    public abstract class TypedEventChannel<T> : EventChannelBase, IEventPublisher<T>
     {
-        public event Action<T> OnEventRaised;
+        public event Action<T> OnPublished;
 
-        public void RaiseEvent(T value)
+        public void Publish(T value)
         {
-            if (OnEventRaised == null) LogNoListeners();
-            else OnEventRaised.Invoke(value);
+            if (OnPublished == null) LogNoListeners();
+            else OnPublished.Invoke(value);
         }
     }
 }

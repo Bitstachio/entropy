@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5874962051031265861}
   - component: {fileID: 8699954296223118928}
   - component: {fileID: 2156115695398247023}
+  - component: {fileID: 946647366612514617}
   m_Layer: 6
   m_Name: Rock
   m_TagString: Hazard
@@ -161,14 +162,31 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103031416996859987}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c011f2d2484a445f8f92631682e4e92a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 3104258753916693221, guid: 7cce17e9c64154525985d35a9d39d2aa, type: 3}
+  onRockDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
+  onRockHitPlayer:
+    m_PersistentCalls:
+      m_Calls: []
   maxDurability: 3
   durabilityText: {fileID: 751212647404681237}
+--- !u!114 &946647366612514617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103031416996859987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1365724ac75469b8d22a8ee0f2755e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2222924617152117095
 GameObject:
   m_ObjectHideFlags: 0

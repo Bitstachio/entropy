@@ -1,6 +1,7 @@
 using Core.Enums;
 using Core.Events.Base;
 using Core.Events.Channels;
+using Features.Hazards.Rock;
 using Features.Hazards.Scripts;
 using Features.Progression;
 using Features.Shared.Interfaces;
@@ -22,8 +23,10 @@ namespace Scopes
         [SerializeField] private Transform spawnOrigin;
         [SerializeField] private float spawnXSpeedBound = 2f;
 
-        [Header("Features")]
+        [Header("Feature Installers")]
         [SerializeField] private ProgressionInstaller progressionInstaller;
+        [SerializeField] private RockInstaller rockInstaller;
+        
         
         protected override void Configure(IContainerBuilder builder)
         {
@@ -57,6 +60,7 @@ namespace Scopes
             //===== Feature Installers =====
             
             progressionInstaller.Install(builder);
+            rockInstaller.Install(builder);
         }
     }
 }

@@ -1,14 +1,18 @@
+using Core.Gameplay.Interfaces;
 using Features.Player.Shared.Scripts;
 using Features.Shared.Interfaces;
 using UnityEngine;
 
 namespace Features.Player.Attack.Scripts
 {
-    public sealed class Bullet : MonoBehaviour
+    public sealed class Bullet : MonoBehaviour, IDamageSource
     {
         private PlayerManager _playerManager;
 
         private Rigidbody2D _rb;
+        
+        // TODO: Figure out a proper way to manage this
+        public float Damage => 1f;
 
         //===== Lifecycle =====
 

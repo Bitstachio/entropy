@@ -1,4 +1,8 @@
+using Core.Enums;
+using Core.Events.Base;
+using Core.Events.Channels;
 using Features.Hazards.Scripts;
+using Features.Progression;
 using Features.Shared.Interfaces;
 using Features.Shared.Providers;
 using UnityEngine;
@@ -18,6 +22,9 @@ namespace Scopes
         [SerializeField] private Transform spawnOrigin;
         [SerializeField] private float spawnXSpeedBound = 2f;
 
+        [Header("Features")]
+        [SerializeField] private ProgressionInstaller progressionInstaller;
+        
         protected override void Configure(IContainerBuilder builder)
         {
             // Providers
@@ -31,6 +38,25 @@ namespace Scopes
                 .WithParameter("interval", spawnInterval)
                 .WithParameter("originPosition", spawnOrigin.position)
                 .WithParameter("xSpeedBound", spawnXSpeedBound);
+
+            //===== Event Channels =====
+
+            builder.Register<EventChannel<float>, ScoreUpdatedChannel>(Lifetime.Singleton)
+                .AsImplementedInterfaces()
+                .Keyed(GameEventType.ScoreUpdated);
+
+            builder.Register<EventChannel<float>, RockDestroyed>(Lifetime.Singleton)
+                .AsImplementedInterfaces()
+                .Keyed(GameEventType.RockDestroyed);
+
+            // TODO: Remove section
+            //===== Mono Behaviours =====
+            
+            builder.RegisterComponent(rockPrefab);
+
+            //===== Feature Installers =====
+            
+            progressionInstaller.Install(builder);
         }
     }
 }

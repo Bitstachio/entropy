@@ -312,6 +312,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2462707716899836302, guid: 7cce17e9c64154525985d35a9d39d2aa, type: 3}
   m_PrefabInstance: {fileID: 1166652167126316850}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &327347628
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 327347629}
+  m_Layer: 0
+  m_Name: Installers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &327347629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327347628}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 963.587, y: 539.1525, z: 0.033011813}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1381550022}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &438074789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,7 +1263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1305b93387452fabce3c3d292d8185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 3104258753916693221, guid: 7cce17e9c64154525985d35a9d39d2aa, type: 3}
   scoreText: {fileID: 1168694583}
 --- !u!1 &731366465
 GameObject:
@@ -2139,6 +2170,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345912405}
   m_CullTransparentMesh: 1
+--- !u!1 &1381550021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1381550022}
+  - component: {fileID: 1381550023}
+  m_Layer: 0
+  m_Name: Progression Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1381550022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381550021}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 327347629}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1381550023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381550021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7665c136a24844a08cd09bbbda0360bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1391714712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2633,6 +2708,7 @@ MonoBehaviour:
   spawnInterval: 3
   spawnOrigin: {fileID: 1432044268}
   spawnXSpeedBound: 2
+  progressionInstaller: {fileID: 1381550023}
 --- !u!4 &2037558911
 Transform:
   m_ObjectHideFlags: 0
@@ -2874,6 +2950,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 2037558911}
+  - {fileID: 327347629}
   - {fileID: 1863938371}
   - {fileID: 194912012}
   - {fileID: 1432044268}

@@ -1,8 +1,11 @@
+using Core.Enums;
+using Core.Events.Interfaces;
 using Features.Shared.Interfaces;
 using Features.Shared.Managers.Scripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using VContainer;
 
 namespace Features.Hazards.Scripts
 {
@@ -17,6 +20,15 @@ namespace Features.Hazards.Scripts
 
         private GameManager _gameManager;
         private float _durability;
+
+        // TODO: Remove section
+        //===== Dependency Injection =====
+
+        private IEventPublisher<float> _rockDestroyedPublisher;
+
+        [Inject]
+        public void Construct([Key(GameEventType.RockDestroyed)] IEventPublisher<float> rockDestroyedPublisher) =>
+            _rockDestroyedPublisher = rockDestroyedPublisher;
 
         //===== Lifecycle =====
 
@@ -48,6 +60,7 @@ namespace Features.Hazards.Scripts
             {
                 Destroy(gameObject);
                 onRockDestroyed.Invoke(maxDurability);
+                _rockDestroyedPublisher.Publish(maxDurability);
             }
         }
 

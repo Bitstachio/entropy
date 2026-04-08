@@ -5,7 +5,7 @@ namespace Core.Events.Interfaces
         void Publish();
     }
 
-    public interface IEventPublisher<T>
+    public interface IEventPublisher<in T>
     {
         void Publish(T value);
     }

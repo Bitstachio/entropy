@@ -2,9 +2,10 @@ using UnityEngine;
 
 namespace Core.Events.Base
 {
-    public abstract class EventChannelBase : ScriptableObject
+    public abstract class EventChannelBase
     {
         protected void LogNoListeners() =>
-            Debug.LogWarning($"[EventChannel] `{name}` was raised but has no listeners.");
+            // TODO: Figure out what to use instead of `name`
+            Debug.LogWarning($"[EventChannel] `name` was raised but has no listeners.");
     }
 }

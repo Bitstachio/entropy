@@ -33,11 +33,9 @@ namespace Features.Hazards.Rock
 
         //===== Interface Implementation =====
 
-        public void Spawn(Vector3 position, Vector3 velocity)
-        {
-            _view.SetPosition(position);
-            _view.SetVelocity(velocity);
-        }
+        public void SetPosition(Vector2 position) => _view.SetPosition(position);
+        
+        public void SetVelocity(Vector2 velocity) => _view.SetVelocity(velocity);
 
         //===== Utilities =====
 

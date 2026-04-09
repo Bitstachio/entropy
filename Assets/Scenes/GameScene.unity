@@ -2422,7 +2422,7 @@ Transform:
   m_GameObject: {fileID: 1432044267}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2717,7 +2717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rockView: {fileID: 946647366612514617, guid: 64ca9af46b9354e5fbd5a8e1c508d4fe, type: 3}
-  spawnInterval: 6
+  horizontalBoundsProvider: {fileID: 152018617}
+  spawnInterval: 3
   spawnOrigin: {fileID: 1432044268}
   spawnXSpeedBound: 2
 --- !u!1 &1863938370

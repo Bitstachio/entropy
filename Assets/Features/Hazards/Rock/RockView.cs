@@ -14,17 +14,9 @@ namespace Features.Hazards.Rock
         
         public Rigidbody2D Rigidbody => GetComponent<Rigidbody2D>();
         
-        // TODO: Implement
-        public void SetPosition(Vector3 position)
-        {
-            Debug.Log("Setting position");
-        }
+        public void SetPosition(Vector2 position) => transform.position = position;
 
-        // TODO: Implement
-        public void SetVelocity(Vector3 velocity)
-        {
-            Debug.Log("Setting velocity");
-        }
+        public void SetVelocity(Vector2 velocity) => Rigidbody.linearVelocity = velocity;
 
         //===== Physics Callbacks =====
 

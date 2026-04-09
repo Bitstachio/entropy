@@ -1,4 +1,5 @@
 using Features.Hazards.Rock.Interfaces;
+using Features.Shared.Interfaces;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -6,7 +7,7 @@ namespace Features.Hazards.Rock
 {
     public sealed class RockSpawner : ITickable
     {
-        // private readonly IBoundsProvider _boundsProvider;
+        private readonly IBoundsProvider _boundsProvider;
         private readonly IRockFactory _rockFactory;
         private readonly Vector3 _originPosition;
         private readonly float _interval;
@@ -15,13 +16,13 @@ namespace Features.Hazards.Rock
         private float _timer;
 
         public RockSpawner(
-            // IBoundsProvider boundsProvider,
+            IBoundsProvider boundsProvider,
             IRockFactory rockFactory,
             Vector3 originPosition,
             float interval,
             float xSpeedBound)
         {
-            // _boundsProvider = boundsProvider;
+            _boundsProvider = boundsProvider;
             _rockFactory = rockFactory;
             _originPosition = originPosition;
             _interval = interval;
@@ -33,17 +34,13 @@ namespace Features.Hazards.Rock
             _timer += Time.deltaTime;
             if (_timer < _interval) return;
 
-            // TODO: Remove
-            Debug.Log("Spawning rock");
-            // var x = Random.Range(_boundsProvider.Min, _boundsProvider.Max);
-            var position = new Vector3(0, _originPosition.y, 0);
-            var rock = _rockFactory.Create();
-            
+            var x = Random.Range(_boundsProvider.Min, _boundsProvider.Max);
+            var position = new Vector2(x, _originPosition.y);
             var horizontalSpeed = Random.Range(-_xSpeedBound, _xSpeedBound);
-            
-            rock.Spawn(position, new Vector3(horizontalSpeed, 0, 0));
-            // var rb = rock.Rigidbody;
-            // if (rb != null) rb.linearVelocity = new Vector2(horizontalSpeed, rb.linearVelocity.y);
+
+            var spawnable = _rockFactory.Create();
+            spawnable.SetPosition(position);
+            spawnable.SetVelocity(new Vector2(horizontalSpeed, 0));
 
             _timer = 0f;
         }

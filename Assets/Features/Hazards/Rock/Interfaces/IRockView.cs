@@ -8,9 +8,7 @@ namespace Features.Hazards.Rock.Interfaces
         event Action OnHitPlayer;
         event Action<float> OnDamageTaken;
         
-        Rigidbody2D Rigidbody { get; }
-        
-        void SetPosition(Vector3 position);
-        void SetVelocity(Vector3 velocity);
+        void SetPosition(Vector2 position);
+        void SetVelocity(Vector2 velocity);
     }
 }

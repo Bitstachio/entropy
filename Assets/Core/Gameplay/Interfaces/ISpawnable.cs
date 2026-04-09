@@ -4,6 +4,7 @@ namespace Core.Gameplay.Interfaces
 {
     public interface ISpawnable
     {
-        void Spawn(Vector3 position, Vector3 velocity);
+        void SetPosition(Vector2 position);
+        void SetVelocity(Vector2 velocity);
     }
 }

@@ -11,6 +11,20 @@ namespace Features.Hazards.Rock
 
         public event Action OnHitPlayer;
         public event Action<float> OnDamageTaken;
+        
+        public Rigidbody2D Rigidbody => GetComponent<Rigidbody2D>();
+        
+        // TODO: Implement
+        public void SetPosition(Vector3 position)
+        {
+            Debug.Log("Setting position");
+        }
+
+        // TODO: Implement
+        public void SetVelocity(Vector3 velocity)
+        {
+            Debug.Log("Setting velocity");
+        }
 
         //===== Physics Callbacks =====
 

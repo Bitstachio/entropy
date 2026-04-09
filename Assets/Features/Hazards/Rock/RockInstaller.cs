@@ -10,11 +10,19 @@ namespace Features.Hazards.Rock
     {
         [SerializeField] private RockView rockView;
 
+        [SerializeField] private float spawnInterval = 3f;
+        [SerializeField] private Transform spawnOrigin;
+        [SerializeField] private float spawnXSpeedBound = 2f;
+
         public override void Install(IContainerBuilder builder)
         {
-            builder.Register<IRockModel, RockModel>(Lifetime.Transient);
-            builder.RegisterComponentInNewPrefab(rockView, Lifetime.Transient).As<IRockView>();
-            builder.RegisterEntryPoint<RockController>(Lifetime.Transient);
+            builder.RegisterComponent(rockView).As<IRockView>();
+
+            builder.Register<IRockFactory, RockFactory>(Lifetime.Singleton);
+            builder.RegisterEntryPoint<RockSpawner>()
+                .WithParameter("interval", spawnInterval)
+                .WithParameter("originPosition", spawnOrigin.position)
+                .WithParameter("xSpeedBound", spawnXSpeedBound);
         }
     }
 }

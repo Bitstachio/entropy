@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Features.Hazards.Rock.Interfaces
 {
@@ -6,5 +7,10 @@ namespace Features.Hazards.Rock.Interfaces
     {
         event Action OnHitPlayer;
         event Action<float> OnDamageTaken;
+        
+        Rigidbody2D Rigidbody { get; }
+        
+        void SetPosition(Vector3 position);
+        void SetVelocity(Vector3 velocity);
     }
 }

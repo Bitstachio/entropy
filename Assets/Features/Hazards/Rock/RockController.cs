@@ -1,11 +1,12 @@
 using System;
+using Core.Gameplay.Interfaces;
 using Features.Hazards.Rock.Interfaces;
 using UnityEngine;
 using VContainer.Unity;
 
 namespace Features.Hazards.Rock
 {
-    public class RockController : IStartable, IDisposable
+    public class RockController : IStartable, IDisposable, ISpawnable
     {
         private readonly IRockModel _model;
         private readonly IRockView _view;
@@ -24,10 +25,18 @@ namespace Features.Hazards.Rock
             Debug.Log("Listener registered");
             _view.OnDamageTaken += HandleDamageTaken;
         }
-        
+
         public void Dispose()
         {
             _view.OnDamageTaken -= HandleDamageTaken;
+        }
+
+        //===== Interface Implementation =====
+
+        public void Spawn(Vector3 position, Vector3 velocity)
+        {
+            _view.SetPosition(position);
+            _view.SetVelocity(velocity);
         }
 
         //===== Utilities =====

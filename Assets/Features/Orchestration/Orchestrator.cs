@@ -49,11 +49,17 @@ namespace Features.Orchestration
             try
             {
                 await Task.Delay(delay);
+                // Guard against executing engine logic if the user stopped the editor or quit during the async delay
+                if (!Application.isPlaying) return;
                 SceneManager.LoadScene("GameOverScene");
             }
             catch (Exception e)
             {
                 Debug.LogError($"Failed to load scene: {e.Message}");
+            }
+            finally
+            {
+                Time.timeScale = 1f;
             }
         }
     }

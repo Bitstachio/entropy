@@ -20,7 +20,8 @@ namespace Features.Hazards.Rock
         {
             var scope = _resolver.CreateScope(builder =>
             {
-                builder.Register<IRockModel, RockModel>(Lifetime.Scoped);
+                builder.Register<IRockModel, RockModel>(Lifetime.Scoped)
+                    .WithParameter("durability", 3f); // TODO: Remove hard-coded value
                 builder.RegisterComponentInNewPrefab(_view, Lifetime.Scoped)
                     .AsImplementedInterfaces();
                 builder.RegisterEntryPoint<RockController>(Lifetime.Scoped)

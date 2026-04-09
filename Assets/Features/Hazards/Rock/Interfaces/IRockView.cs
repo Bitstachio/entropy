@@ -7,8 +7,10 @@ namespace Features.Hazards.Rock.Interfaces
     {
         event Action OnHitPlayer;
         event Action<float> OnDamageTaken;
-        
+
         void SetPosition(Vector2 position);
         void SetVelocity(Vector2 velocity);
+        void SetDurability(float durability);
+        void Destroy();
     }
 }

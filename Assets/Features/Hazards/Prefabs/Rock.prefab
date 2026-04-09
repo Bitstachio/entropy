@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7100579069960067073}
   - component: {fileID: 5874962051031265861}
   - component: {fileID: 8699954296223118928}
-  - component: {fileID: 2156115695398247023}
   - component: {fileID: 946647366612514617}
   m_Layer: 6
   m_Name: Rock
@@ -155,26 +154,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &2156115695398247023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 103031416996859987}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c011f2d2484a445f8f92631682e4e92a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onRockDestroyed:
-    m_PersistentCalls:
-      m_Calls: []
-  onRockHitPlayer:
-    m_PersistentCalls:
-      m_Calls: []
-  maxDurability: 3
-  durabilityText: {fileID: 751212647404681237}
 --- !u!114 &946647366612514617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1365724ac75469b8d22a8ee0f2755e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  durabilityDisplay: {fileID: 751212647404681237}
 --- !u!1 &2222924617152117095
 GameObject:
   m_ObjectHideFlags: 0

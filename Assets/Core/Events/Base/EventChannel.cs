@@ -1,6 +1,5 @@
 using System;
 using Core.Events.Interfaces;
-using UnityEngine;
 
 namespace Core.Events.Base
 {
@@ -21,7 +20,6 @@ namespace Core.Events.Base
 
         public void Publish(T value)
         {
-            Debug.Log("Event Published!"); // TODO: Remove
             if (OnPublished == null) LogNoListeners();
             else OnPublished.Invoke(value);
         }

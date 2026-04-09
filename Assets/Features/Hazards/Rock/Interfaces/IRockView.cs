@@ -5,7 +5,7 @@ namespace Features.Hazards.Rock.Interfaces
 {
     public interface IRockView
     {
-        event Action OnHitPlayer;
+        event Action<Collision2D> OnHitObject;
         event Action<float> OnDamageTaken;
 
         void SetPosition(Vector2 position);

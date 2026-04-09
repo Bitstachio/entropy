@@ -30,6 +30,10 @@ namespace Scopes
             builder.Register<EventChannel<float>, RockDestroyed>(Lifetime.Singleton)
                 .AsImplementedInterfaces()
                 .Keyed(GameEventType.RockDestroyed);
+            
+            builder.Register<EventChannel<string>, RockHitObject>(Lifetime.Singleton)
+                .AsImplementedInterfaces() // TODO: Remove?
+                .Keyed(GameEventType.RockHitObject);
 
             //===== Feature Installers =====
             

@@ -11,16 +11,20 @@ namespace Features.Hazards.Rock
     {
         [SerializeField] private TextMeshPro durabilityDisplay;
 
+        private Rigidbody2D _rb;
+
+        //===== Lifecycle =====
+
+        private void Awake() => _rb = GetComponent<Rigidbody2D>();
+
         //===== Interface Implementation =====
 
-        public event Action OnHitPlayer;
+        public event Action<Collision2D> OnHitObject;
         public event Action<float> OnDamageTaken;
-
-        public Rigidbody2D Rigidbody => GetComponent<Rigidbody2D>();
 
         public void SetPosition(Vector2 position) => transform.position = position;
 
-        public void SetVelocity(Vector2 velocity) => Rigidbody.linearVelocity = velocity;
+        public void SetVelocity(Vector2 velocity) => _rb.linearVelocity = velocity;
 
         public void SetDurability(float durability) => durabilityDisplay.text = Mathf.RoundToInt(durability).ToString();
 
@@ -28,13 +32,12 @@ namespace Features.Hazards.Rock
 
         //===== Physics Callbacks =====
 
+        private void OnCollisionEnter2D(Collision2D other) => OnHitObject?.Invoke(other);
+
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Player")) OnHitPlayer?.Invoke();
-            else if (other.gameObject.CompareTag("Bullet"))
-            {
-                if (other.gameObject.TryGetComponent(out IDamageSource source)) OnDamageTaken?.Invoke(source.Damage);
-            }
+            if (other.gameObject.CompareTag("Bullet") && other.gameObject.TryGetComponent(out IDamageSource source))
+                OnDamageTaken?.Invoke(source.Damage);
         }
     }
 }

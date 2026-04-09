@@ -1,4 +1,4 @@
-namespace Core.Gameplay.Interfaces
+namespace Core.Interactions
 {
     public interface IDamageSource
     {

@@ -1,4 +1,4 @@
-using Core.Gameplay.Interfaces;
+using Core.Interactions;
 using Features.Player.Shared.Scripts;
 using Features.Shared.Interfaces;
 using UnityEngine;

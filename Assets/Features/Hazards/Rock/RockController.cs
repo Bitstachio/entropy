@@ -1,7 +1,7 @@
 using System;
 using Core.Enums;
 using Core.Events.Interfaces;
-using Core.Gameplay.Interfaces;
+using Core.Interactions;
 using Features.Hazards.Rock.Interfaces;
 using UnityEngine;
 using VContainer;

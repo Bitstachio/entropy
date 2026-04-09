@@ -1,4 +1,4 @@
-using Core.Gameplay.Interfaces;
+using Core.Interactions;
 
 namespace Features.Hazards.Rock.Interfaces
 {

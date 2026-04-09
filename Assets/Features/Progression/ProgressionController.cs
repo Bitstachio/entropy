@@ -1,37 +1,40 @@
+using System;
 using Core.Enums;
 using Core.Events.Interfaces;
 using Features.Progression.Interfaces;
-using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
 namespace Features.Progression
 {
-    public class ProgressionController : IStartable
+    public class ProgressionController : IStartable, IDisposable
     {
+        private readonly IProgressionModel _model;
+        private readonly IProgressionView _view;
+
         private readonly IEventListener<float> _rockDestroyedListener;
 
-        private readonly IProgressionModel _model;
-
-        public ProgressionController(
-            [Key(GameEventType.RockDestroyed)] IEventListener<float> rockDestroyedListener,
-            IProgressionModel model)
+        public ProgressionController(IProgressionModel model, IProgressionView view,
+            [Key(GameEventType.RockDestroyed)] IEventListener<float> rockDestroyedListener)
         {
-            _rockDestroyedListener = rockDestroyedListener;
             _model = model;
+            _view = view;
+            _rockDestroyedListener = rockDestroyedListener;
         }
 
         public void Start()
         {
-            Debug.Log("Adding score."); // TODO: Remove
-            _rockDestroyedListener.OnPublished += MyHandler;
+            _rockDestroyedListener.OnPublished += HandleRockDestroyed;
+            
+            _view.SetScore(_model.CurrentScore);
         }
-        
-        // TODO: Remove
-        private void MyHandler(float score)
+
+        public void Dispose() => _rockDestroyedListener.OnPublished -= HandleRockDestroyed;
+
+        private void HandleRockDestroyed(float score)
         {
             _model.AddScore(score);
-            Debug.Log($"Score: {score}");
+            _view.SetScore(_model.CurrentScore);
         }
     }
 }

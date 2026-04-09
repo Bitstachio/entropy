@@ -4,6 +4,6 @@ namespace Core.Enums
     // This enum can potentially become too large / unspecific
     public enum GameEventType
     {
-        ScoreUpdated, RockDestroyed, RockHitObject
+        GameOver, ScoreUpdated, RockDestroyed, RockHitObject
     }
 }

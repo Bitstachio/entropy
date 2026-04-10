@@ -1,6 +1,6 @@
 namespace Core.Events.Channels
 {
-    public struct GameOverEventArgs
+    public struct GameOverEvent
     {
     }
 }

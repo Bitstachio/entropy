@@ -3,7 +3,7 @@ using Core.Events.Interfaces;
 
 namespace Core.Events.Base
 {
-    public abstract class EventChannel : EventChannelBase, IEventPublisher, IEventListener
+    public class EventChannel : EventChannelBase, IEventPublisher, IEventListener
     {
         public event Action OnPublished;
 
@@ -14,7 +14,7 @@ namespace Core.Events.Base
         }
     }
 
-    public abstract class EventChannel<T> : EventChannelBase, IEventPublisher<T>, IEventListener<T>
+    public class EventChannel<T> : EventChannelBase, IEventPublisher<T>, IEventListener<T>
     {
         public event Action<T> OnPublished;
 

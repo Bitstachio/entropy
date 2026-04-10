@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Core.Enums;
+using Core.Events.Base;
 using Core.Events.Channels;
 using Core.ExtendedBehaviours;
 using VContainer;
@@ -13,7 +14,7 @@ namespace Scopes
     {
         private static readonly Dictionary<Type, GameEventType> EventChannelToType = new()
         {
-            { typeof(GameOver), GameEventType.GameOver },
+            // { typeof(GameOver), GameEventType.GameOver },
             { typeof(ScoreUpdatedChannel), GameEventType.ScoreUpdated },
             { typeof(RockDestroyed), GameEventType.RockDestroyed },
             { typeof(RockHitObject), GameEventType.RockHitObject },
@@ -34,6 +35,9 @@ namespace Scopes
                 builder.Register(pair.Key, Lifetime.Singleton)
                     .AsImplementedInterfaces()
                     .Keyed(pair.Value));
+
+            builder.Register(typeof(EventChannel<>), Lifetime.Singleton)
+                .AsImplementedInterfaces();
         }
     }
 }

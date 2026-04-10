@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Core.Constants;
 using Core.Enums;
+using Core.Events.Channels;
 using Core.Events.Interfaces;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,11 +15,11 @@ namespace Features.Orchestration
     {
         private readonly int _gameOverDelay;
 
-        private readonly IEventPublisher _gameOverPublisher;
+        private readonly IEventPublisher<GameOverEventArgs> _gameOverPublisher;
         private readonly IEventListener<string> _rockHitObjectListener;
 
         public Orchestrator(int gameOverDelay,
-            [Key(GameEventType.GameOver)] IEventPublisher gameOverPublisher,
+            IEventPublisher<GameOverEventArgs> gameOverPublisher,
             [Key(GameEventType.RockHitObject)] IEventListener<string> rockHitObjectListener)
         {
             _gameOverDelay = gameOverDelay;
@@ -38,7 +39,7 @@ namespace Features.Orchestration
         {
             if (tag != Tags.Player) return;
             Time.timeScale = 0f;
-            _gameOverPublisher.Publish();
+            _gameOverPublisher.Publish(new GameOverEventArgs());
             LoadGameOverScene(_gameOverDelay);
         }
 

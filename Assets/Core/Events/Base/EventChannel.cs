@@ -3,17 +3,6 @@ using Core.Events.Interfaces;
 
 namespace Core.Events.Base
 {
-    public class EventChannel : EventChannelBase, IEventPublisher, IEventListener
-    {
-        public event Action OnPublished;
-
-        public void Publish()
-        {
-            if (OnPublished == null) LogNoListeners();
-            else OnPublished.Invoke();
-        }
-    }
-
     public class EventChannel<T> : EventChannelBase, IEventPublisher<T>, IEventListener<T>
     {
         public event Action<T> OnPublished;

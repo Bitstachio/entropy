@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Core.Interactions;
 using Core.Interfaces;
 using Core.StatRegistry;
@@ -13,15 +14,15 @@ namespace Features.Player.Attack.Cannon
         private readonly StatRegistry<CannonballStats> _stats;
         private readonly IObjectResolver _resolver;
         private readonly CannonballView _view;
-        private readonly string _boundaryTag;
+        private readonly ISet<string> _destroyTags;
 
-        public CannonballFactory(
-            StatRegistry<CannonballStats> stats, IObjectResolver resolver, CannonballView view, string boundaryTag)
+        public CannonballFactory(StatRegistry<CannonballStats> stats, IObjectResolver resolver, CannonballView view,
+            ISet<string> destroyTags)
         {
             _stats = stats;
             _resolver = resolver;
             _view = view;
-            _boundaryTag = boundaryTag;
+            _destroyTags = destroyTags;
         }
 
         public ISpawnable Create()
@@ -29,10 +30,10 @@ namespace Features.Player.Attack.Cannon
             var scope = _resolver.CreateScope(builder =>
             {
                 builder.Register<ICannonballModel, CannonballModel>(Lifetime.Scoped)
-                    .WithParameter("damage", _stats.Retrieve(CannonballStats.Damage));
+                    .WithParameter(_stats.Retrieve(CannonballStats.Damage));
                 builder.RegisterComponentInNewPrefab(_view, Lifetime.Scoped).AsImplementedInterfaces();
                 builder.RegisterEntryPoint<CannonballController>(Lifetime.Scoped).As<ISpawnable>()
-                    .WithParameter("boundaryTag", _boundaryTag);
+                    .WithParameter(_destroyTags);
             });
 
             return scope.Resolve<ISpawnable>();

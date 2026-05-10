@@ -2011,7 +2011,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23bbe8467504538a1eb6a163aa96e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boundaryTag: AttackBoundary
+  destroyTags:
+  - AttackBoundary
+  - Hazard
   cannonballView: {fileID: 7390191985208850533, guid: bd5fff1f763994b568c96bfb095045ad, type: 3}
   transformPositionProvider: {fileID: 1060540050}
   baselineInterval: 3

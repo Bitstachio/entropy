@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Core.Interactions;
 using Features.Player.Attack.Cannon.Interfaces;
 using UnityEngine;
@@ -10,13 +12,13 @@ namespace Features.Player.Attack.Cannon
     {
         private readonly ICannonballModel _model;
         private readonly ICannonballView _view;
-        private readonly string _boundaryTag;
+        private readonly ISet<string> _destroyTags;
         
-        public CannonballController(ICannonballModel model, ICannonballView view, string boundaryTag)
+        public CannonballController(ICannonballModel model, ICannonballView view, ISet<string> destroyTags)
         {
             _model = model;
             _view = view;
-            _boundaryTag = boundaryTag;
+            _destroyTags = destroyTags;
         }
 
         //===== Lifecycle =====
@@ -35,7 +37,7 @@ namespace Features.Player.Attack.Cannon
 
         private void HandleHitObject(Collider2D other)
         {
-            if (other.gameObject.CompareTag(_boundaryTag)) _view.Destroy();
+            if (_destroyTags.Contains(other.gameObject.tag)) _view.Destroy();
             if (other.TryGetComponent<IDamageable>(out var damageable)) damageable.Damage(_model.Damage);
         }
     }

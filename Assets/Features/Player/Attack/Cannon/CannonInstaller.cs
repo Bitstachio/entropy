@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Core.ExtendedBehaviours;
 using Core.Interfaces;
 using Core.Providers.Position;
@@ -13,7 +14,7 @@ namespace Features.Player.Attack.Cannon
 {
     public sealed class CannonInstaller : Installer
     {
-        [SerializeField] [Tag] private string boundaryTag;
+        [SerializeField] [Tag] private string[] destroyTags;
         
         [Header("Prefabs")]
         [SerializeField] private CannonballView cannonballView;
@@ -44,7 +45,7 @@ namespace Features.Player.Attack.Cannon
             builder.RegisterComponent(transformPositionProvider).As<IPositionProvider>();
 
             builder.Register<IFactory, CannonballFactory>(Lifetime.Singleton)
-                .WithParameter("boundaryTag", boundaryTag);
+                .WithParameter<ISet<string>>(new HashSet<string>(destroyTags));
             builder.RegisterEntryPoint<Cannon>();
         }
     }

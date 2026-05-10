@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Features.Hazards.Rock
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class RockView : MonoBehaviour, IRockView
+    public class RockView : MonoBehaviour, IRockView, IDamageable
     {
         [SerializeField] private TextMeshPro durabilityDisplay;
 
@@ -29,15 +29,11 @@ namespace Features.Hazards.Rock
         public void SetDurability(float durability) => durabilityDisplay.text = Mathf.RoundToInt(durability).ToString();
 
         public void Destroy() => Destroy(gameObject);
+        
+        public void Damage(float amount) => OnDamageTaken?.Invoke(amount);
 
         //===== Physics Callbacks =====
 
         private void OnCollisionEnter2D(Collision2D other) => OnHitObject?.Invoke(other);
-
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            if (other.gameObject.CompareTag("Bullet") && other.gameObject.TryGetComponent(out IDamageSource source))
-                OnDamageTaken?.Invoke(source.Damage);
-        }
     }
 }

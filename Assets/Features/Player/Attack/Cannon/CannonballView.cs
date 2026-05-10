@@ -15,7 +15,7 @@ namespace Features.Player.Attack.Cannon
 
         //===== Interface Implementation =====
 
-        public event Action<string> OnHitObject;
+        public event Action<Collider2D> OnHitObject;
 
         public void SetPosition(Vector2 position) => transform.position = position;
 
@@ -25,6 +25,6 @@ namespace Features.Player.Attack.Cannon
 
         //===== Physics Callbacks =====
 
-        private void OnTriggerEnter2D(Collider2D other) => OnHitObject?.Invoke(other.gameObject.tag);
+        private void OnTriggerEnter2D(Collider2D other) => OnHitObject?.Invoke(other);
     }
 }

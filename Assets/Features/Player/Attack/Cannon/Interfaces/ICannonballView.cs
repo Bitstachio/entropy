@@ -5,7 +5,7 @@ namespace Features.Player.Attack.Cannon.Interfaces
 {
     public interface ICannonballView
     {
-        event Action<string> OnHitObject;
+        event Action<Collider2D> OnHitObject;
         
         void SetPosition(Vector2 position);
         void SetVelocity(Vector2 velocity);

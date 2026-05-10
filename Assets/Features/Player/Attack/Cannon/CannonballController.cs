@@ -10,7 +10,6 @@ namespace Features.Player.Attack.Cannon
     {
         private readonly ICannonballModel _model;
         private readonly ICannonballView _view;
-        
         private readonly string _boundaryTag;
         
         public CannonballController(ICannonballModel model, ICannonballView view, string boundaryTag)
@@ -34,9 +33,10 @@ namespace Features.Player.Attack.Cannon
 
         //===== Event Handlers =====
 
-        private void HandleHitObject(string tag)
+        private void HandleHitObject(Collider2D other)
         {
-            if (tag == _boundaryTag) _view.Destroy();
+            if (other.gameObject.CompareTag(_boundaryTag)) _view.Destroy();
+            if (other.TryGetComponent<IDamageable>(out var damageable)) damageable.Damage(_model.Damage);
         }
     }
 }

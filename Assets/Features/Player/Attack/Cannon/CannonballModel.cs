@@ -1,12 +1,15 @@
+using Core.StatRegistry;
+using Core.StatRegistry.StatKeys;
 using Features.Player.Attack.Cannon.Interfaces;
 
 namespace Features.Player.Attack.Cannon
 {
-    // TODO: Incorporate stat registry
     public sealed class CannonballModel : ICannonballModel
     {
-        public CannonballModel(float damage) => Damage = damage;
+        private readonly StatRegistry<CannonballStats> _stats;
         
-        public float Damage { get; }
+        public CannonballModel(StatRegistry<CannonballStats> stats) => _stats = stats;
+        
+        public float Damage => _stats.Retrieve(CannonballStats.Damage);
     }
 }

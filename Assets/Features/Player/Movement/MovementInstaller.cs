@@ -1,5 +1,6 @@
 using Core.ExtendedBehaviours;
 using Core.StatRegistry;
+using Core.StatRegistry.StatKeys;
 using Features.Player.Movement.Interfaces;
 using UnityEngine;
 using VContainer;
@@ -17,7 +18,7 @@ namespace Features.Player.Movement
         
         public override void Install(IContainerBuilder builder)
         {
-            builder.Register<StatRegistry<Core.StatRegistry.StatKeys.Movement>>(Lifetime.Singleton);
+            builder.Register<StatRegistry<MovementStats>>(Lifetime.Singleton);
             
             builder.Register<IMovementModel, MovementModel>(Lifetime.Singleton)
                 .WithParameter(baselineTopSpeed);

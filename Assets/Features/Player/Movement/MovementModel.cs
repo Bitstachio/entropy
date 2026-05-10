@@ -1,21 +1,21 @@
 using Core.StatRegistry;
+using Core.StatRegistry.StatKeys;
 using Features.Player.Movement.Interfaces;
 
 namespace Features.Player.Movement
 {
     public class MovementModel : IMovementModel
     {
-        // TODO: Clean up reference after deleting the Movement mono behaviour
-        private readonly StatRegistry<Core.StatRegistry.StatKeys.Movement> stats;
+        private readonly StatRegistry<MovementStats> stats;
         
-        public MovementModel(StatRegistry<Core.StatRegistry.StatKeys.Movement> stats, float topSpeed)
+        public MovementModel(StatRegistry<MovementStats> stats, float topSpeed)
         {
             this.stats = stats;
-            stats.Register(Core.StatRegistry.StatKeys.Movement.TopSpeed, topSpeed);
+            stats.Register(MovementStats.TopSpeed, topSpeed);
         }
         
         //===== Interface Implementation =====
         
-        public float TopSpeed => stats.Retrieve(Core.StatRegistry.StatKeys.Movement.TopSpeed);
+        public float TopSpeed => stats.Retrieve(MovementStats.TopSpeed);
     }
 }

@@ -1,4 +1,5 @@
 using Core.Interfaces;
+using Core.Providers.Position;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -7,16 +8,16 @@ namespace Features.Player.Attack.Cannon
     public sealed class Cannon : ITickable
     {
         private readonly IFactory _factory;
-        private readonly Vector3 _originPosition;
+        private readonly IPositionProvider _positionProvider;
         private readonly float _interval;
         private readonly float _speed;
 
         private float _timer;
 
-        public Cannon(IFactory factory, Vector3 originPosition, float interval, float speed)
+        public Cannon(IFactory factory, IPositionProvider positionProvider, float interval, float speed)
         {
             _factory = factory;
-            _originPosition = originPosition;
+            _positionProvider = positionProvider;
             _interval = interval;
             _speed = speed;
         }
@@ -36,7 +37,7 @@ namespace Features.Player.Attack.Cannon
         private void Spawn()
         {
             var spawnable = _factory.Create();
-            spawnable.SetPosition(_originPosition);
+            spawnable.SetPosition(_positionProvider.Position);
             spawnable.SetVelocity(new Vector2(0, _speed));
         }
     }

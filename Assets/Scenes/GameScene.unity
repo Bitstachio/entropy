@@ -2013,8 +2013,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cannonballView: {fileID: 7390191985208850533, guid: bd5fff1f763994b568c96bfb095045ad, type: 3}
   transformPositionProvider: {fileID: 1060540050}
-  interval: 3
-  speed: 5
+  baselineInterval: 3
+  baselineSpeed: 5
 --- !u!1 &1060540048
 GameObject:
   m_ObjectHideFlags: 0

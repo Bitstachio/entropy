@@ -1,7 +1,8 @@
 namespace Core.StatRegistry.StatKeys
 {
-    public class CannonStats
+    public enum CannonStats
     {
-        
+        Interval,
+        Speed,
     }
 }

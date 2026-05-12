@@ -1788,6 +1788,55 @@ Transform:
   - {fileID: 1846260978}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &959774982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 959774983}
+  - component: {fileID: 959774984}
+  m_Layer: 0
+  m_Name: Player Upgrade Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &959774983
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959774982}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2037558911}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &959774984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959774982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e4511fb43d462186dd34d86d6e350f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerConfig: {fileID: 11400000, guid: 576cd0fea8f1f43239290c8d9cab7b68, type: 2}
+  cannonballDamageUpgrade: {fileID: 11400000, guid: 7110142cc6963406091f5c07b935bf58, type: 2}
+  cannonFireRateUpgrade: {fileID: 11400000, guid: 0191d79a3b35c4e4f9cd88103eca4e48, type: 2}
+  cannonProjectileSpeedUpgrade: {fileID: 11400000, guid: f8e77d02fce2149fa8535a2c91b7ff1e, type: 2}
+  upgradeView: {fileID: 1576094118}
 --- !u!1 &986683025
 GameObject:
   m_ObjectHideFlags: 0
@@ -2901,6 +2950,7 @@ GameObject:
   - component: {fileID: 1576094117}
   - component: {fileID: 1576094116}
   - component: {fileID: 1576094115}
+  - component: {fileID: 1576094118}
   m_Layer: 5
   m_Name: Upgrade Panel
   m_TagString: Untagged
@@ -2994,6 +3044,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576094112}
   m_CullTransparentMesh: 1
+--- !u!114 &1576094118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576094112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cdcb58ca0504acb94f9a820d402ffcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1846260977
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,6 +3345,7 @@ Transform:
   - {fileID: 625398852}
   - {fileID: 643993655}
   - {fileID: 1041094266}
+  - {fileID: 959774983}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2117852338

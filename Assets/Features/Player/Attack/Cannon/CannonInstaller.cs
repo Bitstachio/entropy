@@ -35,7 +35,7 @@ namespace Features.Player.Attack.Cannon
             {
                 var cannonStats = container.Resolve<StatRegistry<CannonStats>>();
                 cannonStats.Register(CannonStats.Interval, baselineInterval);
-                cannonStats.Register(CannonStats.Speed, baselineSpeed);
+                cannonStats.Register(CannonStats.ProjectileSpeed, baselineSpeed);
                 
                 var cannonballStats = container.Resolve<StatRegistry<CannonballStats>>();
                 cannonballStats.Register(CannonballStats.Damage, baselineDamage);

@@ -38,7 +38,7 @@ namespace Features.Player.Attack.Cannon
         {
             var spawnable = _factory.Create();
             spawnable.SetPosition(_positionProvider.Position);
-            spawnable.SetVelocity(new Vector2(0, _stats.Retrieve(CannonStats.Speed)));
+            spawnable.SetVelocity(new Vector2(0, _stats.Retrieve(CannonStats.ProjectileSpeed)));
         }
     }
 }

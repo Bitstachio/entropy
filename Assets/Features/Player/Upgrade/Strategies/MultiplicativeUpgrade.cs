@@ -2,9 +2,10 @@ using Core.StatRegistry;
 
 namespace Features.Player.Upgrade.Strategies
 {
-    public class MultiplicativeUpgrade<TStatKey> : UpgradeStrategy<TStatKey>
+    public class MultiplicativeUpgrade<TStatKey> : Upgrade<TStatKey>
     {
-        protected MultiplicativeUpgrade(StatRegistry<TStatKey> stats, TStatKey key) : base(stats, key)
+        protected MultiplicativeUpgrade(UpgradeData data, StatRegistry<TStatKey> stats, TStatKey key)
+            : base(data, stats, key)
         {
         }
 

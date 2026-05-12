@@ -2,17 +2,20 @@ using Core.StatRegistry;
 
 namespace Features.Player.Upgrade.Strategies
 {
-    public abstract class UpgradeStrategy<TStatKey> : IUpgradeStrategy
+    public abstract class Upgrade<TStatKey> : IUpgrade
     {
+        public UpgradeData Data { get; }
+
         protected readonly StatRegistry<TStatKey> Stats;
         protected readonly TStatKey Key;
 
-        protected UpgradeStrategy(StatRegistry<TStatKey> stats, TStatKey key)
+        protected Upgrade(UpgradeData data, StatRegistry<TStatKey> stats, TStatKey key)
         {
+            Data = data;
             Stats = stats;
             Key = key;
         }
-        
+
         public abstract void Apply(float magnitude);
     }
 }

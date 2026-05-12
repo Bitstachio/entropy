@@ -5,7 +5,8 @@ namespace Features.Player.Upgrade.Strategies
 {
     public class CannonballDamageUpgrade : MultiplicativeUpgrade<CannonballStats>
     {
-        public CannonballDamageUpgrade(StatRegistry<CannonballStats> stats, CannonballStats key) : base(stats, key)
+        public CannonballDamageUpgrade(UpgradeData data, StatRegistry<CannonballStats> stats, CannonballStats key)
+            : base(data, stats, key)
         {
         }
     }

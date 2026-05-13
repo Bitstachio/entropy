@@ -27,6 +27,7 @@ namespace Features.Player.Upgrade
             if (_timer < _data.Interval) return;
 
             _view.SetOptions(_upgrades.GetRandomSubset(_data.OptionCount).Select(u => u.Data));
+            _view.On();
 
             _timer = 0;
         }

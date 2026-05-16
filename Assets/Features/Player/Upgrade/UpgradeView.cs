@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Core.ExtendedBehaviours;
@@ -10,20 +11,19 @@ namespace Features.Player.Upgrade
         [SerializeField] private Transform optionContainer;
         [SerializeField] private UpgradeOptionView optionView;
 
+        public event Action<int> OnUpgradeSelected;
+
         private readonly List<UpgradeOptionView> _activeOptions = new();
 
         //===== API =====
 
         public void SetOptions(IEnumerable<UpgradeData> options)
         {
-            // TODO: Remove console log
-            Debug.Log("Displaying Options...");
-            
             ClearOptions();
-            foreach (var option in options)
+            foreach (var (option, index) in options.Select((value, i) => (value, i)))
             {
                 var item = Instantiate(optionView, optionContainer);
-                item.Setup(option.Title, "+10%"); // TODO: Remove hard-coded magnitude
+                item.Setup(option.Title, "+10%", index, SelectUpgrade); // TODO: Remove hard-coded magnitude
                 _activeOptions.Add(item);
             }
         }
@@ -36,5 +36,7 @@ namespace Features.Player.Upgrade
                 Destroy(option.gameObject);
             _activeOptions.Clear();
         }
+
+        private void SelectUpgrade(int index) => OnUpgradeSelected?.Invoke(index);
     }
 }

@@ -288,6 +288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titleTMP: {fileID: 8485908463655307034}
   magnitudeTMP: {fileID: 7170737150064042215}
+  button: {fileID: 8727835899597667613}
 --- !u!114 &1316529807540786402
 MonoBehaviour:
   m_ObjectHideFlags: 0

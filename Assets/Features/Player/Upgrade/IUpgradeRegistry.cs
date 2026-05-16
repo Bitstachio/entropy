@@ -4,6 +4,6 @@ namespace Features.Player.Upgrade
 {
     public interface IUpgradeRegistry
     {
-        public IList<IUpgrade> GetRandomSubset(int count);
+        public IList<IUpgrade> Upgrades { get; }
     }
 }

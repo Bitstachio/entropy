@@ -10,17 +10,16 @@ namespace Features.Player.Upgrade
     public sealed class UpgradeController : IStartable, IDisposable, ITickable
     {
         private readonly UpgradeControllerConfig _config;
-        private readonly IUpgradeRegistry _upgrades;
+        private readonly IUpgradeRegistry _registry;
         private readonly IUpgradeView _view;
 
         private float _timer;
-        private IList<IUpgrade> _currentUpgrades;
         private IReadOnlyList<ICommand> _commands;
 
-        public UpgradeController(UpgradeControllerConfig config, IUpgradeRegistry upgrades, IUpgradeView view)
+        public UpgradeController(UpgradeControllerConfig config, IUpgradeRegistry registry, IUpgradeView view)
         {
             _config = config;
-            _upgrades = upgrades;
+            _registry = registry;
             _view = view;
         }
 
@@ -35,13 +34,9 @@ namespace Features.Player.Upgrade
             _timer += Time.deltaTime;
             if (_timer < _config.Interval) return;
 
-            _currentUpgrades = _upgrades.GetRandomSubset(_config.OptionCount);
-            _commands = _currentUpgrades.Select(u => new UpgradeCommand(u, 10)).ToList(); // TODO: Remove hard-coded magnitude
-            _view.SetOptions(_currentUpgrades.Select(u =>
-            {
-                var definition = u.Definition;
-                return new UpgradeData(definition.Title, definition.Icon, 10f);
-            }));
+            var options = UpgradeUtils.PrepOptions(_registry.Upgrades, _config.OptionCount);
+            _commands = options.Select(o => o.Command).ToList();
+            _view.SetOptions(options.Select(o => new UpgradeData(o.Data.Title, o.Data.Icon, o.Data.Magnitude)));
             _view.On();
 
             _timer = 0;

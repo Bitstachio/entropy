@@ -1,6 +1,5 @@
 using Core.Events.Channels;
 using Core.Events.Interfaces;
-using Features.Audio.Sfx.Interfaces;
 using UnityEngine;
 
 namespace Features.Audio.Sfx.Controllers

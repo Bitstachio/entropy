@@ -1,4 +1,4 @@
-namespace Features.Progression.Interfaces
+namespace Features.Progression
 {
     public interface IProgressionView
     {

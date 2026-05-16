@@ -1,6 +1,5 @@
 using System;
 using Core.Events.Interfaces;
-using Features.Audio.Sfx.Interfaces;
 using UnityEngine;
 using VContainer.Unity;
 

@@ -1,12 +1,11 @@
 using System;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
-using Features.Progression.Interfaces;
 using VContainer.Unity;
 
 namespace Features.Progression
 {
-    public class ProgressionController : IStartable, IDisposable
+    public sealed class ProgressionController : IStartable, IDisposable
     {
         private readonly IProgressionModel _model;
         private readonly IProgressionView _view;

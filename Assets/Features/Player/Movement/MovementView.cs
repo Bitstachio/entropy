@@ -1,10 +1,9 @@
 using System;
-using Features.Player.Movement.Interfaces;
 using UnityEngine;
 
 namespace Features.Player.Movement
 {
-    public class MovementView : MonoBehaviour, IMovementView
+    public sealed class MovementView : MonoBehaviour, IMovementView
     {
         private GameControls _controls;
         private Rigidbody2D _rb;

@@ -1,13 +1,12 @@
 using System;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
-using Features.Audio.Music.Interface;
 using UnityEngine;
 using VContainer.Unity;
 
 namespace Features.Audio.Music
 {
-    public class GameMusicController : IStartable, IDisposable
+    public sealed class GameMusicController : IStartable, IDisposable
     {
         private readonly IEventListener<GameOverEvent> _gameOverListener;
 

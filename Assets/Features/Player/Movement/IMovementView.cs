@@ -1,6 +1,6 @@
 using System;
 
-namespace Features.Player.Movement.Interfaces
+namespace Features.Player.Movement
 {
     public interface IMovementView
     {

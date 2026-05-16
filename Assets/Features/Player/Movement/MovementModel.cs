@@ -1,10 +1,9 @@
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
-using Features.Player.Movement.Interfaces;
 
 namespace Features.Player.Movement
 {
-    public class MovementModel : IMovementModel
+    public sealed class MovementModel : IMovementModel
     {
         private readonly StatRegistry<MovementStats> stats;
         

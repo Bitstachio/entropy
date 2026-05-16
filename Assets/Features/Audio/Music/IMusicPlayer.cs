@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.Audio.Music.Interface
+namespace Features.Audio.Music
 {
     public interface IMusicPlayer
     {

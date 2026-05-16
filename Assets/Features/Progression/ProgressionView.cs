@@ -1,10 +1,9 @@
-using Features.Progression.Interfaces;
 using TMPro;
 using UnityEngine;
 
 namespace Features.Progression
 {
-    public class ProgressionView : MonoBehaviour, IProgressionView
+    public sealed class ProgressionView : MonoBehaviour, IProgressionView
     {
         [SerializeField] private TextMeshProUGUI scoreDisplay;
         [SerializeField] private TextMeshProUGUI highScoreDisplay;

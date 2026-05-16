@@ -1,5 +1,4 @@
 using System;
-using Features.Player.Attack.Cannon.Interfaces;
 using UnityEngine;
 
 namespace Features.Player.Attack.Cannon

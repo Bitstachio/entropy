@@ -2,7 +2,7 @@ using System.Linq;
 using Core.Tag;
 using UnityEngine;
 
-namespace Features.Physics.Scripts
+namespace Features.Physics
 {
     public class KinematicImpulse : MonoBehaviour
     {

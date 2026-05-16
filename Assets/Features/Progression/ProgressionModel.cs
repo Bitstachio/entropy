@@ -1,9 +1,8 @@
 using System;
-using Features.Progression.Interfaces;
 
 namespace Features.Progression
 {
-    public class ProgressionModel : IProgressionModel
+    public sealed class ProgressionModel : IProgressionModel
     {
         private readonly IProgressionRepository _repository;
 

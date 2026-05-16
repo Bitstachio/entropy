@@ -1,5 +1,4 @@
 using Core.Interfaces;
-using Features.Targets.Rock.Interfaces;
 using VContainer;
 using VContainer.Unity;
 

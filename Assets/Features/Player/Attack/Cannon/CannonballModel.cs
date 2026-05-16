@@ -1,6 +1,5 @@
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
-using Features.Player.Attack.Cannon.Interfaces;
 
 namespace Features.Player.Attack.Cannon
 {

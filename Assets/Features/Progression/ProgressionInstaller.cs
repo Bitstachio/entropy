@@ -1,12 +1,11 @@
 using Core.ExtendedBehaviours;
-using Features.Progression.Interfaces;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
 namespace Features.Progression
 {
-    public class ProgressionInstaller : Installer
+    public sealed class ProgressionInstaller : Installer
     {
         [SerializeField] private ProgressionView progressionView;
 

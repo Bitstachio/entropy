@@ -1,10 +1,9 @@
-using Features.Audio.Music.Interface;
 using UnityEngine;
 
 namespace Features.Audio.Music
 {
     [RequireComponent(typeof(AudioSource))]
-    public class MusicPlayer : MonoBehaviour, IMusicPlayer
+    public sealed class MusicPlayer : MonoBehaviour, IMusicPlayer
     {
         private AudioSource _audioSource;
 
@@ -17,8 +16,8 @@ namespace Features.Audio.Music
             _audioSource.clip = clip;
             _audioSource.loop = true;
             _audioSource.Play();
-        } 
-        
+        }
+
         public void Stop() => _audioSource.Stop();
     }
 }

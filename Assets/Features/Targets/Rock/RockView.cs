@@ -1,6 +1,5 @@
 using System;
 using Core.Interfaces;
-using Features.Targets.Rock.Interfaces;
 using TMPro;
 using UnityEngine;
 

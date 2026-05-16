@@ -2,7 +2,6 @@ using System;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
 using Core.Interfaces;
-using Features.Targets.Rock.Interfaces;
 using UnityEngine;
 using VContainer.Unity;
 

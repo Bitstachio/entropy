@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Features.Player.Attack.Cannon.Interfaces
+namespace Features.Player.Attack.Cannon
 {
     public interface ICannonballView
     {

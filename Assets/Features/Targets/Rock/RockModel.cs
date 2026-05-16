@@ -1,5 +1,3 @@
-using Features.Targets.Rock.Interfaces;
-
 namespace Features.Targets.Rock
 {
     public sealed class RockModel : IRockModel

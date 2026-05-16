@@ -1,6 +1,5 @@
 using Core.ExtendedBehaviours;
 using Core.Providers.Bounds;
-using Features.Targets.Rock.Interfaces;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;

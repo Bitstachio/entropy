@@ -5,7 +5,6 @@ using Core.Providers.Position;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 using Core.Tag;
-using Features.Player.Attack.Cannon.Interfaces;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;

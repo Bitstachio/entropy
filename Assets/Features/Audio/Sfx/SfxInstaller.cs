@@ -1,13 +1,12 @@
 using Core.ExtendedBehaviours;
 using Features.Audio.Sfx.Controllers;
-using Features.Audio.Sfx.Interfaces;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
 namespace Features.Audio.Sfx
 {
-    public class SfxInstaller : Installer
+    public sealed class SfxInstaller : Installer
     {
         [SerializeField] private SfxPlayer sfxPlayer;
         

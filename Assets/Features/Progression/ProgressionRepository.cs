@@ -1,9 +1,8 @@
-using Features.Progression.Interfaces;
 using UnityEngine;
 
 namespace Features.Progression
 {
-    public class ProgressionRepository : IProgressionRepository
+    public sealed class ProgressionRepository : IProgressionRepository
     {
         private const string HighScoreKey = "Progression_HighScore";
 

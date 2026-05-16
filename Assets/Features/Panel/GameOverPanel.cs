@@ -2,14 +2,14 @@ using Core.Constants;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Features.Panel.Scripts
+namespace Features.Panel
 {
-    public class GameOverPanel : MonoBehaviour
+    public sealed class GameOverPanel : MonoBehaviour
     {
         //===== Event Handlers =====
 
         public void LoadGameScene() => SceneManager.LoadScene(Scenes.Game);
-        
+
         public void LoadMainMenuScene() => SceneManager.LoadScene(Scenes.Main);
     }
 }

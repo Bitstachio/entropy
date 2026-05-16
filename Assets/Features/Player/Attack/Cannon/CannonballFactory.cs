@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Core.Interfaces;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
-using Features.Player.Attack.Cannon.Interfaces;
 using VContainer;
 using VContainer.Unity;
 

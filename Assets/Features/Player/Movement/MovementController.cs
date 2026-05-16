@@ -1,11 +1,10 @@
 using System;
-using Features.Player.Movement.Interfaces;
 using UnityEngine;
 using VContainer.Unity;
 
 namespace Features.Player.Movement
 {
-    public class MovementController : IStartable, IDisposable, IFixedTickable
+    public sealed class MovementController : IStartable, IDisposable, IFixedTickable
     {
         private readonly IMovementModel model;
         private readonly IMovementView view;

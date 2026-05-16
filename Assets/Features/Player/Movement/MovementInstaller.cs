@@ -1,14 +1,13 @@
 using Core.ExtendedBehaviours;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
-using Features.Player.Movement.Interfaces;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
 namespace Features.Player.Movement
 {
-    public class MovementInstaller : Installer
+    public sealed class MovementInstaller : Installer
     {
         [Header("Components")]
         [SerializeField] private MovementView movementView;

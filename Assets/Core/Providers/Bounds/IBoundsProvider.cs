@@ -1,4 +1,4 @@
-namespace Features.Shared.Interfaces
+namespace Core.Providers.Bounds
 {
     public interface IBoundsProvider
     {

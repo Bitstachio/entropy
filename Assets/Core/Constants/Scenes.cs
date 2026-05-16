@@ -1,4 +1,4 @@
-namespace Features.Shared.Constants
+namespace Core.Constants
 {
     public static class Scenes
     {

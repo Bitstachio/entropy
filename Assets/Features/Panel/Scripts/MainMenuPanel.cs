@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using Core.Constants;
 using Features.Panel.Enums;
-using Features.Shared.Constants;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

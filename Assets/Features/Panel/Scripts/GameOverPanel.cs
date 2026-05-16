@@ -1,4 +1,4 @@
-using Features.Shared.Constants;
+using Core.Constants;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

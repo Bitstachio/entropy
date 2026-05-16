@@ -1,7 +1,8 @@
+using Features.Shared.Tag;
 using UnityEditor;
 using UnityEngine;
 
-namespace Features.Shared.Tag
+namespace Core.Tag
 {
     [CustomPropertyDrawer(typeof(TagAttribute))]
     public class TagDrawer : PropertyDrawer

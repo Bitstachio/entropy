@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Cannon Projectile Speed
   icon: {fileID: 0}
+  mean: 1.15
+  variance: 0.03
+  drift: 0

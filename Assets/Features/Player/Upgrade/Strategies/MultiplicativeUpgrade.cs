@@ -4,8 +4,8 @@ namespace Features.Player.Upgrade.Strategies
 {
     public abstract class MultiplicativeUpgrade<TStatKey> : Upgrade<TStatKey>
     {
-        protected MultiplicativeUpgrade(UpgradeData data, StatRegistry<TStatKey> stats, TStatKey key)
-            : base(data, stats, key)
+        protected MultiplicativeUpgrade(UpgradeDefinition definition, StatRegistry<TStatKey> stats, TStatKey key)
+            : base(definition, stats, key)
         {
         }
 

@@ -8,18 +8,18 @@ namespace Features.Player.Upgrade
 {
     public sealed class UpgradeController : IStartable, IDisposable, ITickable
     {
-        private readonly IUpgradeView _view;
+        private readonly UpgradeControllerConfig _config;
         private readonly IUpgradeRegistry _upgrades;
-        private readonly UpgradeControllerData _data;
+        private readonly IUpgradeView _view;
 
         private float _timer;
         private IList<IUpgrade> _currentUpgrades;
 
-        public UpgradeController(IUpgradeView view, IUpgradeRegistry upgrades, UpgradeControllerData data)
+        public UpgradeController(UpgradeControllerConfig config, IUpgradeRegistry upgrades, IUpgradeView view)
         {
-            _view = view;
+            _config = config;
             _upgrades = upgrades;
-            _data = data;
+            _view = view;
         }
 
         //===== Lifecycle =====
@@ -31,10 +31,14 @@ namespace Features.Player.Upgrade
         public void Tick()
         {
             _timer += Time.deltaTime;
-            if (_timer < _data.Interval) return;
+            if (_timer < _config.Interval) return;
 
-            _currentUpgrades = _upgrades.GetRandomSubset(_data.OptionCount);
-            _view.SetOptions(_currentUpgrades.Select(u => u.Data));
+            _currentUpgrades = _upgrades.GetRandomSubset(_config.OptionCount);
+            _view.SetOptions(_currentUpgrades.Select(u =>
+            {
+                var definition = u.Definition;
+                return new UpgradeData(definition.Title, definition.Icon, 10f); // TODO: Remove hard-coded magnitude
+            }));
             _view.On();
 
             _timer = 0;
@@ -44,7 +48,6 @@ namespace Features.Player.Upgrade
 
         private void HandleUpgradeSelected(int index)
         {
-            Debug.Log($"Applying upgrade {index}");
             _currentUpgrades[index].Apply(10); // TODO: Remove hard-coded magnitude
             _view.Off();
         }

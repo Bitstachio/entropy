@@ -5,8 +5,8 @@ namespace Features.Player.Upgrade.Strategies
 {
     public sealed class CannonFireRateUpgrade : MultiplicativeUpgrade<CannonStats>
     {
-        public CannonFireRateUpgrade(UpgradeData data, StatRegistry<CannonStats> stats)
-            : base(data, stats, CannonStats.Interval)
+        public CannonFireRateUpgrade(UpgradeDefinition definition, StatRegistry<CannonStats> stats)
+            : base(definition, stats, CannonStats.Interval)
         {
         }
     }

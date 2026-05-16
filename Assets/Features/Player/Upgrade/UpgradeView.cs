@@ -23,7 +23,7 @@ namespace Features.Player.Upgrade
             foreach (var (option, index) in options.Select((value, i) => (value, i)))
             {
                 var item = Instantiate(optionView, optionContainer);
-                item.Setup(option.Title, "+10%", index, SelectUpgrade); // TODO: Remove hard-coded magnitude
+                item.Setup(option.Title, option.Magnitude.ToString(), index, SelectUpgrade); // TODO: Use presenter for magnitude
                 _activeOptions.Add(item);
             }
         }

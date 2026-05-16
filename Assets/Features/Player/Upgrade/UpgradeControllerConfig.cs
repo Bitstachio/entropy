@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace Features.Player.Upgrade
 {
-    [CreateAssetMenu(menuName = "Player/Upgrade Controller Data")]
-    public class UpgradeControllerData : ScriptableObject
+    [CreateAssetMenu(menuName = "Player/Upgrade Controller Config")]
+    public class UpgradeControllerConfig : ScriptableObject
     {
         [SerializeField] private int optionCount;
         [SerializeField] private float interval;

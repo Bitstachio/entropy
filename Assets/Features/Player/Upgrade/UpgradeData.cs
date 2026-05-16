@@ -2,13 +2,17 @@ using UnityEngine;
 
 namespace Features.Player.Upgrade
 {
-    [CreateAssetMenu(menuName = "Player/Upgrade Data")]
-    public class UpgradeData : ScriptableObject
+    public struct UpgradeData
     {
-        [SerializeField] private string title;
-        [SerializeField] private Sprite icon;
+        public string Title { get; }
+        public Sprite Icon { get; }
+        public float Magnitude { get; }
 
-        public string Title => title;
-        public Sprite Icon => icon;
+        public UpgradeData(string title, Sprite icon, float magnitude)
+        {
+            Title = title;
+            Icon = icon;
+            Magnitude = magnitude;
+        }
     }
 }

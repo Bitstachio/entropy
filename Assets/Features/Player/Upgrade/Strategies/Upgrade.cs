@@ -4,14 +4,14 @@ namespace Features.Player.Upgrade.Strategies
 {
     public abstract class Upgrade<TStatKey> : IUpgrade
     {
-        public UpgradeData Data { get; }
+        public UpgradeDefinition Definition { get; }
 
         protected readonly StatRegistry<TStatKey> Stats;
         protected readonly TStatKey Key;
 
-        protected Upgrade(UpgradeData data, StatRegistry<TStatKey> stats, TStatKey key)
+        protected Upgrade(UpgradeDefinition definition, StatRegistry<TStatKey> stats, TStatKey key)
         {
-            Data = data;
+            Definition = definition;
             Stats = stats;
             Key = key;
         }

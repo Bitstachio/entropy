@@ -4,6 +4,6 @@ namespace Features.Player.Upgrade
 {
     public interface IUpgrade : IUpgradeStrategy
     {
-        UpgradeData Data { get; }
+        UpgradeDefinition Definition { get; }
     }
 }

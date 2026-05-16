@@ -10,10 +10,10 @@ namespace Features.Player.Upgrade
     public sealed class UpgradeInstaller : Installer
     {
         [Header("Data")]
-        [SerializeField] private UpgradeControllerData controllerConfig;
-        [SerializeField] private UpgradeData cannonballDamageUpgrade;
-        [SerializeField] private UpgradeData cannonFireRateUpgrade;
-        [SerializeField] private UpgradeData cannonProjectileSpeedUpgrade;
+        [SerializeField] private UpgradeControllerConfig controllerConfig;
+        [SerializeField] private UpgradeDefinition cannonballDamageUpgrade;
+        [SerializeField] private UpgradeDefinition cannonFireRateUpgrade;
+        [SerializeField] private UpgradeDefinition cannonProjectileSpeedUpgrade;
 
         [Header("Views")]
         [SerializeField] private UpgradeView upgradeView;

@@ -1,4 +1,4 @@
-using Core.Interactions;
+using Core.Interfaces;
 
 namespace Features.Hazards.Rock.Interfaces
 {

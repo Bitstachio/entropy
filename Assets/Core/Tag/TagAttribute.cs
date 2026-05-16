@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.Shared.Tag
+namespace Core.Tag
 {
     public class TagAttribute : PropertyAttribute
     {

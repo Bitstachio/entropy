@@ -1,5 +1,5 @@
 using System.Linq;
-using Features.Shared.Tag;
+using Core.Tag;
 using UnityEngine;
 
 namespace Features.Physics.Scripts

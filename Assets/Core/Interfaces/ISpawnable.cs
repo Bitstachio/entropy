@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Core.Interactions
+namespace Core.Interfaces
 {
     public interface ISpawnable
     {

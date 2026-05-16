@@ -1,9 +1,9 @@
-using Core.Interactions;
+using Core.Interfaces;
 using UnityEngine;
 
 namespace Core.ExtendedBehaviours
 {
-    public class ToggleableView : MonoBehaviour, IToggleable
+    public abstract class ToggleableView : MonoBehaviour, IToggleable
     {
         //===== API =====
         

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Core.Interactions;
+using Core.Interfaces;
 
 namespace Features.Player.Upgrade
 {

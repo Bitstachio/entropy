@@ -1,5 +1,5 @@
 using System;
-using Core.Interactions;
+using Core.Interfaces;
 using Features.Hazards.Rock.Interfaces;
 using TMPro;
 using UnityEngine;

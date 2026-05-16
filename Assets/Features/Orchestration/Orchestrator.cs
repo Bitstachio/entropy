@@ -50,7 +50,7 @@ namespace Features.Orchestration
                 await Task.Delay(delay);
                 // Guard against executing engine logic if the user stopped the editor or quit during the async delay
                 if (!Application.isPlaying) return;
-                SceneManager.LoadScene("GameOverScene");
+                SceneManager.LoadScene(Scenes.GameOver);
             }
             catch (Exception e)
             {

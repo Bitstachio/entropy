@@ -1,7 +1,7 @@
 using System;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
-using Core.Interactions;
+using Core.Interfaces;
 using Features.Hazards.Rock.Interfaces;
 using UnityEngine;
 using VContainer.Unity;

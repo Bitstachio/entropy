@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Interfaces;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -14,6 +15,7 @@ namespace Features.Player.Upgrade
 
         private float _timer;
         private IList<IUpgrade> _currentUpgrades;
+        private IReadOnlyList<ICommand> _commands;
 
         public UpgradeController(UpgradeControllerConfig config, IUpgradeRegistry upgrades, IUpgradeView view)
         {
@@ -34,10 +36,11 @@ namespace Features.Player.Upgrade
             if (_timer < _config.Interval) return;
 
             _currentUpgrades = _upgrades.GetRandomSubset(_config.OptionCount);
+            _commands = _currentUpgrades.Select(u => new UpgradeCommand(u, 10)).ToList(); // TODO: Remove hard-coded magnitude
             _view.SetOptions(_currentUpgrades.Select(u =>
             {
                 var definition = u.Definition;
-                return new UpgradeData(definition.Title, definition.Icon, 10f); // TODO: Remove hard-coded magnitude
+                return new UpgradeData(definition.Title, definition.Icon, 10f);
             }));
             _view.On();
 
@@ -48,7 +51,7 @@ namespace Features.Player.Upgrade
 
         private void HandleUpgradeSelected(int index)
         {
-            _currentUpgrades[index].Apply(10); // TODO: Remove hard-coded magnitude
+            _commands[index].Execute();
             _view.Off();
         }
     }

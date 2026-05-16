@@ -1,13 +1,13 @@
 using Core.ExtendedBehaviours;
 using Core.Providers.Bounds;
-using Features.Hazards.Rock.Interfaces;
+using Features.Targets.Rock.Interfaces;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Features.Hazards.Rock
+namespace Features.Targets.Rock
 {
-    public class RockInstaller : Installer
+    public sealed class RockInstaller : Installer
     {
         [SerializeField] private RockView rockView;
         [SerializeField] private HorizontalBoundsProvider horizontalBoundsProvider;

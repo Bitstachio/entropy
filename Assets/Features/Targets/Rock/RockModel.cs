@@ -1,8 +1,8 @@
-using Features.Hazards.Rock.Interfaces;
+using Features.Targets.Rock.Interfaces;
 
-namespace Features.Hazards.Rock
+namespace Features.Targets.Rock
 {
-    public class RockModel : IRockModel
+    public sealed class RockModel : IRockModel
     {
         public RockModel(float durability)
         {
@@ -14,7 +14,7 @@ namespace Features.Hazards.Rock
 
         public float MaxDurability { get; }
         public float Durability { get; private set; }
-        
+
         public void TakeDamage(float amount) => Durability -= amount;
     }
 }

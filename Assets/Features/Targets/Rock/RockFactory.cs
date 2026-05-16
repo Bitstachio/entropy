@@ -1,9 +1,9 @@
 using Core.Interfaces;
-using Features.Hazards.Rock.Interfaces;
+using Features.Targets.Rock.Interfaces;
 using VContainer;
 using VContainer.Unity;
 
-namespace Features.Hazards.Rock
+namespace Features.Targets.Rock
 {
     public sealed class RockFactory : IRockFactory
     {

@@ -1,13 +1,13 @@
 using System;
 using Core.Interfaces;
-using Features.Hazards.Rock.Interfaces;
+using Features.Targets.Rock.Interfaces;
 using TMPro;
 using UnityEngine;
 
-namespace Features.Hazards.Rock
+namespace Features.Targets.Rock
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class RockView : MonoBehaviour, IRockView, IDamageable
+    public sealed class RockView : MonoBehaviour, IRockView, IDamageable
     {
         [SerializeField] private TextMeshPro durabilityDisplay;
 
@@ -29,7 +29,7 @@ namespace Features.Hazards.Rock
         public void SetDurability(float durability) => durabilityDisplay.text = Mathf.RoundToInt(durability).ToString();
 
         public void Destroy() => Destroy(gameObject);
-        
+
         public void Damage(float amount) => OnDamageTaken?.Invoke(amount);
 
         //===== Physics Callbacks =====

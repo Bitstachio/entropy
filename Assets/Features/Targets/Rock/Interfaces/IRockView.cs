@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Features.Hazards.Rock.Interfaces
+namespace Features.Targets.Rock.Interfaces
 {
     public interface IRockView
     {

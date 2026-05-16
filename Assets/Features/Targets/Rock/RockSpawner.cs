@@ -1,9 +1,9 @@
 using Core.Providers.Bounds;
-using Features.Hazards.Rock.Interfaces;
+using Features.Targets.Rock.Interfaces;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Features.Hazards.Rock
+namespace Features.Targets.Rock
 {
     public sealed class RockSpawner : ITickable
     {

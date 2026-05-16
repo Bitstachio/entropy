@@ -1,4 +1,4 @@
-namespace Features.Hazards.Rock.Interfaces
+namespace Features.Targets.Rock.Interfaces
 {
     public interface IRockModel
     {

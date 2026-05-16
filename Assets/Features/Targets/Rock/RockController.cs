@@ -2,13 +2,13 @@ using System;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
 using Core.Interfaces;
-using Features.Hazards.Rock.Interfaces;
+using Features.Targets.Rock.Interfaces;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Features.Hazards.Rock
+namespace Features.Targets.Rock
 {
-    public class RockController : IStartable, IDisposable, ISpawnable
+    public sealed class RockController : IStartable, IDisposable, ISpawnable
     {
         private readonly IEventPublisher<RockDestroyedEvent> _rockDestroyedPublisher;
         private readonly IEventPublisher<RockHitObjectEvent> _rockHitObject;

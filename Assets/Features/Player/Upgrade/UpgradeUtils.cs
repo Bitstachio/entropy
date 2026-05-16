@@ -19,5 +19,10 @@ namespace Features.Player.Upgrade
                 })
                 .ToList();
         }
+
+        // TODO: Consider adapting a variation of MVP pattern to handle upgrade magnitude formatting
+        public static string FormatMagnitude(float magnitude) => magnitude < 1
+            ? $"-{(int)((1 - magnitude) * 100 + 0.5)}%"
+            : $"+{(int)((magnitude - 1) * 100 + 0.5)}%";
     }
 }

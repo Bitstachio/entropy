@@ -15,5 +15,4 @@ MonoBehaviour:
   title: Cannon Fire Rate
   icon: {fileID: 0}
   mean: 0.9
-  variance: 0.02
-  drift: 0
+  deviation: 0.02

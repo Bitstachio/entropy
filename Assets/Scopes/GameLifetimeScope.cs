@@ -1,6 +1,7 @@
 using System.Linq;
 using Core.Events.Base;
 using Core.ExtendedBehaviours;
+using Core.Services.TimeScale;
 using VContainer;
 using VContainer.Unity;
 
@@ -10,6 +11,10 @@ namespace Scopes
     {
         protected override void Configure(IContainerBuilder builder)
         {
+            //----- Global Services -----
+
+            builder.Register<ITimeScaleService, TimeScaleService>(Lifetime.Singleton);
+            
             //----- Feature Installers -----
 
             GetComponentsInChildren<Installer>().ToList().ForEach(i => i.Install(builder));

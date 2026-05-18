@@ -91,3 +91,6 @@ Assets/Mockups.meta
 
 # OS X
 .DS_Store
+
+# Paid Third-Party Sprites
+/Assets/Features/Environment/Sprites/*

@@ -489,6 +489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonballDamageDisplayView: {fileID: 637647081}
+  cannonFireRateDisplayView: {fileID: 1880697847}
+  cannonProjectileSpeedDisplayView: {fileID: 863386547}
 --- !u!1 &308529308
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,7 +548,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 000.0 m/s
+  m_text: 0.00 m/s
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e4bdf2fa3099a4332853dd182e7f5265, type: 2}
   m_sharedMaterial: {fileID: -9093366290316639939, guid: e4bdf2fa3099a4332853dd182e7f5265, type: 2}
@@ -2049,6 +2051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 863386545}
   - component: {fileID: 863386546}
+  - component: {fileID: 863386547}
   m_Layer: 5
   m_Name: Cannon Projectile Speed Container
   m_TagString: Untagged
@@ -2103,6 +2106,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &863386547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863386544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb1f22b9fc447aa302ce321947dd18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  display: {fileID: 308529310}
 --- !u!1 &869778999
 GameObject:
   m_ObjectHideFlags: 0
@@ -3971,6 +3987,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1880697845}
   - component: {fileID: 1880697846}
+  - component: {fileID: 1880697847}
   m_Layer: 5
   m_Name: Cannon Fire Rate Container
   m_TagString: Untagged
@@ -4025,6 +4042,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1880697847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880697844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb1f22b9fc447aa302ce321947dd18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  display: {fileID: 869779001}
 --- !u!1 &1906944960
 GameObject:
   m_ObjectHideFlags: 0

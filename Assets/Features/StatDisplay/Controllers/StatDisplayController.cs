@@ -43,8 +43,7 @@ namespace Features.StatDisplay.Controllers
 
         private void HandleStatUpdated(StatRegistryUpdatedEvent<TKey> @event)
         {
-            var formatted = FormatStat(@event);
-            if (formatted != null) _view.Set(formatted);
+            if (Equals(@event.Key, _statKey)) _view.Set(FormatStat(@event));
         }
 
         //===== Utilities =====

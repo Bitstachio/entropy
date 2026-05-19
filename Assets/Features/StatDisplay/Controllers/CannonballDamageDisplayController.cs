@@ -16,6 +16,6 @@ namespace Features.StatDisplay.Controllers
         }
 
         protected override string FormatStat(StatRegistryUpdatedEvent<CannonballStats> @event) =>
-            @event.Key == CannonballStats.Damage ? $"{@event.NewValue:F2} MJ" : null;
+            $"{@event.NewValue:F2} MJ";
     }
 }

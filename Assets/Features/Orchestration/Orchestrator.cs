@@ -35,7 +35,7 @@ namespace Features.Orchestration
 
         private void HandleRockHitObject(RockHitObjectEvent @event)
         {
-            if (@event.Tag != Tags.Player) return;
+            if (!@event.Collision.collider.CompareTag(Tags.Player)) return;
             Time.timeScale = 0f;
             _gameOverPublisher.Publish(new GameOverEvent());
             LoadGameOverScene(_gameOverDelay);

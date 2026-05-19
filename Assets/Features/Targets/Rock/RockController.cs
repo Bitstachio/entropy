@@ -60,7 +60,7 @@ namespace Features.Targets.Rock
             _view.Destroy();
         }
 
-        private void HandleRockHitObject(Collision2D collider) =>
-            _rockHitObject.Publish(new RockHitObjectEvent(collider.gameObject.tag));
+        private void HandleRockHitObject(Collision2D collision) =>
+            _rockHitObject.Publish(new RockHitObjectEvent(collision));
     }
 }

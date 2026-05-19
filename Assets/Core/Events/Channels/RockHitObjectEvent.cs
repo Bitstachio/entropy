@@ -1,9 +1,11 @@
+using UnityEngine;
+
 namespace Core.Events.Channels
 {
     public struct RockHitObjectEvent
     {
-        public string Tag { get; }
+        public Collision2D Collision { get; }
 
-        public RockHitObjectEvent(string tag) => Tag = tag;
+        public RockHitObjectEvent(Collision2D collision) => Collision = collision;
     }
 }

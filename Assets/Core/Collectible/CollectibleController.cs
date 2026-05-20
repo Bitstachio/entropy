@@ -5,7 +5,7 @@ using Core.Interfaces;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Features.Player.Collectible
+namespace Core.Collectible
 {
     public abstract class CollectibleController<TEvent> : IStartable, IDisposable, ISpawnable
     {
@@ -41,7 +41,9 @@ namespace Features.Player.Collectible
 
         private void HandleTriggered(Collider2D collider)
         {
-            if (_collectorTags.Contains(collider.tag)) _publisher.Publish(CreateEvent(collider));
+            if (!_collectorTags.Contains(collider.tag)) return;
+            _publisher.Publish(CreateEvent(collider));
+            _view.Destroy();
         }
 
         //===== Utilities =====

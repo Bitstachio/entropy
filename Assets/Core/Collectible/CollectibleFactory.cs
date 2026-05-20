@@ -3,14 +3,15 @@ using Core.Interfaces;
 using VContainer;
 using VContainer.Unity;
 
-namespace Features.Player.Collectible
+namespace Core.Collectible
 {
     public sealed class CollectibleFactory<TController> : ICollectibleFactory
+        where TController : class, ISpawnable
     {
         private readonly IObjectResolver _resolver;
         private readonly CollectibleView _view;
         private readonly ISet<string> _collectorTags;
-        
+
         public CollectibleFactory(IObjectResolver resolver, CollectibleView view, ISet<string> collectorTags)
         {
             _resolver = resolver;
@@ -24,7 +25,7 @@ namespace Features.Player.Collectible
             {
                 builder.RegisterComponentInNewPrefab(_view, Lifetime.Scoped)
                     .AsImplementedInterfaces();
-                builder.RegisterEntryPoint<ShieldCollectibleController>(Lifetime.Scoped) // TODO: Incorporate `TController`
+                builder.RegisterEntryPoint<TController>(Lifetime.Scoped)
                     .WithParameter(_collectorTags)
                     .As<ISpawnable>();
             });

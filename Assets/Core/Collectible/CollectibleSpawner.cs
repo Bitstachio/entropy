@@ -2,7 +2,7 @@ using Core.Providers.Bounds;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Features.Player.Collectible
+namespace Core.Collectible
 {
     public sealed class CollectibleSpawner : ITickable
     {
@@ -14,7 +14,7 @@ namespace Features.Player.Collectible
 
         private float _timer;
 
-         public CollectibleSpawner(
+        public CollectibleSpawner(
             IBoundsProvider boundsProvider,
             ICollectibleFactory factory,
             Vector3 originPosition,

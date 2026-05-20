@@ -1,6 +1,6 @@
 using Core.Interfaces;
 
-namespace Features.Player.Collectible
+namespace Core.Collectible
 {
     public interface ICollectibleFactory
     {

@@ -3465,7 +3465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432044268}
   m_Layer: 0
-  m_Name: Rock Spawn Origin
+  m_Name: Spawn Origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3826,7 +3826,7 @@ GameObject:
   - component: {fileID: 1645130365}
   - component: {fileID: 1645130366}
   m_Layer: 0
-  m_Name: Collectible Installer
+  m_Name: Shield Collectible Installer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3840,12 +3840,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645130364}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2037558911}
+  m_Father: {fileID: 1700806289}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1645130366
 MonoBehaviour:
@@ -3856,9 +3856,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1645130364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5334bce2836a49a1b76443497ad68f64, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f998c3c237a45c2b6c9791bd5a4a17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collectorTags:
+  - Player
   collectibleView: {fileID: 4726108465946991027, guid: 3063c0043098741e5b2052d641c09bcd, type: 3}
   horizontalBoundsProvider: {fileID: 152018617}
   spawnInterval: 3
@@ -4001,6 +4003,38 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!1 &1700806288
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1700806289}
+  m_Layer: 0
+  m_Name: Collectibles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1700806289
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700806288}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1645130365}
+  m_Father: {fileID: 2037558911}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1726594259
 GameObject:
   m_ObjectHideFlags: 0
@@ -4918,7 +4952,7 @@ Transform:
   - {fileID: 693882301}
   - {fileID: 1252053012}
   - {fileID: 242500669}
-  - {fileID: 1645130365}
+  - {fileID: 1700806289}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2098570712

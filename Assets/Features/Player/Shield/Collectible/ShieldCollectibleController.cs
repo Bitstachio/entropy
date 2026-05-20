@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using Core.Collectible;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
 using UnityEngine;
 
-namespace Features.Player.Collectible
+namespace Features.Player.Shield.Collectible
 {
     public sealed class ShieldCollectibleController : CollectibleController<ShieldCollectedEvent>
     {

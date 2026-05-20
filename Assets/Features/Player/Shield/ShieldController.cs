@@ -1,40 +1,67 @@
+using System;
+using Core.Events.Channels;
+using Core.Events.Interfaces;
 using UnityEngine;
 using VContainer.Unity;
 
 namespace Features.Player.Shield
 {
-    public sealed class ShieldController : IStartable, ITickable
+    public sealed class ShieldController : IStartable, IDisposable, ITickable
     {
+        private readonly IEventListener<ShieldCollectedEvent> _shieldCollectedListener;
+
         private readonly IShieldModel _model;
         private readonly IShieldView _view;
-        
+
+        private bool _isViewOn;
         private float _timer;
-        
-        public ShieldController(IShieldModel model, IShieldView view)
+
+        public ShieldController(
+            IEventListener<ShieldCollectedEvent> shieldCollectedListener,
+            IShieldModel model,
+            IShieldView view)
         {
+            _shieldCollectedListener = shieldCollectedListener;
             _model = model;
             _view = view;
         }
 
         //===== Lifecycle =====
-        
-        public void Start()
-        {
-            // TODO: Fix later; this is not actual logic
-            Debug.Log("Shield Activated");
-            _view.On();
-        }
+
+        public void Start() => _shieldCollectedListener.OnPublished += HandleShieldCollected;
+
+        public void Dispose() => _shieldCollectedListener.OnPublished -= HandleShieldCollected;
 
         public void Tick()
         {
             _timer += Time.deltaTime;
-            if (_timer < _model.Duration) return;
+            if (_timer < _model.Duration || !_isViewOn) return;
 
-            // TODO: Fix later; this is not actual logic
-            Debug.Log("Shield Deactivated");
-            _view.Off();
+            DeactivateShield();
 
             _timer = 0;
+        }
+
+        //===== Event Handlers =====
+
+        private void HandleShieldCollected(ShieldCollectedEvent @event)
+        {
+            ActivateShield();
+            _timer = 0;
+        }
+
+        //===== Utilities =====
+
+        private void ActivateShield()
+        {
+            _view.On();
+            _isViewOn = true;
+        }
+
+        private void DeactivateShield()
+        {
+            _view.Off();
+            _isViewOn = false;
         }
     }
 }

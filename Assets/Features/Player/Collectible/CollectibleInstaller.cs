@@ -1,14 +1,16 @@
+using Core.Events.Channels;
 using Core.ExtendedBehaviours;
 using Core.Providers.Bounds;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Features.Targets.Rock
+namespace Features.Player.Collectible
 {
-    public sealed class RockInstaller : Installer
+    public class CollectibleInstaller : Installer
     {
-        [SerializeField] private RockView rockView;
+        [SerializeField] private CollectibleView collectibleView;
+
         [SerializeField] private HorizontalBoundsProvider horizontalBoundsProvider;
 
         [SerializeField] private float spawnInterval = 3f;
@@ -17,10 +19,12 @@ namespace Features.Targets.Rock
 
         public override void Install(IContainerBuilder builder)
         {
-            builder.RegisterComponent(rockView).As<IRockView>();
+            builder.RegisterComponent(collectibleView).As<ICollectibleView>();
 
-            builder.Register<IRockFactory, RockFactory>(Lifetime.Singleton);
-            builder.RegisterEntryPoint<RockSpawner>()
+            // builder.RegisterEntryPoint<ShieldCollectibleController>();
+
+            builder.Register<ICollectibleFactory, CollectibleFactory<ShieldCollectedEvent>>(Lifetime.Singleton);
+            builder.RegisterEntryPoint<CollectibleSpawner>()
                 .WithParameter("interval", spawnInterval)
                 .WithParameter("originPosition", spawnOrigin.position)
                 .WithParameter("xSpeedBound", spawnXSpeedBound)

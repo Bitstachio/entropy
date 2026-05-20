@@ -875,7 +875,7 @@ GameObject:
   - component: {fileID: 438074794}
   - component: {fileID: 438074796}
   - component: {fileID: 438074797}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2518,7 +2518,7 @@ GameObject:
   - component: {fileID: 986683026}
   - component: {fileID: 986683028}
   - component: {fileID: 986683029}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2655,6 +2655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets:
   - Hazard
+  - Collectible
   magnitude: 5
 --- !u!1 &1041094265
 GameObject:
@@ -3814,6 +3815,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionContainer: {fileID: 2014382716}
   optionView: {fileID: 7087406767840942347, guid: e90589fbc1e49445981167cf48bf6ef9, type: 3}
+--- !u!1 &1645130364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1645130365}
+  - component: {fileID: 1645130366}
+  m_Layer: 0
+  m_Name: Collectible Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1645130365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645130364}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2037558911}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1645130366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645130364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5334bce2836a49a1b76443497ad68f64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectibleView: {fileID: 4726108465946991027, guid: 3063c0043098741e5b2052d641c09bcd, type: 3}
+  horizontalBoundsProvider: {fileID: 152018617}
+  spawnInterval: 3
+  spawnOrigin: {fileID: 1432044268}
+  spawnXSpeedBound: 2
 --- !u!1 &1664139021
 GameObject:
   m_ObjectHideFlags: 0
@@ -4868,6 +4918,7 @@ Transform:
   - {fileID: 693882301}
   - {fileID: 1252053012}
   - {fileID: 242500669}
+  - {fileID: 1645130365}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2098570712

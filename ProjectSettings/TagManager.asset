@@ -9,6 +9,7 @@ TagManager:
   - Hazard
   - AttackBoundary
   - Shield
+  - Collectible
   layers:
   - Default
   - TransparentFX
@@ -16,11 +17,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Hazard
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Ground
+  - Target
+  - CollectiblePhysics
+  - CollectibleTrigger
   - 
   - 
   - 

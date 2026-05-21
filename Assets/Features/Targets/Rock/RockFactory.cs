@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Core.Interfaces;
 using VContainer;
 using VContainer.Unity;
@@ -7,21 +8,23 @@ namespace Features.Targets.Rock
     public sealed class RockFactory : IRockFactory
     {
         private readonly IObjectResolver _resolver;
-        private readonly RockView _view;
+        private readonly IReadOnlyList<RockView> _views;
 
-        public RockFactory(IObjectResolver resolver, RockView view)
+        public RockFactory(IObjectResolver resolver, IReadOnlyList<RockView> views)
         {
             _resolver = resolver;
-            _view = view;
+            _views = views;
         }
 
         public ISpawnable Create()
         {
             var scope = _resolver.CreateScope(builder =>
             {
+                var rng = new System.Random();
+
                 builder.Register<IRockModel, RockModel>(Lifetime.Scoped)
                     .WithParameter("durability", 3f); // TODO: Remove hard-coded value
-                builder.RegisterComponentInNewPrefab(_view, Lifetime.Scoped)
+                builder.RegisterComponentInNewPrefab(_views[rng.Next(_views.Count)], Lifetime.Scoped)
                     .AsImplementedInterfaces();
                 builder.RegisterEntryPoint<RockController>(Lifetime.Scoped)
                     .As<ISpawnable>();

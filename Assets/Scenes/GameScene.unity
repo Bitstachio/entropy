@@ -5190,7 +5190,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0558e1674eb340bdbae932c38bb9b0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rockView: {fileID: 946647366612514617, guid: 64ca9af46b9354e5fbd5a8e1c508d4fe, type: 3}
+  rockViews:
+  - {fileID: 946647366612514617, guid: 2639e8edb37b245069cf71aac4ca0bd4, type: 3}
+  - {fileID: 946647366612514617, guid: e908a648d25e0403b8cf18c7891a923b, type: 3}
+  - {fileID: 946647366612514617, guid: 24d253726fc2545ef8ee6b5448ee111d, type: 3}
+  - {fileID: 946647366612514617, guid: c0cf80d5b8b2e48958ee34594bf2e190, type: 3}
+  - {fileID: 946647366612514617, guid: 1bb93bf2ea78049ae8af489f09e85b20, type: 3}
+  - {fileID: 946647366612514617, guid: 0cf10fb1f34ac4fe9a37647e577a947a, type: 3}
+  - {fileID: 946647366612514617, guid: f9593848c86e3440283f38a96ec9e2ef, type: 3}
+  - {fileID: 946647366612514617, guid: e06b9debeb3254cff9fe3af74b874c07, type: 3}
+  - {fileID: 946647366612514617, guid: 2202c3d5577fb4e6887220ef9d4bfff8, type: 3}
+  - {fileID: 946647366612514617, guid: ebfa527f07c8b4161aba50733eed82d8, type: 3}
+  - {fileID: 946647366612514617, guid: 8193bd7616ffd4b5d8da9c75ea7fe81e, type: 3}
+  - {fileID: 946647366612514617, guid: df93294aef5db438a85aa7d93dc449eb, type: 3}
+  - {fileID: 946647366612514617, guid: ec43d9a9e3eaf4e579a663fdddf6da63, type: 3}
+  - {fileID: 946647366612514617, guid: f548cbe6c1148464cb215f6cbe119e4f, type: 3}
+  - {fileID: 946647366612514617, guid: 9e2dd0bdf75ac490dad5a800a056a268, type: 3}
+  - {fileID: 946647366612514617, guid: f9fd3d2fe73dd4ea5bb8b39f5b788d8d, type: 3}
+  - {fileID: 946647366612514617, guid: 9a9fc9a42837a471f99b397c0419efb1, type: 3}
+  - {fileID: 946647366612514617, guid: c481ac24c1d7a4d7090a99eeada7dc93, type: 3}
   horizontalBoundsProvider: {fileID: 152018617}
   spawnInterval: 3
   spawnOrigin: {fileID: 1432044268}

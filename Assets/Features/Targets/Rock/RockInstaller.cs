@@ -11,6 +11,7 @@ namespace Features.Targets.Rock
     {
         [SerializeField] private List<RockView> rockViews;
         [SerializeField] private HorizontalBoundsProvider horizontalBoundsProvider;
+        [SerializeField] private RockDurabilityConfig durabilityConfig;
 
         [SerializeField] private float spawnInterval = 3f;
         [SerializeField] private Transform spawnOrigin;
@@ -19,7 +20,9 @@ namespace Features.Targets.Rock
         public override void Install(IContainerBuilder builder)
         {
             builder.RegisterComponent(rockViews).As<IReadOnlyList<RockView>>();
+            builder.RegisterComponent(durabilityConfig);
 
+            builder.Register<IRockDurabilityProvider, RockDurabilityProvider>(Lifetime.Singleton);
             builder.Register<IRockFactory, RockFactory>(Lifetime.Singleton);
             builder.RegisterEntryPoint<RockSpawner>()
                 .WithParameter("interval", spawnInterval)

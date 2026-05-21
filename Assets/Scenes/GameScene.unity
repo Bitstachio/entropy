@@ -5210,6 +5210,7 @@ MonoBehaviour:
   - {fileID: 946647366612514617, guid: 9a9fc9a42837a471f99b397c0419efb1, type: 3}
   - {fileID: 946647366612514617, guid: c481ac24c1d7a4d7090a99eeada7dc93, type: 3}
   horizontalBoundsProvider: {fileID: 152018617}
+  durabilityConfig: {fileID: 11400000, guid: 9aba98fd72f2b4b27b41f0dac981cdd4, type: 2}
   spawnInterval: 3
   spawnOrigin: {fileID: 1432044268}
   spawnXSpeedBound: 2

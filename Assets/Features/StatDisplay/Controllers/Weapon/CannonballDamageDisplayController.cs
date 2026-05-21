@@ -3,9 +3,9 @@ using Core.Events.Interfaces;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 
-namespace Features.StatDisplay.Controllers
+namespace Features.StatDisplay.Controllers.Weapon
 {
-    public class CannonballDamageDisplayController : StatDisplayController<CannonballStats>
+    public sealed class CannonballDamageDisplayController : StatDisplayController<CannonballStats>
     {
         public CannonballDamageDisplayController(
             IEventListener<StatRegistryUpdatedEvent<CannonballStats>> listener,

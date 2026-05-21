@@ -3,19 +3,19 @@ using Core.Events.Interfaces;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 
-namespace Features.StatDisplay.Controllers
+namespace Features.StatDisplay.Controllers.Shield
 {
-    public sealed class ShieldDurationDisplayController : StatDisplayController<ShieldStats>
+    public sealed class ShieldDropChanceDisplayController : StatDisplayController<ShieldStats>
     {
-        public ShieldDurationDisplayController(
+        public ShieldDropChanceDisplayController(
             IEventListener<StatRegistryUpdatedEvent<ShieldStats>> listener,
             IStatDisplayView view,
             StatRegistry<ShieldStats> statRegistry)
-            : base(listener, view, statRegistry, ShieldStats.Duration)
+            : base(listener, view, statRegistry, ShieldStats.DropChance)
         {
         }
 
         protected override string FormatStat(StatRegistryUpdatedEvent<ShieldStats> @event) =>
-            $"{@event.NewValue:F2} s";
+            $"{@event.NewValue:F2}%";
     }
 }

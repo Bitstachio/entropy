@@ -3,19 +3,19 @@ using Core.Events.Interfaces;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 
-namespace Features.StatDisplay.Controllers
+namespace Features.StatDisplay.Controllers.Weapon
 {
-    public class CannonFireRateDisplayController : StatDisplayController<CannonStats>
+    public sealed class CannonProjectileSpeedDisplayController : StatDisplayController<CannonStats>
     {
-        public CannonFireRateDisplayController(
+        public CannonProjectileSpeedDisplayController(
             IEventListener<StatRegistryUpdatedEvent<CannonStats>> listener,
             IStatDisplayView view,
             StatRegistry<CannonStats> statRegistry)
-            : base(listener, view, statRegistry, CannonStats.Interval)
+            : base(listener, view, statRegistry, CannonStats.ProjectileSpeed)
         {
         }
 
         protected override string FormatStat(StatRegistryUpdatedEvent<CannonStats> @event) =>
-            $"{1 / @event.NewValue:F2} Hz";
+            $"{@event.NewValue:F2} m/s";
     }
 }

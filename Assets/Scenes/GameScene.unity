@@ -574,7 +574,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 595, y: -400}
+  m_AnchoredPosition: {x: 600, y: -390}
   m_SizeDelta: {x: 50, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &273465741
@@ -600,14 +600,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273465741}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 255134747}
   - {fileID: 2134638367}
-  m_Father: {fileID: 1532252382}
+  - {fileID: 255134747}
+  m_Father: {fileID: 697673760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -951,7 +951,7 @@ GameObject:
   - component: {fileID: 347058194}
   - component: {fileID: 347058193}
   m_Layer: 5
-  m_Name: Middle
+  m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1729,7 +1729,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 536768857}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1737,7 +1737,7 @@ RectTransform:
   - {fileID: 637647079}
   - {fileID: 1880697845}
   - {fileID: 863386545}
-  m_Father: {fileID: 1532252382}
+  m_Father: {fileID: 697673760}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2293,6 +2293,8 @@ RectTransform:
   m_Children:
   - {fileID: 1168694582}
   - {fileID: 57861688}
+  - {fileID: 536768858}
+  - {fileID: 273465742}
   m_Father: {fileID: 1532252382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4510,8 +4512,6 @@ RectTransform:
   m_Children:
   - {fileID: 697673760}
   - {fileID: 1576094113}
-  - {fileID: 536768858}
-  - {fileID: 273465742}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5762,7 +5762,7 @@ GameObject:
   - component: {fileID: 2081146427}
   - component: {fileID: 2081146426}
   m_Layer: 5
-  m_Name: Inner
+  m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5969,7 +5969,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10 s
+  m_text: 5.00 s
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e4bdf2fa3099a4332853dd182e7f5265, type: 2}
   m_sharedMaterial: {fileID: -9093366290316639939, guid: e4bdf2fa3099a4332853dd182e7f5265, type: 2}

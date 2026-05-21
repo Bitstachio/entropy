@@ -1,5 +1,7 @@
 using Core.ExtendedBehaviours;
 using Features.StatDisplay.Controllers;
+using Features.StatDisplay.Controllers.Shield;
+using Features.StatDisplay.Controllers.Weapon;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;

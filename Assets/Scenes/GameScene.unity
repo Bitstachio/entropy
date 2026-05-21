@@ -4656,7 +4656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectorTags:
   - Player
-  collectibleView: {fileID: 4726108465946991027, guid: 3063c0043098741e5b2052d641c09bcd, type: 3}
+  collectibleView: {fileID: 8965084310148764782, guid: 590a25805deae4bb89fcca3f854f5542, type: 3}
   horizontalBoundsProvider: {fileID: 152018617}
   spawnInterval: 3
   spawnOrigin: {fileID: 1432044268}

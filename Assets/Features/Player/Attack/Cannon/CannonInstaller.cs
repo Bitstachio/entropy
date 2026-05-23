@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Core.ExtendedBehaviours;
+using Core.Foundations.Components;
 using Core.Interfaces;
 using Core.Providers.Position;
 using Core.StatRegistry;

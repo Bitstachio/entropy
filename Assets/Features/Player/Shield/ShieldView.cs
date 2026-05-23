@@ -1,4 +1,4 @@
-using Core.ExtendedBehaviours;
+using Core.Foundations.Components;
 
 namespace Features.Player.Shield
 {

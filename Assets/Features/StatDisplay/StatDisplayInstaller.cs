@@ -1,4 +1,4 @@
-using Core.ExtendedBehaviours;
+using Core.Foundations.Components;
 using Features.StatDisplay.Controllers;
 using Features.StatDisplay.Controllers.Shield;
 using Features.StatDisplay.Controllers.Weapon;

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Core.ExtendedBehaviours;
+using Core.Foundations.Components;
 using UnityEngine;
 
 namespace Features.Player.Upgrade

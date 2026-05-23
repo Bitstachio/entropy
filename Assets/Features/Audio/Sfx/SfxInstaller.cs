@@ -1,4 +1,4 @@
-using Core.ExtendedBehaviours;
+using Core.Foundations.Components;
 using Features.Audio.Sfx.Controllers;
 using UnityEngine;
 using VContainer;

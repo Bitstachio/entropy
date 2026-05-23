@@ -1,7 +1,7 @@
 using UnityEngine;
 using VContainer;
 
-namespace Core.ExtendedBehaviours
+namespace Core.Foundations.Components
 {
     public abstract class Installer : MonoBehaviour
     {

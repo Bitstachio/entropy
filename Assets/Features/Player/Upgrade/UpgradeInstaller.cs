@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Core.ExtendedBehaviours;
+using Core.Foundations.Components;
 using Features.Player.Upgrade.Strategies;
 using UnityEngine;
 using VContainer;

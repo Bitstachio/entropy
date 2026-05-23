@@ -1,7 +1,7 @@
 using Core.Interfaces;
 using UnityEngine;
 
-namespace Core.ExtendedBehaviours
+namespace Core.Foundations.Components
 {
     public abstract class ToggleableView : MonoBehaviour, IToggleable
     {

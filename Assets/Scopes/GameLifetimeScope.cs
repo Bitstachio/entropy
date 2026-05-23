@@ -1,6 +1,6 @@
 using System.Linq;
 using Core.Events.Base;
-using Core.ExtendedBehaviours;
+using Core.Foundations.Components;
 using Core.Services.TimeScale;
 using VContainer;
 using VContainer.Unity;

@@ -1,4 +1,4 @@
-using Core.ExtendedBehaviours;
+using Core.Foundations.Components;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 using UnityEngine;

@@ -3,7 +3,7 @@ using Core.Interfaces;
 using Core.Physics;
 using UnityEngine;
 
-namespace Core.ExtendedBehaviours
+namespace Core.Foundations.Components
 {
     public class TriggerableView : MonoBehaviour, ITriggerable
     {

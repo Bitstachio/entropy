@@ -2,6 +2,8 @@ using System.Linq;
 using Core.Events.Base;
 using Core.Foundations.Components;
 using Core.Services.TimeScale;
+using Core.StatRegistry;
+using Core.StatRegistry.StatKeys;
 using VContainer;
 using VContainer.Unity;
 
@@ -23,6 +25,13 @@ namespace Scopes
 
             builder.Register(typeof(EventChannel<>), Lifetime.Singleton)
                 .AsImplementedInterfaces();
+            
+            //----- Stat Registries -----
+            
+            builder.Register<StatRegistry<CannonStats>>(Lifetime.Singleton);
+            builder.Register<StatRegistry<CannonballStats>>(Lifetime.Singleton);
+            builder.Register<StatRegistry<MovementStats>>(Lifetime.Singleton);
+            builder.Register<StatRegistry<ShieldStats>>(Lifetime.Singleton);
         }
     }
 }

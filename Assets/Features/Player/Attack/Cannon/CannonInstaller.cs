@@ -28,8 +28,6 @@ namespace Features.Player.Attack.Cannon
         
         public override void Install(IContainerBuilder builder)
         {
-            builder.Register<StatRegistry<CannonStats>>(Lifetime.Singleton);
-            builder.Register<StatRegistry<CannonballStats>>(Lifetime.Singleton);
             builder.RegisterBuildCallback(container =>
             {
                 var cannonStats = container.Resolve<StatRegistry<CannonStats>>();

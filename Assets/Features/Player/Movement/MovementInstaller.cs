@@ -17,7 +17,6 @@ namespace Features.Player.Movement
         
         public override void Install(IContainerBuilder builder)
         {
-            builder.Register<StatRegistry<MovementStats>>(Lifetime.Singleton);
             builder.RegisterBuildCallback(container =>
             {
                 var movementStats = container.Resolve<StatRegistry<MovementStats>>();

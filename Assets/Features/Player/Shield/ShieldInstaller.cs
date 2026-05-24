@@ -17,7 +17,6 @@ namespace Features.Player.Shield
         
         public override void Install(IContainerBuilder builder)
         {
-            builder.Register<StatRegistry<ShieldStats>>(Lifetime.Singleton);
             builder.RegisterBuildCallback(container =>
             {
                 var shieldStats = container.Resolve<StatRegistry<ShieldStats>>();

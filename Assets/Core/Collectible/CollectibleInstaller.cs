@@ -13,12 +13,14 @@ namespace Core.Collectible
         [SerializeField] [Tag] private string[] collectorTags;
         [SerializeField] private CollectibleView collectibleView;
 
+        [SerializeField] protected CollectibleSpawnConfig spawnConfig;
         [SerializeField] private HorizontalBoundsProvider horizontalBoundsProvider;
-        [SerializeField] private CollectibleSpawnConfig spawnConfig;
         [SerializeField] private Transform spawnOrigin;
 
         public override void Install(IContainerBuilder builder)
         {
+            RegisterStats(builder);
+            
             builder.RegisterComponent(collectibleView).As<ICollectibleView>();
 
             RegisterFactory(builder, new HashSet<string>(collectorTags));
@@ -28,6 +30,12 @@ namespace Core.Collectible
                 .WithParameter(spawnOrigin.position);
         }
 
+        //===== Utilities =====
+
         protected abstract void RegisterFactory(IContainerBuilder builder, ISet<string> collectorTags);
+
+        protected virtual void RegisterStats(IContainerBuilder builder)
+        {
+        }
     }
 }

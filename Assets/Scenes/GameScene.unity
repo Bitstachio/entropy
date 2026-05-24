@@ -2874,6 +2874,8 @@ MonoBehaviour:
   cannonballDamageUpgrade: {fileID: 11400000, guid: 7110142cc6963406091f5c07b935bf58, type: 2}
   cannonFireRateUpgrade: {fileID: 11400000, guid: 0191d79a3b35c4e4f9cd88103eca4e48, type: 2}
   cannonProjectileSpeedUpgrade: {fileID: 11400000, guid: f8e77d02fce2149fa8535a2c91b7ff1e, type: 2}
+  shieldDurationUpgrade: {fileID: 11400000, guid: 71fdcfa368d2d4db48dce671e2dbf7e8, type: 2}
+  shieldDropChanceUpgrade: {fileID: 11400000, guid: 172b4e606316b432fab29451bd80be71, type: 2}
   upgradeView: {fileID: 1576094118}
 --- !u!1 &964021276
 GameObject:

@@ -14,6 +14,8 @@ namespace Features.Player.Upgrade
         [SerializeField] private UpgradeDefinition cannonballDamageUpgrade;
         [SerializeField] private UpgradeDefinition cannonFireRateUpgrade;
         [SerializeField] private UpgradeDefinition cannonProjectileSpeedUpgrade;
+        [SerializeField] private UpgradeDefinition shieldDurationUpgrade;
+        [SerializeField] private UpgradeDefinition shieldDropChanceUpgrade;
 
         [Header("Views")]
         [SerializeField] private UpgradeView upgradeView;
@@ -28,11 +30,17 @@ namespace Features.Player.Upgrade
                 .WithParameter(cannonFireRateUpgrade);
             builder.Register<CannonProjectileSpeedUpgrade>(Lifetime.Singleton)
                 .WithParameter(cannonProjectileSpeedUpgrade);
+            builder.Register<ShieldDurationUpgrade>(Lifetime.Singleton)
+                .WithParameter(shieldDurationUpgrade);
+            builder.Register<ShieldDropChanceUpgrade>(Lifetime.Singleton)
+                .WithParameter(shieldDropChanceUpgrade);
             builder.Register<IList<IUpgrade>>(container => new List<IUpgrade>
             {
                 container.Resolve<CannonballDamageUpgrade>(),
                 container.Resolve<CannonFireRateUpgrade>(),
                 container.Resolve<CannonProjectileSpeedUpgrade>(),
+                container.Resolve<ShieldDurationUpgrade>(),
+                container.Resolve<ShieldDropChanceUpgrade>(),
             }, Lifetime.Singleton);
             builder.Register<IUpgradeRegistry, UpgradeRegistry>(Lifetime.Singleton);
 

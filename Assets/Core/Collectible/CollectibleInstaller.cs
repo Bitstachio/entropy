@@ -11,14 +11,11 @@ namespace Core.Collectible
     public abstract class CollectibleInstaller : Installer
     {
         [SerializeField] [Tag] private string[] collectorTags;
-
         [SerializeField] private CollectibleView collectibleView;
 
         [SerializeField] private HorizontalBoundsProvider horizontalBoundsProvider;
-
-        [SerializeField] private float spawnInterval = 3f;
+        [SerializeField] private CollectibleSpawnConfig spawnConfig;
         [SerializeField] private Transform spawnOrigin;
-        [SerializeField] private float spawnXSpeedBound = 2f;
 
         public override void Install(IContainerBuilder builder)
         {
@@ -26,10 +23,9 @@ namespace Core.Collectible
 
             RegisterFactory(builder, new HashSet<string>(collectorTags));
             builder.RegisterEntryPoint<CollectibleSpawner>()
-                .WithParameter("interval", spawnInterval)
-                .WithParameter("originPosition", spawnOrigin.position)
-                .WithParameter("xSpeedBound", spawnXSpeedBound)
-                .WithParameter<IBoundsProvider>(horizontalBoundsProvider);
+                .WithParameter<IBoundsProvider>(horizontalBoundsProvider)
+                .WithParameter(spawnConfig)
+                .WithParameter(spawnOrigin.position);
         }
 
         protected abstract void RegisterFactory(IContainerBuilder builder, ISet<string> collectorTags);

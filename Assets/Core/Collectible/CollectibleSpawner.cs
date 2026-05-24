@@ -7,23 +7,22 @@ namespace Core.Collectible
 {
     public sealed class CollectibleSpawner : StochasticTickable
     {
+        private readonly ICollectibleFactory _factory;
         private readonly IBoundsProvider _boundsProvider;
-        private readonly ICollectibleFactory _factory; // TODO: Change to IFactory
-        private readonly Vector3 _originPosition;
-        private readonly float _xSpeedBound;
+        private readonly CollectibleSpawnConfig _spawnConfig;
+        private readonly Vector3 _origin;
 
         public CollectibleSpawner(
-            IBoundsProvider boundsProvider,
             ICollectibleFactory factory,
-            Vector3 originPosition,
-            float interval,
-            float xSpeedBound)
-            : base(new Random(), 0.1f, interval) // TODO: Remove hard-coded interval
+            IBoundsProvider boundsProvider,
+            CollectibleSpawnConfig spawnConfig,
+            Vector3 origin)
+            : base(new Random(), spawnConfig.Probability, spawnConfig.Interval)
         {
             _boundsProvider = boundsProvider;
             _factory = factory;
-            _originPosition = originPosition;
-            _xSpeedBound = xSpeedBound;
+            _spawnConfig = spawnConfig;
+            _origin = origin;
         }
 
         //===== Utilities =====
@@ -31,8 +30,8 @@ namespace Core.Collectible
         protected override void Execute()
         {
             var x = UnityEngine.Random.Range(_boundsProvider.Min, _boundsProvider.Max);
-            var position = new Vector2(x, _originPosition.y);
-            var horizontalSpeed = UnityEngine.Random.Range(-_xSpeedBound, _xSpeedBound);
+            var position = new Vector2(x, _origin.y);
+            var horizontalSpeed = UnityEngine.Random.Range(-_spawnConfig.XSpeedBound, _spawnConfig.XSpeedBound);
 
             var spawnable = _factory.Create();
             spawnable.SetPosition(position);

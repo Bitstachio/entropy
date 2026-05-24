@@ -4658,9 +4658,8 @@ MonoBehaviour:
   - Player
   collectibleView: {fileID: 8965084310148764782, guid: 590a25805deae4bb89fcca3f854f5542, type: 3}
   horizontalBoundsProvider: {fileID: 152018617}
-  spawnInterval: 3
+  spawnConfig: {fileID: 11400000, guid: e2514d9722e8d4205b13f5a06098a90e, type: 2}
   spawnOrigin: {fileID: 1432044268}
-  spawnXSpeedBound: 2
 --- !u!1 &1664139021
 GameObject:
   m_ObjectHideFlags: 0

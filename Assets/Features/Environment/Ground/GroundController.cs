@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Features.KinematicImpulse
+namespace Features.Environment.Ground
 {
-    public sealed class KinematicImpulseController : IStartable, IDisposable
+    public sealed class GroundController : IStartable, IDisposable
     {
-        private readonly IKinematicImpulseModel _model;
-        private readonly IKinematicImpulseView _view;
+        private readonly IGroundModel _model;
+        private readonly IGroundView _view;
 
         private readonly ISet<string> _targets;
 
-        public KinematicImpulseController(
-            IKinematicImpulseModel model,
-            IKinematicImpulseView view,
+        public GroundController(
+            IGroundModel model,
+            IGroundView view,
             ISet<string> targets)
         {
             _model = model;
@@ -40,7 +40,7 @@ namespace Features.KinematicImpulse
         private void ApplyKineticImpulse(Rigidbody2D rb)
         {
             var gravity = Mathf.Abs(Physics2D.gravity.y * rb.gravityScale);
-            var requiredVelocity = Mathf.Sqrt(2 * gravity * _model.Magnitude);
+            var requiredVelocity = Mathf.Sqrt(2 * gravity * _model.ImpulseMagnitude);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, requiredVelocity);
         }
     }

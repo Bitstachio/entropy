@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace Features.KinematicImpulse
+namespace Features.Environment.Ground
 {
-    public sealed class KinematicImpulseView : MonoBehaviour, IKinematicImpulseView
+    public sealed class GroundView : MonoBehaviour, IGroundView
     {
         public event Action<Collision2D> OnCollided;
         

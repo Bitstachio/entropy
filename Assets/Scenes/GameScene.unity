@@ -5875,7 +5875,7 @@ GameObject:
   - component: {fileID: 2079432027}
   - component: {fileID: 2079432028}
   m_Layer: 0
-  m_Name: Kinematic Impulse Installer
+  m_Name: Ground Installer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5911,7 +5911,7 @@ MonoBehaviour:
   targets:
   - Hazard
   - Collectible
-  kinematicImpulseView: {fileID: 986683030}
+  groundView: {fileID: 986683030}
   baselineMagnitude: 5
 --- !u!1 &2081146424
 GameObject:

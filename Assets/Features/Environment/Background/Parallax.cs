@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.Environment
+namespace Features.Environment.Background
 {
     public sealed class Parallax : MonoBehaviour
     {

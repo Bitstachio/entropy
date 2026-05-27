@@ -3276,6 +3276,7 @@ MonoBehaviour:
   baselineInterval: 3
   baselineSpeed: 5
   baselineDamage: 1
+  cannonShotClip: {fileID: 8300000, guid: eff419bd608bb4755a18c2b88f7eb259, type: 3}
 --- !u!1 &1060540048
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using Core.Providers.Position;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 using Core.Tag;
+using Features.Player.Attack.Cannon.Sfx;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -25,6 +26,9 @@ namespace Features.Player.Attack.Cannon
         [SerializeField] private float baselineInterval;
         [SerializeField] private float baselineSpeed;
         [SerializeField] private float baselineDamage;
+
+        [Header("Audio Clips")]
+        [SerializeField] private AudioClip cannonShotClip;
         
         public override void Install(IContainerBuilder builder)
         {
@@ -44,6 +48,9 @@ namespace Features.Player.Attack.Cannon
             builder.Register<IFactory, CannonballFactory>(Lifetime.Singleton)
                 .WithParameter<ISet<string>>(new HashSet<string>(destroyTags));
             builder.RegisterEntryPoint<Cannon>();
+            
+            builder.RegisterEntryPoint<CannonShotSfxController>()
+                .WithParameter(cannonShotClip);
         }
     }
 }

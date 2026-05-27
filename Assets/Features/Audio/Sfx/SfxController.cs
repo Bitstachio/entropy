@@ -3,7 +3,7 @@ using Core.Events.Interfaces;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Features.Audio.Sfx.Controllers
+namespace Features.Audio.Sfx
 {
     public abstract class SfxController<T> : IStartable, IDisposable
     {

@@ -1986,7 +1986,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &625398852
 Transform:
   m_ObjectHideFlags: 0
@@ -2242,7 +2242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &693882301
 Transform:
   m_ObjectHideFlags: 0
@@ -2877,6 +2877,7 @@ MonoBehaviour:
   shieldDurationUpgrade: {fileID: 11400000, guid: 71fdcfa368d2d4db48dce671e2dbf7e8, type: 2}
   shieldDropChanceUpgrade: {fileID: 11400000, guid: 172b4e606316b432fab29451bd80be71, type: 2}
   upgradeView: {fileID: 1576094118}
+  upgradePanelOpenedClip: {fileID: 8300000, guid: fbbe41d17d6ef4bf0a225b811480f99e, type: 3}
 --- !u!1 &964021276
 GameObject:
   m_ObjectHideFlags: 0

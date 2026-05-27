@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Core.Foundations.Components;
+using Features.Player.Upgrade.Sfx;
 using Features.Player.Upgrade.Strategies;
 using UnityEngine;
 using VContainer;
@@ -19,6 +20,9 @@ namespace Features.Player.Upgrade
 
         [Header("Views")]
         [SerializeField] private UpgradeView upgradeView;
+        
+        [Header("Audio Clips")]
+        [SerializeField] private AudioClip upgradePanelOpenedClip;
 
         public override void Install(IContainerBuilder builder)
         {
@@ -46,6 +50,9 @@ namespace Features.Player.Upgrade
 
             builder.RegisterComponent(upgradeView).As<IUpgradeView>();
             builder.RegisterEntryPoint<UpgradeController>();
+            
+            builder.RegisterEntryPoint<UpgradePanelOpenedSfxController>()
+                .WithParameter(upgradePanelOpenedClip);
         }
     }
 }

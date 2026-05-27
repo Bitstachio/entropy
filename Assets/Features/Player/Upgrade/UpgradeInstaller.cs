@@ -23,6 +23,7 @@ namespace Features.Player.Upgrade
         
         [Header("Audio Clips")]
         [SerializeField] private AudioClip upgradePanelOpenedClip;
+        [SerializeField] private AudioClip upgradePanelClosedClip;
 
         public override void Install(IContainerBuilder builder)
         {
@@ -50,9 +51,11 @@ namespace Features.Player.Upgrade
 
             builder.RegisterComponent(upgradeView).As<IUpgradeView>();
             builder.RegisterEntryPoint<UpgradeController>();
-            
+
             builder.RegisterEntryPoint<UpgradePanelOpenedSfxController>()
                 .WithParameter(upgradePanelOpenedClip);
+            builder.RegisterEntryPoint<UpgradePanelClosedSfxController>()
+                .WithParameter(upgradePanelClosedClip);
         }
     }
 }

@@ -28,6 +28,8 @@ namespace Core.Collectible
                 .WithParameter<IBoundsProvider>(horizontalBoundsProvider)
                 .WithParameter(spawnConfig)
                 .WithParameter(spawnOrigin.position);
+            
+            RegisterSfx(builder);
         }
 
         //===== Utilities =====
@@ -35,6 +37,10 @@ namespace Core.Collectible
         protected abstract void RegisterFactory(IContainerBuilder builder, ISet<string> collectorTags);
 
         protected virtual void RegisterStats(IContainerBuilder builder)
+        {
+        }
+
+        protected virtual void RegisterSfx(IContainerBuilder builder)
         {
         }
     }

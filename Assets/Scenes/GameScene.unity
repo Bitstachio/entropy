@@ -5913,6 +5913,7 @@ MonoBehaviour:
   - Collectible
   groundView: {fileID: 986683030}
   baselineMagnitude: 5
+  hitGroundClip: {fileID: 8300000, guid: 93ac4a5b35f2841cab94e53278f7d8e2, type: 3}
 --- !u!1 &2081146424
 GameObject:
   m_ObjectHideFlags: 0

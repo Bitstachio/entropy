@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Core.Foundations.Components;
 using Core.Tag;
+using Features.Environment.Ground.Sfx;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -17,6 +18,9 @@ namespace Features.Environment.Ground
         
         [Header("Stats")]
         [SerializeField] private float baselineMagnitude = 5f;
+
+        [Header("Audio Clips")]
+        [SerializeField] private AudioClip hitGroundClip;
         
         public override void Install(IContainerBuilder builder)
         {
@@ -25,6 +29,9 @@ namespace Features.Environment.Ground
             builder.RegisterComponent(groundView).As<IGroundView>();
             builder.RegisterEntryPoint<GroundController>()
                 .WithParameter<ISet<string>>(new HashSet<string>(targets));
+            
+            builder.RegisterEntryPoint<GroundHitSfxController>()
+                .WithParameter(hitGroundClip);
         }
     }
 }

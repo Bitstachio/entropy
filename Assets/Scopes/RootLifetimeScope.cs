@@ -1,5 +1,4 @@
 using Core.Session;
-using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
@@ -9,8 +8,6 @@ namespace Scopes
     {
         protected override void Configure(IContainerBuilder builder)
         {
-            Debug.Log("RootLifetimeScope Configured");
-            
             //----- Sessions -----
 
             builder.Register<GameSessionData>(Lifetime.Singleton);

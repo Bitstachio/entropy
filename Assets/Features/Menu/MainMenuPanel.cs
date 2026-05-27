@@ -5,7 +5,7 @@ using Core.Constants;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Features.Panel
+namespace Features.Menu
 {
     public sealed class MainMenuPanel : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.Audio.Sfx
+namespace Core.Audio.Sfx
 {
     public interface ISfxPlayer
     {

@@ -4,7 +4,7 @@ using Core.Events.Interfaces;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Features.Audio.Music
+namespace Core.Audio.Music
 {
     public sealed class GameMusicController : IStartable, IDisposable
     {

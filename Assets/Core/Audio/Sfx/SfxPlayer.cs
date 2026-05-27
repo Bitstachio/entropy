@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.Audio.Sfx
+namespace Core.Audio.Sfx
 {
     [RequireComponent(typeof(AudioSource))]
     public sealed class SfxPlayer : MonoBehaviour, ISfxPlayer

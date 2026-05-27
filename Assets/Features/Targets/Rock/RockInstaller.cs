@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Core.Foundations.Components;
 using Core.Providers.Bounds;
+using Features.Audio.Sfx.Controllers;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -16,6 +17,9 @@ namespace Features.Targets.Rock
         [SerializeField] private float spawnInterval = 3f;
         [SerializeField] private Transform spawnOrigin;
         [SerializeField] private float spawnXSpeedBound = 2f;
+        
+        [Header("Audio Clips")]
+        [SerializeField] private AudioClip rockDestroyedClip;
 
         public override void Install(IContainerBuilder builder)
         {
@@ -29,6 +33,9 @@ namespace Features.Targets.Rock
                 .WithParameter("originPosition", spawnOrigin.position)
                 .WithParameter("xSpeedBound", spawnXSpeedBound)
                 .WithParameter<IBoundsProvider>(horizontalBoundsProvider);
+            
+            builder.RegisterEntryPoint<RockDestroyedSfxController>()
+                .WithParameter(rockDestroyedClip);
         }
     }
 }

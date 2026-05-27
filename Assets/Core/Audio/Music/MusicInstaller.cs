@@ -3,7 +3,7 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Features.Audio.Music
+namespace Core.Audio.Music
 {
     public sealed class MusicInstaller : Installer
     {

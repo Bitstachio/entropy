@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.Audio.Music
+namespace Core.Audio.Music
 {
     [RequireComponent(typeof(AudioSource))]
     public sealed class MusicPlayer : MonoBehaviour, IMusicPlayer

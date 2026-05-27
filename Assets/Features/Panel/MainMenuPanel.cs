@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using Core.Audio.Sfx;
 using Core.Constants;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -19,6 +21,10 @@ namespace Features.Panel
         [SerializeField] private GameObject creditsPage;
         [SerializeField] private GameObject backButton;
 
+        // I don't want to deal with event-driven architecture for simple UI scripts (for now)
+        [SerializeField] private SfxPlayer sfxPlayer;
+        [SerializeField] private AudioClip clickClip;
+        
         private Dictionary<Page, GameObject> _pageMap;
 
         //===== Lifecycle =====
@@ -35,7 +41,11 @@ namespace Features.Panel
 
         //===== Event Handlers =====
 
-        public void LoadGameScene() => SceneManager.LoadScene(Scenes.Game);
+        public void LoadGameScene()
+        {
+            sfxPlayer.Play(clickClip, 1f);
+            StartCoroutine(ExecuteAfterDelayCoroutine(0.2f));
+        }
 
         public void ShowMainPage() => ShowPage(Page.Main);
 
@@ -47,9 +57,17 @@ namespace Features.Panel
 
         private void ShowPage(Page page)
         {
+            sfxPlayer.Play(clickClip, 1f);
             backButton.SetActive(page != Page.Main);
             foreach (var (key, value) in _pageMap)
                 value.SetActive(key == page);
+        }
+        
+        // A little bit of delay for click sound to finish before loading the game scene
+        private static IEnumerator ExecuteAfterDelayCoroutine(float delayInSeconds)
+        {
+            yield return new WaitForSeconds(delayInSeconds);
+            SceneManager.LoadScene(Scenes.Game);
         }
     }
 }

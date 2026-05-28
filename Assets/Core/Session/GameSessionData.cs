@@ -6,12 +6,7 @@ namespace Core.Session
         // public int High { get; }
         // TODO: Replace with actual property
         public int Score => 2;
-        public int High => 4;
-        
-        public GameSessionData(int score, int high)
-        {
-            // Score = score;
-            // High = high;
-        }
+        public int HighScore => 4;
+        public bool IsNewHighScore => false;
     }
 }

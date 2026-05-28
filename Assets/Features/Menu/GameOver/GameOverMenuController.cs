@@ -29,6 +29,11 @@ namespace Features.Menu.GameOver
         {
             _view.OnRetrySelected += HandleRetrySelected;
             _view.OnHomeSelected += HandleHomeSelected;
+
+            // TODO: Consider decoupling presentation logic from controller
+            _view.SetScore($"{_model.Score} Pts");
+            _view.SetHighScore($"{_model.HighScore} Pts");
+            _view.SetDatabaseStatus(_model.IsNewHighScore ? "[NEW BEST RECORD ESTABLISHED]" : "[NO CHANGE]");
         }
 
         public void Dispose()

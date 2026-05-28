@@ -6,5 +6,9 @@ namespace Features.Menu.GameOver
     {
         event Action OnRetrySelected;
         event Action OnHomeSelected;
+
+        void SetScore(string value);
+        void SetHighScore(string value);
+        void SetDatabaseStatus(string status);
     }
 }

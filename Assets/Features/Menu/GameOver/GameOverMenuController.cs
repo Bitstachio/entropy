@@ -1,19 +1,24 @@
 using System;
-using System.Threading.Tasks;
 using Core.Constants;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+using Core.Events.Channels;
+using Core.Events.Interfaces;
 using VContainer.Unity;
 
 namespace Features.Menu.GameOver
 {
     public sealed class GameOverMenuController : IStartable, IDisposable
     {
+        private readonly IEventPublisher<MenuOptionSelected> _menuOptionSelectedPublisher;
+
         private readonly IGameOverMenuModel _model;
         private readonly IGameOverMenuView _view;
-        
-        public GameOverMenuController(IGameOverMenuModel model, IGameOverMenuView view)
+
+        public GameOverMenuController(
+            IEventPublisher<MenuOptionSelected> menuOptionSelectedPublisher,
+            IGameOverMenuModel model,
+            IGameOverMenuView view)
         {
+            _menuOptionSelectedPublisher = menuOptionSelectedPublisher;
             _model = model;
             _view = view;
         }
@@ -34,23 +39,10 @@ namespace Features.Menu.GameOver
 
         //===== Event Handlers =====
 
-        private void HandleRetrySelected() => LoadScene(Scenes.Game);
+        private void HandleRetrySelected() =>
+            MenuUtils.SelectScene(Scenes.Game, _menuOptionSelectedPublisher, _model.SceneLoadDelay);
 
-        private void HandleHomeSelected() => LoadScene(Scenes.Main);
-
-        //===== Utilities =====
-
-        private async void LoadScene(string scene)
-        {
-            try
-            {
-                await Task.Delay(_model.SceneLoadDelay);
-                SceneManager.LoadScene(scene);
-            }
-            catch (Exception e)
-            {
-                Debug.LogError($"Failed to load scene '{scene}': {e.Message}");
-            }
-        }
+        private void HandleHomeSelected() =>
+            MenuUtils.SelectScene(Scenes.Main, _menuOptionSelectedPublisher, _model.SceneLoadDelay);
     }
 }

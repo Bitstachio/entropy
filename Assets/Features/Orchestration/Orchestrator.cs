@@ -11,18 +11,19 @@ namespace Features.Orchestration
 {
     public sealed class Orchestrator : IStartable, IDisposable
     {
-        private readonly int _gameOverDelay;
-
         private readonly IEventPublisher<GameOverEvent> _gameOverPublisher;
         private readonly IEventListener<RockHitObjectEvent> _rockHitObjectListener;
 
-        public Orchestrator(int gameOverDelay,
+        private readonly int _gameOverDelay;
+
+        public Orchestrator(
             IEventPublisher<GameOverEvent> gameOverPublisher,
-            IEventListener<RockHitObjectEvent> rockHitObjectListener)
+            IEventListener<RockHitObjectEvent> rockHitObjectListener,
+            int gameOverDelay)
         {
-            _gameOverDelay = gameOverDelay;
             _gameOverPublisher = gameOverPublisher;
             _rockHitObjectListener = rockHitObjectListener;
+            _gameOverDelay = gameOverDelay;
         }
 
         //===== Lifecycle =====

@@ -1216,8 +1216,6 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  sfxInstaller: {fileID: 227328180}
-  menuInstaller: {fileID: 741459670}
 --- !u!4 &449214509
 Transform:
   m_ObjectHideFlags: 0
@@ -1879,7 +1877,7 @@ GameObject:
   - component: {fileID: 628499386}
   - component: {fileID: 628499385}
   m_Layer: 5
-  m_Name: Value
+  m_Name: Score Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2290,7 +2288,7 @@ GameObject:
   - component: {fileID: 712908095}
   - component: {fileID: 712908094}
   m_Layer: 5
-  m_Name: Value
+  m_Name: Database Status
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2813,6 +2811,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceadbe1a32de4341ad85a72d01efaabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreDisplay: {fileID: 628499385}
+  highScoreDisplay: {fileID: 2122280120}
+  databaseStatusDisplay: {fileID: 712908094}
   retryButton: {fileID: 1971535594}
   homeButton: {fileID: 254709165}
 --- !u!1 &1045660027
@@ -3862,7 +3863,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1853296670}
   m_Layer: 5
-  m_Name: Hull Plating Status Container
+  m_Name: Database Status Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4811,7 +4812,7 @@ GameObject:
   - component: {fileID: 2122280121}
   - component: {fileID: 2122280120}
   m_Layer: 5
-  m_Name: Value
+  m_Name: High Score Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

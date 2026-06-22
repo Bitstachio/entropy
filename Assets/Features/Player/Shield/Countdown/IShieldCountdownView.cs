@@ -4,6 +4,6 @@ namespace Features.Player.Shield.Countdown
 {
     public interface IShieldCountdownView : IToggleable
     {
-        void SetRemainingTime(float time);
+        void SetValue(float value);
     }
 }

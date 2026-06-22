@@ -16,6 +16,9 @@ namespace Features.Player.Shield.Countdown
 
         private readonly StatRegistry<ShieldStats> _stats;
 
+        // Duration value set when running the countdown; used for calculating the ratio for progress bar
+        private float _duration;
+
         public ShieldCountdownController(
             IEventListener<ShieldCollectedEvent> shieldCollectedListener,
             IShieldCountdownView view,
@@ -37,14 +40,15 @@ namespace Features.Player.Shield.Countdown
         private void HandleShieldCollected(ShieldCollectedEvent @event)
         {
             _view.On();
-            Run(_stats.Retrieve(ShieldStats.Duration));
+            _duration = _stats.Retrieve(ShieldStats.Duration);
+            Run(_duration);
         }
 
         //===== Hooks =====
 
         protected override void OnTick()
         {
-            _view.SetRemainingTime(Timer);
+            _view.SetValue(Timer / _duration);
         }
 
         protected override void OnFinished() => _view.Off();

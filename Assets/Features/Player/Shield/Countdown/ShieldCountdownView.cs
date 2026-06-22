@@ -1,11 +1,14 @@
 using Core.Foundations.Components;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Features.Player.Shield.Countdown
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public sealed class ShieldCountdownView : HideableView, IShieldCountdownView
+    public sealed class ShieldCountdownView : ToggleableView, IShieldCountdownView
     {
-        public void SetRemainingTime(float time) => Debug.Log($"Remaining time: {time}");
+        [SerializeField] private Slider slider;
+        
+        public void SetValue(float value) => slider.value = value;
     }
 }

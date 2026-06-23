@@ -2301,7 +2301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &625398852
 Transform:
   m_ObjectHideFlags: 0
@@ -2330,7 +2330,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicPlayer: {fileID: 1846260979}
-  backgroundMusic: {fileID: 8300000, guid: 196bd429e7d394988a34aa3b5344264d, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 62aa12580f7af4593ab09442b484f486, type: 3}
+  audioClipConfig: {fileID: 11400000, guid: 974bf806eeb52497190c7775485afcb5, type: 2}
 --- !u!1 &637647078
 GameObject:
   m_ObjectHideFlags: 0

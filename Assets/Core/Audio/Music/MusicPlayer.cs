@@ -11,10 +11,13 @@ namespace Core.Audio.Music
 
         //===== Interface Implementation =====
 
-        public void Play(AudioClip clip)
+        public void Play(AudioClip clip) => Play(clip, 1f);
+
+        public void Play(AudioClip clip, float volume)
         {
             _audioSource.clip = clip;
             _audioSource.loop = true;
+            _audioSource.volume = volume;
             _audioSource.Play();
         }
 

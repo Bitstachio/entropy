@@ -12,15 +12,18 @@ namespace Core.Audio.Music
 
         private readonly IMusicPlayer _musicPlayer;
         private readonly AudioClip _clip;
+        private readonly AudioClipConfig _config;
 
         public GameMusicController(
             IEventListener<GameOverEvent> gameOverListener,
             IMusicPlayer musicPlayer,
-            AudioClip clip)
+            AudioClip clip,
+            AudioClipConfig config)
         {
             _gameOverListener = gameOverListener;
             _musicPlayer = musicPlayer;
             _clip = clip;
+            _config = config;
         }
 
         //===== Lifecycle =====
@@ -28,7 +31,7 @@ namespace Core.Audio.Music
         public void Start()
         {
             _gameOverListener.OnPublished += Stop;
-            _musicPlayer.Play(_clip);
+            _musicPlayer.Play(_clip, _config.Volume);
         }
 
         public void Dispose() => _gameOverListener.OnPublished -= Stop;

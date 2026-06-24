@@ -722,6 +722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfxPlayer: {fileID: 182230406}
+  defaultConfig: {fileID: 11400000, guid: 850a0ec0038c44e11900573152353646, type: 2}
 --- !u!1 &241296598
 GameObject:
   m_ObjectHideFlags: 0

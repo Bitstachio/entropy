@@ -1,3 +1,4 @@
+using Core.Audio;
 using Core.Audio.Sfx;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
@@ -10,8 +11,9 @@ namespace Features.Environment.Ground.Sfx
         public GroundHitSfxController(
             IEventListener<GroundHitEvent> listener,
             ISfxPlayer sfxPlayer,
-            AudioClip clip)
-            : base(listener, sfxPlayer, clip)
+            AudioClip clip,
+            AudioClipConfig config)
+            : base(listener, sfxPlayer, clip, config)
         {
         }
     }

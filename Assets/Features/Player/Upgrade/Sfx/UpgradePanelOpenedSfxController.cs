@@ -1,7 +1,7 @@
+using Core.Audio;
 using Core.Audio.Sfx;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
-using Features.Audio.Sfx;
 using UnityEngine;
 
 namespace Features.Player.Upgrade.Sfx
@@ -11,8 +11,9 @@ namespace Features.Player.Upgrade.Sfx
         public UpgradePanelOpenedSfxController(
             IEventListener<UpgradePanelOpened> listener,
             ISfxPlayer sfxPlayer,
-            AudioClip clip)
-            : base(listener, sfxPlayer, clip)
+            AudioClip clip,
+            AudioClipConfig config)
+            : base(listener, sfxPlayer, clip, config)
         {
         }
     }

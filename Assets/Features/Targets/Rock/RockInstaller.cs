@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Core.Foundations.Components;
 using Core.Providers.Bounds;
-using Features.Audio.Sfx.Controllers;
+using Features.Targets.Rock.Sfx;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;

@@ -36,6 +36,10 @@ namespace Features.Player.Attack.Laser
 
         public void Tick()
         {
+            // Cache stat registry values as the upgrade system can modify values mid-operation
+            var damagePerPulse = _model.DamagePerPulse;
+            var pulseInterval = _model.PulseInterval;
+
             foreach (var target in _activeTargets.Keys.ToList())
             {
                 if (!IsTargetValid(target))
@@ -46,10 +50,10 @@ namespace Features.Player.Attack.Laser
 
                 _activeTargets[target] += Time.deltaTime;
 
-                // TODO: Remove hard-coded value and hook up to stat registry
-                if (_activeTargets[target] < 0.3f) continue;
-                target.Damage(_model.DamagePerSecond);
-                _activeTargets[target] -= 0.3f;
+                if (_activeTargets[target] < pulseInterval) continue;
+                target.Damage(damagePerPulse);
+                // Target may have been destroyed/removed after taking damage
+                if (_activeTargets.ContainsKey(target)) _activeTargets[target] -= pulseInterval;
             }
         }
 

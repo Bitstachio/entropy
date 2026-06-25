@@ -1,16 +1,18 @@
 using Core.Providers.Bounds;
 using UnityEngine;
 using VContainer.Unity;
+using Random = UnityEngine.Random;
 
 namespace Features.Targets.Rock
 {
-    public sealed class RockSpawner : ITickable
+    public sealed class RockSpawner : IStartable, ITickable
     {
         private readonly IBoundsProvider _boundsProvider;
         private readonly IRockFactory _rockFactory;
         private readonly RockDurabilityConfig _config;
         private readonly Vector3 _originPosition;
         private readonly float _xSpeedBound;
+        private readonly float _initialDelay;
 
         private float _timer;
 
@@ -19,15 +21,21 @@ namespace Features.Targets.Rock
             IRockFactory rockFactory,
             RockDurabilityConfig config,
             Vector3 originPosition,
-            float xSpeedBound)
+            float xSpeedBound,
+            float initialDelay)
         {
             _boundsProvider = boundsProvider;
             _rockFactory = rockFactory;
             _config = config;
             _originPosition = originPosition;
             _xSpeedBound = xSpeedBound;
+            _initialDelay = initialDelay;
         }
 
+        //===== Lifecycle =====
+
+        public void Start() => _timer = CalculateCurrentInterval() - _initialDelay;
+        
         public void Tick()
         {
             _timer += Time.deltaTime;
@@ -35,6 +43,15 @@ namespace Features.Targets.Rock
             var currentInterval = CalculateCurrentInterval();
             if (_timer < currentInterval) return;
 
+            Spawn();
+
+            _timer = 0f;
+        }
+
+        //===== Utilities =====
+        
+        private void Spawn()
+        {
             var x = Random.Range(_boundsProvider.Min, _boundsProvider.Max);
             var position = new Vector2(x, _originPosition.y);
             var horizontalSpeed = Random.Range(-_xSpeedBound, _xSpeedBound);
@@ -42,10 +59,8 @@ namespace Features.Targets.Rock
             var spawnable = _rockFactory.Create();
             spawnable.SetPosition(position);
             spawnable.SetVelocity(new Vector2(horizontalSpeed, 0));
-
-            _timer = 0f;
         }
-
+        
         private float CalculateCurrentInterval()
         {
             var elapsedTime = Time.time;

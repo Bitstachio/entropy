@@ -17,6 +17,7 @@ namespace Features.Targets.Rock
 
         [SerializeField] private Transform spawnOrigin;
         [SerializeField] private float spawnXSpeedBound = 2f;
+        [SerializeField] private float spawnInitialDelay = 2f;
         
         [Header("Audio Clips")]
         [SerializeField] private AudioClip rockDestroyedClip;
@@ -33,6 +34,7 @@ namespace Features.Targets.Rock
                 .WithParameter("config", durabilityConfig)
                 .WithParameter("originPosition", spawnOrigin.position)
                 .WithParameter("xSpeedBound", spawnXSpeedBound)
+                .WithParameter("initialDelay", spawnInitialDelay)
                 .WithParameter<IBoundsProvider>(horizontalBoundsProvider);
             
             builder.RegisterEntryPoint<RockDestroyedSfxController>()

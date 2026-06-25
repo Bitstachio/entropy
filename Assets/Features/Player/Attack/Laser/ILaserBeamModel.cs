@@ -4,5 +4,6 @@ namespace Features.Player.Attack.Laser
     {
         float DamagePerPulse { get; }
         float PulseInterval { get; }
+        float Duration { get; }
     }
 }

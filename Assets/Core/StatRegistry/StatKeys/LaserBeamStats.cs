@@ -4,5 +4,6 @@ namespace Core.StatRegistry.StatKeys
     {
         DamagePerPulse,
         PulseInterval,
+        Duration,
     }
 }

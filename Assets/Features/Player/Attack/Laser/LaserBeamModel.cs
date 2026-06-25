@@ -11,5 +11,6 @@ namespace Features.Player.Attack.Laser
         
         public float DamagePerPulse => _stats.Retrieve(LaserBeamStats.DamagePerPulse);
         public float PulseInterval => _stats.Retrieve(LaserBeamStats.PulseInterval);
+        public float Duration => _stats.Retrieve(LaserBeamStats.Duration);
     }
 }

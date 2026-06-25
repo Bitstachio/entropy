@@ -17,7 +17,10 @@ namespace Features.Player.Attack.Laser
         private readonly ILaserBeamView _view;
         private readonly ILaserInputHandler _input;
 
-        private readonly Dictionary<IDamageable, float> _activeTargets = new();
+        private readonly Dictionary<IDamageable, float> _targetPulseTimers = new();
+
+        private bool _isActive;
+        private float _timer;
 
         public LaserBeamController(
             IEventPublisher<LaserActivated> laserActivatedPublisher,
@@ -49,25 +52,12 @@ namespace Features.Player.Attack.Laser
 
         public void Tick()
         {
-            // Cache stat registry values as the upgrade system can modify values mid-operation
-            var damagePerPulse = _model.DamagePerPulse;
-            var pulseInterval = _model.PulseInterval;
+            if (!_isActive) return;
 
-            foreach (var target in _activeTargets.Keys.ToList())
-            {
-                if (!IsTargetValid(target))
-                {
-                    _activeTargets.Remove(target);
-                    continue;
-                }
+            _timer += Time.deltaTime;
 
-                _activeTargets[target] += Time.deltaTime;
-
-                if (_activeTargets[target] < pulseInterval) continue;
-                target.Damage(damagePerPulse);
-                // Target may have been destroyed/removed after taking damage
-                if (_activeTargets.ContainsKey(target)) _activeTargets[target] -= pulseInterval;
-            }
+            if (_timer <= _model.Duration) ProcessActiveTargets();
+            else Deactivate();
         }
 
         //===== Event Handlers =====
@@ -75,21 +65,59 @@ namespace Features.Player.Attack.Laser
         private void HandleActivateInputDetected()
         {
             // TODO: Add logic to determine if the laser can be activated (i.e., charged)
-            _view.On();
-            _laserActivatedPublisher.Publish(new LaserActivated());
+            Activate();
         }
 
         private void HandleEnterTrigger(Collider2D other)
         {
-            if (other.TryGetComponent<IDamageable>(out var damageable)) _activeTargets[damageable] = 0f;
+            if (other.TryGetComponent<IDamageable>(out var damageable)) _targetPulseTimers[damageable] = 0f;
         }
 
         private void HandleExitTrigger(Collider2D other)
         {
-            if (other.TryGetComponent<IDamageable>(out var damageable)) _activeTargets.Remove(damageable);
+            if (other.TryGetComponent<IDamageable>(out var damageable)) _targetPulseTimers.Remove(damageable);
         }
 
         //===== Utilities =====
+
+        private void Activate()
+        {
+            _isActive = true;
+            _timer = 0; // Not redundant; resets duration if the laser is re-activated while already running
+            _view.On();
+            _laserActivatedPublisher.Publish(new LaserActivated());
+        }
+
+        private void Deactivate()
+        {
+            _isActive = false;
+            _timer = 0;
+            _targetPulseTimers.Clear();
+            _view.Off();
+        }
+
+        private void ProcessActiveTargets()
+        {
+            // Cache stat registry values as the upgrade system can modify values mid-operation
+            var damagePerPulse = _model.DamagePerPulse;
+            var pulseInterval = _model.PulseInterval;
+
+            foreach (var target in _targetPulseTimers.Keys.ToList())
+            {
+                if (!IsTargetValid(target))
+                {
+                    _targetPulseTimers.Remove(target);
+                    continue;
+                }
+
+                _targetPulseTimers[target] += Time.deltaTime;
+
+                if (_targetPulseTimers[target] < pulseInterval) continue;
+                target.Damage(damagePerPulse);
+                // Target may have been destroyed/removed after taking damage
+                if (_targetPulseTimers.ContainsKey(target)) _targetPulseTimers[target] -= pulseInterval;
+            }
+        }
 
         // Destroyed objects remain in the dictionary but are invalid
         private static bool IsTargetValid(IDamageable target) => target is MonoBehaviour mb && mb != null;

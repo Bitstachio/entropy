@@ -15,6 +15,8 @@ namespace Features.Player.Attack.Laser
         [Header("Stats")]
         [SerializeField] private float baselineDamagePerPulse = 1f;
         [SerializeField] private float baselinePulseInterval = 0.5f;
+        [SerializeField] private float baselineDuration = 3f;
+        
         
         public override void Install(IContainerBuilder builder)
         {
@@ -23,6 +25,7 @@ namespace Features.Player.Attack.Laser
                 var laserBeamStats = container.Resolve<StatRegistry<LaserBeamStats>>();
                 laserBeamStats.Register(LaserBeamStats.DamagePerPulse, baselineDamagePerPulse);
                 laserBeamStats.Register(LaserBeamStats.PulseInterval, baselinePulseInterval);
+                laserBeamStats.Register(LaserBeamStats.Duration, baselineDuration);
             });
             
             builder.Register<ILaserBeamModel, LaserBeamModel>(Lifetime.Singleton);

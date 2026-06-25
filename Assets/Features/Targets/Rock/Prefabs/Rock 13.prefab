@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 946647366612514617}
   - component: {fileID: 5874962051031265861}
   - component: {fileID: 3522591614287806599}
+  - component: {fileID: 7591893546806389204}
   m_Layer: 8
   m_Name: Rock 13
   m_TagString: Hazard
@@ -83,6 +84,43 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103031416996859987}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.003635526, y: -0.0018183596}
+  m_Size: {x: 1.5381408, y: 1.3963405}
+  m_Direction: 1
+--- !u!58 &7591893546806389204
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103031416996859987}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -110,9 +148,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.003635526, y: -0.0018183596}
-  m_Size: {x: 1.5381408, y: 1.3963405}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.7
 --- !u!1 &2222924617152117095
 GameObject:
   m_ObjectHideFlags: 0

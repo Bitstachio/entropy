@@ -13,10 +13,6 @@ namespace Core.Audio.Sfx
 
         //===== Interface Implementation =====
 
-        public void Play(AudioClip audioClip, float volume)
-        {
-            Debug.Log($"SFX: {audioClip.name}, Volume: {volume}");
-            _audioSource.PlayOneShot(audioClip, volume);
-        }
+        public void Play(AudioClip audioClip, float volume) => _audioSource.PlayOneShot(audioClip, volume);
     }
 }

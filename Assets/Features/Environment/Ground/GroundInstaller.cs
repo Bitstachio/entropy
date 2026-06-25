@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Core.Audio;
 using Core.Foundations.Components;
 using Core.Tag;
 using Features.Environment.Ground.Sfx;
@@ -21,6 +22,7 @@ namespace Features.Environment.Ground
 
         [Header("Audio Clips")]
         [SerializeField] private AudioClip hitGroundClip;
+        [SerializeField] private AudioClipConfig hitGroundClipConfig;
         
         public override void Install(IContainerBuilder builder)
         {
@@ -31,7 +33,8 @@ namespace Features.Environment.Ground
                 .WithParameter<ISet<string>>(new HashSet<string>(targets));
             
             builder.RegisterEntryPoint<GroundHitSfxController>()
-                .WithParameter(hitGroundClip);
+                .WithParameter(hitGroundClip)
+                .WithParameter(hitGroundClipConfig);
         }
     }
 }

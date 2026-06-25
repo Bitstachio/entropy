@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Core.Audio;
 using Core.Foundations.Components;
 using Core.Providers.Bounds;
 using Features.Targets.Rock.Sfx;
@@ -20,6 +21,7 @@ namespace Features.Targets.Rock
         
         [Header("Audio Clips")]
         [SerializeField] private AudioClip rockDestroyedClip;
+        [SerializeField] private AudioClipConfig rockDestroyedClipConfig;
 
         public override void Install(IContainerBuilder builder)
         {
@@ -35,7 +37,8 @@ namespace Features.Targets.Rock
                 .WithParameter<IBoundsProvider>(horizontalBoundsProvider);
             
             builder.RegisterEntryPoint<RockDestroyedSfxController>()
-                .WithParameter(rockDestroyedClip);
+                .WithParameter(rockDestroyedClip)
+                .WithParameter(rockDestroyedClipConfig);
         }
     }
 }

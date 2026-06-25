@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Core.Audio;
 using Core.Foundations.Components;
 using Core.Interfaces;
 using Core.Providers.Position;
@@ -29,6 +30,7 @@ namespace Features.Player.Attack.Cannon
 
         [Header("Audio Clips")]
         [SerializeField] private AudioClip cannonShotClip;
+        [SerializeField] private AudioClipConfig cannonShotClipConfig ;
         
         public override void Install(IContainerBuilder builder)
         {
@@ -50,7 +52,8 @@ namespace Features.Player.Attack.Cannon
             builder.RegisterEntryPoint<Cannon>();
             
             builder.RegisterEntryPoint<CannonShotSfxController>()
-                .WithParameter(cannonShotClip);
+                .WithParameter(cannonShotClip)
+                .WithParameter(cannonShotClipConfig);
         }
     }
 }

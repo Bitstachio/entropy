@@ -3704,6 +3704,7 @@ MonoBehaviour:
   baselineSpeed: 5
   baselineDamage: 1
   cannonShotClip: {fileID: 8300000, guid: eff419bd608bb4755a18c2b88f7eb259, type: 3}
+  cannonShotClipConfig: {fileID: 11400000, guid: d6b8800266daf42e3b9b36dbda320db3, type: 2}
 --- !u!1 &1060540048
 GameObject:
   m_ObjectHideFlags: 0
@@ -6004,6 +6005,7 @@ MonoBehaviour:
   spawnOrigin: {fileID: 1432044268}
   spawnXSpeedBound: 2
   rockDestroyedClip: {fileID: 8300000, guid: 88526df67e67647b08f7c37d02748580, type: 3}
+  rockDestroyedClipConfig: {fileID: 11400000, guid: 896efeadaa4014a93b625f735a8f8028, type: 2}
 --- !u!1 &1880460847
 GameObject:
   m_ObjectHideFlags: 0
@@ -6757,6 +6759,7 @@ MonoBehaviour:
   groundView: {fileID: 986683030}
   baselineMagnitude: 5
   hitGroundClip: {fileID: 8300000, guid: 93ac4a5b35f2841cab94e53278f7d8e2, type: 3}
+  hitGroundClipConfig: {fileID: 11400000, guid: d3dc8cf5d02bf40eab5870e4948a6023, type: 2}
 --- !u!1 &2081146424
 GameObject:
   m_ObjectHideFlags: 0

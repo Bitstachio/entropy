@@ -459,6 +459,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserBeamView: {fileID: 1482469433}
+  laserInputHandler: {fileID: 438074798}
+  baselineDamagePerPulse: 1
+  baselinePulseInterval: 0.5
 --- !u!1 &147762369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,8 +1219,9 @@ GameObject:
   - component: {fileID: 438074792}
   - component: {fileID: 438074791}
   - component: {fileID: 438074794}
-  - component: {fileID: 438074796}
   - component: {fileID: 438074797}
+  - component: {fileID: 438074796}
+  - component: {fileID: 438074798}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1537,6 +1541,18 @@ PolygonCollider2D:
       - {x: -2.475, y: -3.085}
       - {x: -2.405, y: -3.0449998}
   m_UseDelaunayMesh: 0
+--- !u!114 &438074798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438074789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b4f41d1fce3b4f0d8df1a34eec4e433, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &459194833
 GameObject:
   m_ObjectHideFlags: 0
@@ -5150,7 +5166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1482469431
 SpriteRenderer:
   m_ObjectHideFlags: 0

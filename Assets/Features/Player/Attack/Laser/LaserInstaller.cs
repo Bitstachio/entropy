@@ -10,6 +10,7 @@ namespace Features.Player.Attack.Laser
     public sealed class LaserInstaller : Installer
     {
         [SerializeField] private LaserBeamView laserBeamView;
+        [SerializeField] private LaserInputHandler laserInputHandler;
 
         [Header("Stats")]
         [SerializeField] private float baselineDamagePerPulse = 1f;
@@ -26,6 +27,7 @@ namespace Features.Player.Attack.Laser
             
             builder.Register<ILaserBeamModel, LaserBeamModel>(Lifetime.Singleton);
             builder.RegisterComponent(laserBeamView).As<ILaserBeamView>();
+            builder.RegisterComponent(laserInputHandler).As<ILaserInputHandler>();
             builder.RegisterEntryPoint<LaserBeamController>();
         }
     }

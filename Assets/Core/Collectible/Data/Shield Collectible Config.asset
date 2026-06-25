@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Shield Collectible Config
   m_EditorClassIdentifier: 
   interval: 3
-  probability: 1
+  probability: 0.2
   xSpeedBound: 2

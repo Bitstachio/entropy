@@ -2302,7 +2302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &625398852
 Transform:
   m_ObjectHideFlags: 0
@@ -3700,8 +3700,8 @@ MonoBehaviour:
   - Hazard
   cannonballView: {fileID: -993602236936489198, guid: 89c92ea532c1c4705a0ab03f803c7043, type: 3}
   transformPositionProvider: {fileID: 1060540050}
-  baselineInterval: 3
-  baselineSpeed: 5
+  baselineInterval: 2
+  baselineSpeed: 10
   baselineDamage: 1
   cannonShotClip: {fileID: 8300000, guid: eff419bd608bb4755a18c2b88f7eb259, type: 3}
   cannonShotClipConfig: {fileID: 11400000, guid: d6b8800266daf42e3b9b36dbda320db3, type: 2}

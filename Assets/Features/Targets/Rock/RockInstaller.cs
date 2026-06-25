@@ -15,7 +15,6 @@ namespace Features.Targets.Rock
         [SerializeField] private HorizontalBoundsProvider horizontalBoundsProvider;
         [SerializeField] private RockDurabilityConfig durabilityConfig;
 
-        [SerializeField] private float spawnInterval = 3f;
         [SerializeField] private Transform spawnOrigin;
         [SerializeField] private float spawnXSpeedBound = 2f;
         
@@ -31,7 +30,7 @@ namespace Features.Targets.Rock
             builder.Register<IRockDurabilityProvider, RockDurabilityProvider>(Lifetime.Singleton);
             builder.Register<IRockFactory, RockFactory>(Lifetime.Singleton);
             builder.RegisterEntryPoint<RockSpawner>()
-                .WithParameter("interval", spawnInterval)
+                .WithParameter("config", durabilityConfig)
                 .WithParameter("originPosition", spawnOrigin.position)
                 .WithParameter("xSpeedBound", spawnXSpeedBound)
                 .WithParameter<IBoundsProvider>(horizontalBoundsProvider);

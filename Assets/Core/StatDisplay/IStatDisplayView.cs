@@ -1,4 +1,4 @@
-namespace Features.StatDisplay
+namespace Core.StatDisplay
 {
     public interface IStatDisplayView
     {

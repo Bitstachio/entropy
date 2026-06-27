@@ -414,6 +414,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldView: {fileID: 1664139024}
   baselineShieldDuration: 5
+--- !u!1 &133106741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 133106742}
+  - component: {fileID: 133106743}
+  m_Layer: 0
+  m_Name: Stat Display Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &133106742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133106741}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1041094266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &133106743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133106741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0db6ce45a27463f8a0fb92a2ecd9670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonballDamageDisplayView: {fileID: 1825170812}
+  cannonFireRateDisplayView: {fileID: 1498061699}
+  cannonProjectileSpeedDisplayView: {fileID: 1277923618}
 --- !u!1 &135256003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,9 +1227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f327b11b4aef4f18b459e0de1e0b8c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonballDamageDisplayView: {fileID: 1825170812}
-  cannonFireRateDisplayView: {fileID: 1498061699}
-  cannonProjectileSpeedDisplayView: {fileID: 1277923618}
   shieldDurationDisplayView: {fileID: 597294660}
   shieldDropChanceDisplayView: {fileID: 1516295114}
 --- !u!1 &255134746
@@ -5015,7 +5059,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 133106742}
   m_Father: {fileID: 655914483}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1041094267

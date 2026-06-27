@@ -4,7 +4,7 @@ using Core.Events.Interfaces;
 using Core.StatRegistry;
 using VContainer.Unity;
 
-namespace Features.StatDisplay.Controllers
+namespace Core.StatDisplay.Controllers
 {
     public abstract class StatDisplayController<TKey> : IStartable, IDisposable
     {

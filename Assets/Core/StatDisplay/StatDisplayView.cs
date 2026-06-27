@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Features.StatDisplay
+namespace Core.StatDisplay
 {
     public class StatDisplayView : MonoBehaviour, IStatDisplayView
     {

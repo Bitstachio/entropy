@@ -1,39 +1,26 @@
 using Core.Foundations.Components;
-using Features.StatDisplay.Controllers;
-using Features.StatDisplay.Controllers.Shield;
-using Features.StatDisplay.Controllers.Weapon;
+using Core.StatDisplay;
+using Features.StatDisplay;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Features.StatDisplay
+namespace Features.Player.Attack.Cannon.StatDisplay
 {
-    public class StatDisplayInstaller : Installer
+    public sealed class CannonStatDisplayInstaller : Installer
     {
-        [Header("Weapon Stats")]
         [SerializeField] private StatDisplayView cannonballDamageDisplayView;
         [SerializeField] private StatDisplayView cannonFireRateDisplayView;
         [SerializeField] private StatDisplayView cannonProjectileSpeedDisplayView;
-
-        [Header("Shield Stats")]
-        [SerializeField] private StatDisplayView shieldDurationDisplayView;
-        [SerializeField] private StatDisplayView shieldDropChanceDisplayView;
-
+        
         public override void Install(IContainerBuilder builder)
         {
-            // Weapon stats
             builder.RegisterEntryPoint<CannonballDamageDisplayController>()
                 .WithParameter<IStatDisplayView>(cannonballDamageDisplayView);
             builder.RegisterEntryPoint<CannonFireRateDisplayController>()
                 .WithParameter<IStatDisplayView>(cannonFireRateDisplayView);
             builder.RegisterEntryPoint<CannonProjectileSpeedDisplayController>()
                 .WithParameter<IStatDisplayView>(cannonProjectileSpeedDisplayView);
-
-            // Shield stats
-            builder.RegisterEntryPoint<ShieldDurationDisplayController>()
-                .WithParameter<IStatDisplayView>(shieldDurationDisplayView);
-            builder.RegisterEntryPoint<ShieldDropChanceDisplayController>()
-                .WithParameter<IStatDisplayView>(shieldDropChanceDisplayView);
         }
     }
 }

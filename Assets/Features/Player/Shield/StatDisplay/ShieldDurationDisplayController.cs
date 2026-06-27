@@ -1,11 +1,10 @@
 using Core.Events.Channels;
 using Core.Events.Interfaces;
 using Core.StatDisplay;
-using Core.StatDisplay.Controllers;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 
-namespace Features.StatDisplay.Controllers.Shield
+namespace Features.Player.Shield.StatDisplay
 {
     public sealed class ShieldDurationDisplayController : StatDisplayController<ShieldStats>
     {

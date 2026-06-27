@@ -1,6 +1,5 @@
 using Core.Foundations.Components;
 using Core.StatDisplay;
-using Features.StatDisplay;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;

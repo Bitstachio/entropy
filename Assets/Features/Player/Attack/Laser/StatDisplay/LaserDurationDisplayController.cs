@@ -1,11 +1,8 @@
 using Core.Events.Channels;
 using Core.Events.Interfaces;
 using Core.StatDisplay;
-using Core.StatDisplay.Controllers;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
-using Features.StatDisplay;
-using Features.StatDisplay.Controllers;
 
 namespace Features.Player.Attack.Laser.StatDisplay
 {

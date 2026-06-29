@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Core.Audio;
-using Core.Foundations.Components;
 using Core.Interfaces;
 using Core.Providers.Position;
 using Core.StatRegistry;
@@ -13,7 +12,7 @@ using VContainer.Unity;
 
 namespace Features.Player.Attack.Cannon
 {
-    public sealed class CannonInstaller : Installer
+    public sealed class CannonScope : LifetimeScope
     {
         [SerializeField] [Tag] private string[] destroyTags;
         
@@ -32,7 +31,7 @@ namespace Features.Player.Attack.Cannon
         [SerializeField] private AudioClip cannonShotClip;
         [SerializeField] private AudioClipConfig cannonShotClipConfig ;
         
-        public override void Install(IContainerBuilder builder)
+        protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterBuildCallback(container =>
             {

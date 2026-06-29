@@ -419,6 +419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 76216406}
+  - component: {fileID: 76216407}
   m_Layer: 0
   m_Name: Targets
   m_TagString: Untagged
@@ -442,6 +443,22 @@ Transform:
   - {fileID: 1861448517}
   m_Father: {fileID: 2037558911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &76216407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76216405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5dc6d30ac4a4dd7842242ea42a2a825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Scopes.GameLifetimeScope
+  autoRun: 1
+  autoInjectGameObjects: []
 --- !u!1 &85624477
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +722,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1645130365}
   - {fileID: 1858154951}
   - {fileID: 403615433}
   m_Father: {fileID: 1252053012}
@@ -809,6 +827,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0db6ce45a27463f8a0fb92a2ecd9670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Features.Player.Attack.Cannon.CannonScope
+  autoRun: 1
+  autoInjectGameObjects: []
   cannonballDamageDisplayView: {fileID: 1825170812}
   cannonFireRateDisplayView: {fileID: 1498061699}
   cannonProjectileSpeedDisplayView: {fileID: 1277923618}
@@ -1134,6 +1156,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4048674d374c158afe4b6012c9871d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Features.Player.PlayerScope
+  autoRun: 1
+  autoInjectGameObjects: []
   laserBeamView: {fileID: 1482469433}
   laserInputHandler: {fileID: 438074798}
   baselineDamagePerPulse: 1
@@ -1852,6 +1878,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 659dc9f655d342cb92477660ec884a07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Features.Player.Attack.Laser.LaserScope
+  autoRun: 1
+  autoInjectGameObjects: []
   damagePerPulseDisplayView: {fileID: 871229532}
   pulseIntervalDisplayView: {fileID: 531205366}
   durationIntervalDisplayView: {fileID: 1592533098}
@@ -2366,6 +2396,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfd2933ea18846c4a3c1342da7f969d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Features.Player.Attack.Laser.LaserScope
+  autoRun: 1
+  autoInjectGameObjects: []
   segmentedProgressBarView: {fileID: 1021237516}
 --- !u!1 &438074789
 GameObject:
@@ -5563,6 +5597,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e23bbe8467504538a1eb6a163aa96e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Features.Player.PlayerScope
+  autoRun: 1
+  autoInjectGameObjects: []
   destroyTags:
   - AttackBoundary
   - Hazard
@@ -7879,7 +7917,7 @@ GameObject:
   - component: {fileID: 1645130365}
   - component: {fileID: 1645130366}
   m_Layer: 0
-  m_Name: Shield Collectible Installer
+  m_Name: Shield Collectible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7898,7 +7936,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1700806289}
+  m_Father: {fileID: 113028459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1645130366
 MonoBehaviour:
@@ -7912,6 +7950,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f998c3c237a45c2b6c9791bd5a4a17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Features.Player.Shield.ShieldScope
+  autoRun: 1
+  autoInjectGameObjects: []
   collectorTags:
   - Player
   collectibleView: {fileID: 8965084310148764782, guid: 590a25805deae4bb89fcca3f854f5542, type: 3}
@@ -8502,38 +8544,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61edaaa9f6e040668d286aa912b71b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1700806288
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1700806289}
-  m_Layer: 0
-  m_Name: Collectibles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1700806289
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700806288}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1645130365}
-  m_Father: {fileID: 2037558911}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1726594259
 GameObject:
   m_ObjectHideFlags: 0
@@ -8998,7 +9008,7 @@ GameObject:
   - component: {fileID: 1861448517}
   - component: {fileID: 1861448518}
   m_Layer: 0
-  m_Name: Rock Installer
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9031,6 +9041,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0558e1674eb340bdbae932c38bb9b0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Features.Targets.TargetScope
+  autoRun: 1
+  autoInjectGameObjects: []
   rockViews:
   - {fileID: 946647366612514617, guid: 2639e8edb37b245069cf71aac4ca0bd4, type: 3}
   - {fileID: 946647366612514617, guid: e908a648d25e0403b8cf18c7891a923b, type: 3}
@@ -9796,7 +9810,6 @@ Transform:
   - {fileID: 1381550022}
   - {fileID: 1252053012}
   - {fileID: 76216406}
-  - {fileID: 1700806289}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2052464424

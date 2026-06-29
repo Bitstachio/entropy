@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Core.Audio;
-using Core.Foundations.Components;
 using Core.Providers.Bounds;
 using Features.Targets.Rock.Sfx;
 using UnityEngine;
@@ -9,7 +8,7 @@ using VContainer.Unity;
 
 namespace Features.Targets.Rock
 {
-    public sealed class RockInstaller : Installer
+    public sealed class RockScope : LifetimeScope
     {
         [SerializeField] private List<RockView> rockViews;
         [SerializeField] private HorizontalBoundsProvider horizontalBoundsProvider;
@@ -23,7 +22,7 @@ namespace Features.Targets.Rock
         [SerializeField] private AudioClip rockDestroyedClip;
         [SerializeField] private AudioClipConfig rockDestroyedClipConfig;
 
-        public override void Install(IContainerBuilder builder)
+        protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterComponent(rockViews).As<IReadOnlyList<RockView>>();
             builder.RegisterComponent(durabilityConfig);

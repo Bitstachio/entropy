@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Core.Foundations.Components;
 using Core.Providers.Bounds;
 using Core.Tag;
 using UnityEngine;
@@ -8,7 +7,7 @@ using VContainer.Unity;
 
 namespace Core.Collectible
 {
-    public abstract class CollectibleInstaller : Installer
+    public abstract class CollectibleScope : LifetimeScope
     {
         [SerializeField] [Tag] private string[] collectorTags;
         [SerializeField] private CollectibleView collectibleView;
@@ -17,7 +16,7 @@ namespace Core.Collectible
         [SerializeField] private HorizontalBoundsProvider horizontalBoundsProvider;
         [SerializeField] private Transform spawnOrigin;
 
-        public override void Install(IContainerBuilder builder)
+        protected override void Configure(IContainerBuilder builder)
         {
             RegisterStats(builder);
             

@@ -1,4 +1,3 @@
-using Core.Foundations.Components;
 using Core.StatDisplay;
 using UnityEngine;
 using VContainer;
@@ -6,13 +5,13 @@ using VContainer.Unity;
 
 namespace Features.Player.Attack.Laser.StatDisplay
 {
-    public sealed class LaserStatDisplayInstaller : Installer
+    public sealed class LaserStatDisplayScope : LifetimeScope
     {
         [SerializeField] private StatDisplayView damagePerPulseDisplayView;
         [SerializeField] private StatDisplayView pulseIntervalDisplayView;
         [SerializeField] private StatDisplayView durationIntervalDisplayView;
-        
-        public override void Install(IContainerBuilder builder)
+
+        protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterEntryPoint<LaserDamagePerPulseDisplayController>()
                 .WithParameter<IStatDisplayView>(damagePerPulseDisplayView);

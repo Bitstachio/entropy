@@ -9,7 +9,7 @@ using VContainer.Unity;
 
 namespace Features.Player.Shield.Collectible
 {
-    public sealed class ShieldCollectibleInstaller : CollectibleInstaller
+    public sealed class ShieldCollectibleScope : CollectibleScope
     {
         [Header("Audio Clips")]
         [SerializeField] private AudioClip shieldCollectedClip;

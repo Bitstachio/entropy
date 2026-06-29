@@ -1,4 +1,3 @@
-using Core.Foundations.Components;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 using UnityEngine;
@@ -7,7 +6,7 @@ using VContainer.Unity;
 
 namespace Features.Player.Attack.Laser
 {
-    public sealed class LaserInstaller : Installer
+    public sealed class LaserScope : LifetimeScope
     {
         [SerializeField] private LaserBeamView laserBeamView;
         [SerializeField] private LaserInputHandler laserInputHandler;
@@ -16,9 +15,8 @@ namespace Features.Player.Attack.Laser
         [SerializeField] private float baselineDamagePerPulse = 1f;
         [SerializeField] private float baselinePulseInterval = 0.5f;
         [SerializeField] private float baselineDuration = 3f;
-        
-        
-        public override void Install(IContainerBuilder builder)
+
+        protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterBuildCallback(container =>
             {
@@ -27,7 +25,7 @@ namespace Features.Player.Attack.Laser
                 laserBeamStats.Register(LaserBeamStats.PulseInterval, baselinePulseInterval);
                 laserBeamStats.Register(LaserBeamStats.Duration, baselineDuration);
             });
-            
+
             builder.Register<ILaserBeamModel, LaserBeamModel>(Lifetime.Singleton);
             builder.RegisterComponent(laserBeamView).As<ILaserBeamView>();
             builder.RegisterComponent(laserInputHandler).As<ILaserInputHandler>();

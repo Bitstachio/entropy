@@ -5,15 +5,15 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Features.Player.Shield.Battery
+namespace Features.Player.Attack.Laser.Battery
 {
-    public sealed class ShieldBatteryInstaller : Installer
+    public sealed class LaserBatteryInstaller : Installer
     {
         [SerializeField] private SegmentedProgressBarView segmentedProgressBarView;
 
         public override void Install(IContainerBuilder builder)
         {
-            builder.RegisterEntryPoint<ShieldBatteryController>()
+            builder.RegisterEntryPoint<LaserBatteryController>()
                 .WithParameter<IValueDisplay<float>>(segmentedProgressBarView);
         }
     }

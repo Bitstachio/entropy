@@ -22,19 +22,10 @@ namespace Features.Player.Attack.Laser.BatteryDisplay
         public void Tick()
         {
             var currState = _batteryService.State;
-            
+
             if (_prevState != currState)
             {
-                switch (currState)
-                {
-                    case LaserBatteryChargingState:
-                        _view.SetQuantizer(new LaserBatteryChargingQuantizer());
-                        break;
-                    case LaserBatteryDischargingState:
-                        _view.SetQuantizer(new LaserBatteryDischargingQuantizer());
-                        break;
-                }
-
+                if (currState is IQuantizableState quantizable) _view.SetQuantizer(quantizable.Quantizer);
                 _prevState = _batteryService.State;
             }
 

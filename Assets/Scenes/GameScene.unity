@@ -708,7 +708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &113028459
 Transform:
   m_ObjectHideFlags: 0
@@ -1165,7 +1165,6 @@ MonoBehaviour:
   laserBatteryConfig: {fileID: 11400000, guid: fff92f2b0b6fc4005834b0820ce1c57b, type: 2}
   baselineDamagePerPulse: 1
   baselinePulseInterval: 0.5
-  baselineDuration: 3
 --- !u!1 &152018615
 GameObject:
   m_ObjectHideFlags: 0
@@ -4928,7 +4927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &959774983
 Transform:
   m_ObjectHideFlags: 0

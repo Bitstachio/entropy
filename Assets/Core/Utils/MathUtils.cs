@@ -23,19 +23,18 @@ namespace Core.Utils
         }
 
         /// <summary>
-        /// Maps a normalized value (0-1) to a discrete step count, rounding up so any nonzero
-        /// value yields at least one step. E.g. with 5 steps: 0.9 -> 5, 0.4 -> 2, 0.05 -> 1.
+        /// Maps a normalized value (0-1) to a discrete step count.
         /// </summary>
-        public static int NormalizedToStepCount(float normalizedValue, int stepCount)
+        /// <param name="normalizedValue">The input value to map, clamped between 0 and 1.</param>
+        /// <param name="stepCount">The total number of available steps.</param>
+        /// <param name="roundUp">If true, uses CeilToInt (nonzero yields >= 1 step). If false, uses FloorToInt.</param>
+        /// <returns>The calculated discrete step count.</returns>
+        public static int NormalizedToStepCount(float normalizedValue, int stepCount, bool roundUp = true)
         {
             var clampedValue = Mathf.Clamp01(normalizedValue);
-            return Mathf.CeilToInt(clampedValue * stepCount);
-        }
-        
-        public static int NormalizedToStepCount1(float normalizedValue, int stepCount)
-        {
-            var clampedValue = Mathf.Clamp01(normalizedValue);
-            return Mathf.FloorToInt(clampedValue * stepCount);
+            var scaledValue = clampedValue * stepCount;
+
+            return roundUp ? Mathf.CeilToInt(scaledValue) : Mathf.FloorToInt(scaledValue);
         }
     }
 }

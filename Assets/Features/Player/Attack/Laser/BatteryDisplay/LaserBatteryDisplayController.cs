@@ -25,22 +25,19 @@ namespace Features.Player.Attack.Laser.BatteryDisplay
             
             if (_prevState != currState)
             {
-                if (currState is LaserBatteryChargingState)
+                switch (currState)
                 {
-                    _view.SetQuantizer(new SpecialSegmentQuantizer());
+                    case LaserBatteryChargingState:
+                        _view.SetQuantizer(new LaserBatteryChargingQuantizer());
+                        break;
+                    case LaserBatteryDischargingState:
+                        _view.SetQuantizer(new LaserBatteryDischargingQuantizer());
+                        break;
                 }
-                else if (currState is LaserBatteryDischargingState)
-                {
-                    _view.SetQuantizer(new LinearSegmentQuantizer());
-                }
-                
+
                 _prevState = _batteryService.State;
             }
-            else
-            {
-                
-            }
-            
+
             _view.Set(_batteryService.Charge);
         }
     }

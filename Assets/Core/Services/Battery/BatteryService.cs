@@ -1,3 +1,4 @@
+using Features.Player.Attack.Laser;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -10,11 +11,11 @@ namespace Core.Services.Battery
         public float ChargeTime { get; set; }
         public float DischargeTime { get; set; }
 
-        public BatteryService(IBatteryState state, float chargeTime, float dischargeTime)
+        public BatteryService(IBatteryState state, LaserBatteryConfig config)
         {
             State = state;
-            ChargeTime = chargeTime;
-            DischargeTime = dischargeTime;
+            ChargeTime = config.ChargeTime;
+            DischargeTime = config.DischargeTime;
         }
 
         //===== Lifecycle =====

@@ -11,6 +11,7 @@ namespace Features.Player.Attack.Laser
     {
         [SerializeField] private LaserBeamView laserBeamView;
         [SerializeField] private LaserInputHandler laserInputHandler;
+        [SerializeField] private LaserBatteryConfig laserBatteryConfig;
 
         [Header("Stats")]
         [SerializeField] private float baselineDamagePerPulse = 1f;
@@ -23,8 +24,7 @@ namespace Features.Player.Attack.Laser
             builder.RegisterEntryPoint<BatteryService>()
                 .As<IBatteryService>()
                 .WithParameter<IBatteryState>(new BatteryIdleState())
-                .WithParameter("chargeTime", 10)
-                .WithParameter("dischargeTime", 5);
+                .WithParameter(laserBatteryConfig);
             
             builder.RegisterBuildCallback(container =>
             {

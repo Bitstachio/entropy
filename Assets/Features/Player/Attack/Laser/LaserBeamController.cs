@@ -72,7 +72,10 @@ namespace Features.Player.Attack.Laser
         {
             // TODO: Add logic to determine if the laser can be activated (i.e., charged)
             if (_batteryService.State is BatteryIdleState && Mathf.Approximately(_batteryService.Charge, 1))
+            {
+                _batteryService.TransitionTo(new BatteryDischargingState());
                 Activate();
+            }
             else Debug.Log("Laser battery not fully charged");
         }
 

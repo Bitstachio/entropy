@@ -1162,6 +1162,7 @@ MonoBehaviour:
   autoInjectGameObjects: []
   laserBeamView: {fileID: 1482469433}
   laserInputHandler: {fileID: 438074798}
+  laserBatteryConfig: {fileID: 11400000, guid: fff92f2b0b6fc4005834b0820ce1c57b, type: 2}
   baselineDamagePerPulse: 1
   baselinePulseInterval: 0.5
   baselineDuration: 3
@@ -2363,7 +2364,7 @@ GameObject:
   - component: {fileID: 407636379}
   - component: {fileID: 407636380}
   m_Layer: 0
-  m_Name: Laser Battery
+  m_Name: Laser Battery Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

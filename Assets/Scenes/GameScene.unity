@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 133106742}
   - component: {fileID: 133106743}
   m_Layer: 0
-  m_Name: Cannon Stat Display Installer
+  m_Name: Cannon Stat Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1121,7 +1121,7 @@ GameObject:
   - component: {fileID: 144428175}
   - component: {fileID: 144428176}
   m_Layer: 0
-  m_Name: Laser Installer
+  m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1845,7 +1845,7 @@ GameObject:
   - component: {fileID: 325753486}
   - component: {fileID: 325753487}
   m_Layer: 0
-  m_Name: Laser Stat Display Installer
+  m_Name: Laser Stat Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1896,7 +1896,7 @@ GameObject:
   - component: {fileID: 336924355}
   - component: {fileID: 336924356}
   m_Layer: 0
-  m_Name: SFX Installer
+  m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2363,7 +2363,7 @@ GameObject:
   - component: {fileID: 407636379}
   - component: {fileID: 407636380}
   m_Layer: 0
-  m_Name: Laser Battery Installer
+  m_Name: Laser Battery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3704,7 +3704,7 @@ GameObject:
   - component: {fileID: 625398852}
   - component: {fileID: 625398853}
   m_Layer: 0
-  m_Name: Music Installer
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5563,7 +5563,7 @@ GameObject:
   - component: {fileID: 1041094266}
   - component: {fileID: 1041094267}
   m_Layer: 0
-  m_Name: Cannon Installer
+  m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

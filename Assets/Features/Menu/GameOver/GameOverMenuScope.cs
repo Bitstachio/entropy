@@ -1,4 +1,3 @@
-using Core.Foundations.Components;
 using Features.Menu.Sfx;
 using UnityEngine;
 using VContainer;
@@ -6,7 +5,7 @@ using VContainer.Unity;
 
 namespace Features.Menu.GameOver
 {
-    public sealed class GameOverMenuInstaller : Installer
+    public sealed class GameOverMenuScope : LifetimeScope
     {
         [SerializeField] private GameOverMenuConfig config;
         [SerializeField] private GameOverMenuView gameOverMenuView;
@@ -14,7 +13,7 @@ namespace Features.Menu.GameOver
         [Header("Audio Clips")]
         [SerializeField] private AudioClip clickClip;
         
-        public override void Install(IContainerBuilder builder)
+        protected override void Configure(IContainerBuilder builder)
         {
             builder.Register<IGameOverMenuModel, GameOverMenuModel>(Lifetime.Singleton)
                 .WithParameter(config);

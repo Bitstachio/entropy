@@ -688,7 +688,7 @@ GameObject:
   - component: {fileID: 227328179}
   - component: {fileID: 227328180}
   m_Layer: 0
-  m_Name: SFX Installer
+  m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,6 +721,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 059e6adc95fe4670a907ba1338a503ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Scopes.GameOverLifetimeScope
+  autoRun: 1
+  autoInjectGameObjects: []
   sfxPlayer: {fileID: 182230406}
   defaultConfig: {fileID: 11400000, guid: 850a0ec0038c44e11900573152353646, type: 2}
 --- !u!1 &241296598
@@ -2425,7 +2429,7 @@ GameObject:
   - component: {fileID: 741459671}
   - component: {fileID: 741459670}
   m_Layer: 0
-  m_Name: Game Over Menu Installer
+  m_Name: Game Over Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2443,6 +2447,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fe877ed3b2c4fd1bd589f2806ad4cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Scopes.GameOverLifetimeScope
+  autoRun: 1
+  autoInjectGameObjects: []
   config: {fileID: 11400000, guid: 8a63b7e2358e64beb90427f6c2b97678, type: 2}
   gameOverMenuView: {fileID: 961350033}
   clickClip: {fileID: 8300000, guid: 6b9703c27e94d48cbbbe6c30e6f59d9f, type: 3}

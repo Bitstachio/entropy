@@ -17,7 +17,7 @@ namespace Scopes
 
             builder.Register<ITimeScaleService, TimeScaleService>(Lifetime.Singleton);
             
-            //----- Feature Installers -----
+            //----- Installers -----
 
             GetComponentsInChildren<Installer>().ToList().ForEach(i => i.Install(builder));
 

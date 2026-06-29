@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Core.Foundations.Components;
 using Features.Player.Upgrade.Sfx;
 using Features.Player.Upgrade.Strategies;
 using UnityEngine;
@@ -8,7 +7,7 @@ using VContainer.Unity;
 
 namespace Features.Player.Upgrade
 {
-    public sealed class UpgradeInstaller : Installer
+    public sealed class UpgradeScope : LifetimeScope
     {
         [Header("Data")]
         [SerializeField] private UpgradeControllerConfig controllerConfig;
@@ -25,7 +24,7 @@ namespace Features.Player.Upgrade
         [SerializeField] private AudioClip upgradePanelOpenedClip;
         [SerializeField] private AudioClip upgradePanelClosedClip;
 
-        public override void Install(IContainerBuilder builder)
+        protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterInstance(controllerConfig);
 

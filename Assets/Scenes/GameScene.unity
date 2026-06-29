@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 113028459}
   - component: {fileID: 113028460}
   m_Layer: 0
-  m_Name: Shield Installer
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,6 +721,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c4fcbe486484a308d650d164e3a8e81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Features.Player.PlayerScope
+  autoRun: 1
+  autoInjectGameObjects: []
   shieldView: {fileID: 1664139024}
   baselineShieldDuration: 5
 --- !u!1 &132090140
@@ -2280,7 +2284,7 @@ GameObject:
   - component: {fileID: 403615433}
   - component: {fileID: 403615434}
   m_Layer: 0
-  m_Name: Shield Battery Installer
+  m_Name: Shield Battery
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2313,6 +2317,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a45432e55e4067bc14782d5b8f1ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Features.Player.Shield.ShieldScope
+  autoRun: 1
+  autoInjectGameObjects: []
   segmentedProgressBarView: {fileID: 1683431877}
 --- !u!1 &407636378
 GameObject:
@@ -3709,7 +3717,7 @@ GameObject:
   - component: {fileID: 643993655}
   - component: {fileID: 643993656}
   m_Layer: 0
-  m_Name: Movement Installer
+  m_Name: Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3742,6 +3750,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0014bb2dac1141798c00b1af3f2d99d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Features.Player.PlayerScope
+  autoRun: 1
+  autoInjectGameObjects: []
   movementView: {fileID: 438074796}
   baselineTopSpeed: 5
 --- !u!1 &652644057
@@ -4876,7 +4888,7 @@ GameObject:
   - component: {fileID: 959774983}
   - component: {fileID: 959774984}
   m_Layer: 0
-  m_Name: Upgrade Installer
+  m_Name: Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4909,6 +4921,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e4511fb43d462186dd34d86d6e350f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Features.Player.PlayerScope
+  autoRun: 1
+  autoInjectGameObjects: []
   controllerConfig: {fileID: 11400000, guid: 576cd0fea8f1f43239290c8d9cab7b68, type: 2}
   cannonballDamageUpgrade: {fileID: 11400000, guid: 7110142cc6963406091f5c07b935bf58, type: 2}
   cannonFireRateUpgrade: {fileID: 11400000, guid: 0191d79a3b35c4e4f9cd88103eca4e48, type: 2}
@@ -6232,6 +6248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1252053012}
+  - component: {fileID: 1252053013}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6258,6 +6275,22 @@ Transform:
   - {fileID: 113028459}
   m_Father: {fileID: 2037558911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1252053013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252053011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd80085cb8054793ac3e39f5483a0aa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Scopes.GameLifetimeScope
+  autoRun: 1
+  autoInjectGameObjects: []
 --- !u!1 &1270193159
 GameObject:
   m_ObjectHideFlags: 0
@@ -6717,7 +6750,7 @@ GameObject:
   - component: {fileID: 1381550022}
   - component: {fileID: 1381550023}
   m_Layer: 0
-  m_Name: Progression Installer
+  m_Name: Progression
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6750,6 +6783,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7665c136a24844a08cd09bbbda0360bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Scopes.GameLifetimeScope
+  autoRun: 1
+  autoInjectGameObjects: []
   progressionView: {fileID: 697673763}
 --- !u!1 &1429300142
 GameObject:
@@ -8911,7 +8948,7 @@ GameObject:
   - component: {fileID: 1858154951}
   - component: {fileID: 1858154952}
   m_Layer: 0
-  m_Name: Shield Stat Display Installer
+  m_Name: Shield Stat Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8944,6 +8981,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab82c1d284274eeaac5e13554f5e027b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Features.Player.Shield.ShieldScope
+  autoRun: 1
+  autoInjectGameObjects: []
   shieldDurationDisplayView: {fileID: 2013035299}
   shieldDropChanceDisplayView: {fileID: 804255185}
 --- !u!1 &1861448516
@@ -9104,7 +9145,7 @@ GameObject:
   - component: {fileID: 1906944961}
   - component: {fileID: 1906944962}
   m_Layer: 0
-  m_Name: Orchestration Installer
+  m_Name: Orchestration
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9137,6 +9178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a52be9fdd8ea4962ba3a3061685e2c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Scopes.GameLifetimeScope
+  autoRun: 1
+  autoInjectGameObjects: []
   gameOverDelayMilliseconds: 1500
   gameOverClip: {fileID: 8300000, guid: 1b5987d420a2a4801b85631551dbf9b6, type: 3}
 --- !u!1 &1947592241
@@ -9708,7 +9753,7 @@ GameObject:
   - component: {fileID: 2037558911}
   - component: {fileID: 2037558910}
   m_Layer: 0
-  m_Name: Lifetime Scope
+  m_Name: Game Lifetime Scope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9935,7 +9980,7 @@ GameObject:
   - component: {fileID: 2079432027}
   - component: {fileID: 2079432028}
   m_Layer: 0
-  m_Name: Ground Installer
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9968,6 +10013,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ec02919c5e4550a9c5903463f29cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: Scopes.GameLifetimeScope
+  autoRun: 1
+  autoInjectGameObjects: []
   targets:
   - Hazard
   - Collectible

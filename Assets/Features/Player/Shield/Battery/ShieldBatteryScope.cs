@@ -1,4 +1,3 @@
-using Core.Foundations.Components;
 using Core.UI;
 using Core.UI.SegmentedProgressBar;
 using UnityEngine;
@@ -7,11 +6,11 @@ using VContainer.Unity;
 
 namespace Features.Player.Shield.Battery
 {
-    public sealed class ShieldBatteryInstaller : Installer
+    public sealed class ShieldBatteryScope : LifetimeScope
     {
         [SerializeField] private SegmentedProgressBarView segmentedProgressBarView;
 
-        public override void Install(IContainerBuilder builder)
+        protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterEntryPoint<ShieldBatteryController>()
                 .WithParameter<IValueDisplay<float>>(segmentedProgressBarView);

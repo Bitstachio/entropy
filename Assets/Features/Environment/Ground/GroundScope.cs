@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Core.Audio;
-using Core.Foundations.Components;
 using Core.Tag;
 using Features.Environment.Ground.Sfx;
 using UnityEngine;
@@ -9,7 +8,7 @@ using VContainer.Unity;
 
 namespace Features.Environment.Ground
 {
-    public sealed class GroundInstaller : Installer
+    public sealed class GroundScope : LifetimeScope
     {
         [Header("Tags")]
         [SerializeField] [Tag] private List<string> targets;
@@ -24,7 +23,7 @@ namespace Features.Environment.Ground
         [SerializeField] private AudioClip hitGroundClip;
         [SerializeField] private AudioClipConfig hitGroundClipConfig;
         
-        public override void Install(IContainerBuilder builder)
+        protected override void Configure(IContainerBuilder builder)
         {
             builder.Register<IGroundModel, GroundModel>(Lifetime.Singleton)
                 .WithParameter(baselineMagnitude);

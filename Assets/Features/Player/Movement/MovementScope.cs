@@ -1,4 +1,3 @@
-using Core.Foundations.Components;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 using UnityEngine;
@@ -7,15 +6,15 @@ using VContainer.Unity;
 
 namespace Features.Player.Movement
 {
-    public sealed class MovementInstaller : Installer
+    public sealed class MovementScope : LifetimeScope
     {
         [Header("Components")]
         [SerializeField] private MovementView movementView;
-        
+
         [Header("Stats")]
         [SerializeField] private float baselineTopSpeed = 5f;
-        
-        public override void Install(IContainerBuilder builder)
+
+        protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterBuildCallback(container =>
             {

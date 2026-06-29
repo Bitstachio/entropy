@@ -1,15 +1,14 @@
-using Core.Foundations.Components;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
 namespace Features.Progression
 {
-    public sealed class ProgressionInstaller : Installer
+    public sealed class ProgressionScope : LifetimeScope
     {
         [SerializeField] private ProgressionView progressionView;
 
-        public override void Install(IContainerBuilder builder)
+        protected override void Configure(IContainerBuilder builder)
         {
             builder.Register<IProgressionRepository, ProgressionRepository>(Lifetime.Singleton);
             builder.Register<IProgressionModel, ProgressionModel>(Lifetime.Singleton);

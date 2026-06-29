@@ -1,6 +1,7 @@
 using Core.Services.Battery;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
+using Features.Player.Attack.Laser.BatteryDisplay;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -21,7 +22,7 @@ namespace Features.Player.Attack.Laser
         {
             builder.RegisterEntryPoint<BatteryService>()
                 .As<IBatteryService>()
-                .WithParameter<IBatteryState>(new BatteryIdleState())
+                .WithParameter<IBatteryState>(new LaserBatteryIdleState())
                 .WithParameter(laserBatteryConfig);
             
             builder.RegisterBuildCallback(container =>

@@ -5,6 +5,7 @@ using Core.Events.Channels;
 using Core.Events.Interfaces;
 using Core.Interfaces;
 using Core.Services.Battery;
+using Features.Player.Attack.Laser.BatteryDisplay;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -46,7 +47,7 @@ namespace Features.Player.Attack.Laser
             _view.OnExitTrigger += HandleExitTrigger;
             _input.OnActivateInputDetected += HandleActivateInputDetected;
             
-            _batteryService.TransitionTo(new BatteryChargingState());
+            _batteryService.TransitionTo(new LaserBatteryChargingState());
         }
 
         public void Dispose()
@@ -70,10 +71,9 @@ namespace Features.Player.Attack.Laser
 
         private void HandleActivateInputDetected()
         {
-            // TODO: Add logic to determine if the laser can be activated (i.e., charged)
-            if (_batteryService.State is BatteryIdleState && Mathf.Approximately(_batteryService.Charge, 1))
+            if (Mathf.Approximately(_batteryService.Charge, 1))
             {
-                _batteryService.TransitionTo(new BatteryDischargingState());
+                _batteryService.TransitionTo(new LaserBatteryDischargingState());
                 Activate();
             }
             else Debug.Log("Laser battery not fully charged");

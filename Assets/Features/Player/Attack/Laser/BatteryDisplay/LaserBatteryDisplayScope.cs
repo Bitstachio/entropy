@@ -1,4 +1,3 @@
-using Core.UI;
 using Core.UI.SegmentedProgressBar;
 using UnityEngine;
 using VContainer;
@@ -13,7 +12,7 @@ namespace Features.Player.Attack.Laser.BatteryDisplay
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterEntryPoint<LaserBatteryDisplayController>()
-                .WithParameter<IValueDisplay<float>>(segmentedProgressBarView);
+                .WithParameter<ISegmentedProgressBarView>(segmentedProgressBarView);
         }
     }
 }

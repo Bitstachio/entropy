@@ -1,24 +1,27 @@
-using Core.Utils;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Core.UI.SegmentedProgressBar
 {
-    public class SegmentedProgressBarView : MonoBehaviour, IValueDisplay<float>
+    public class SegmentedProgressBarView : MonoBehaviour, ISegmentedProgressBarView
     {
         [SerializeField] private LayoutGroup container;
 
         private CanvasGroup[] _segments;
+        
+        private ISegmentQuantizer _quantizer = new LinearSegmentQuantizer();
 
         //===== Lifecycle =====
 
         private void Awake() => CacheSegments();
 
         //===== API =====
+        
+        public void SetQuantizer(ISegmentQuantizer quantizer) => _quantizer = quantizer;
 
         public void Set(float value)
         {
-            var count = MathUtils.NormalizedToStepCount(value, _segments.Length);
+            var count = _quantizer.ToStepCount(value, _segments.Length);
             for (var i = 0; i < _segments.Length; i++)
             {
                 var segment = _segments[i];

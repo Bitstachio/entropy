@@ -1,3 +1,4 @@
+using Core.Services.Battery;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 using UnityEngine;
@@ -18,6 +19,13 @@ namespace Features.Player.Attack.Laser
 
         protected override void Configure(IContainerBuilder builder)
         {
+            // TODO: Remove hard-coded values and don't resolve by constructor param name
+            builder.RegisterEntryPoint<BatteryService>()
+                .As<IBatteryService>()
+                .WithParameter<IBatteryState>(new BatteryIdleState())
+                .WithParameter("chargeTime", 10)
+                .WithParameter("dischargeTime", 5);
+            
             builder.RegisterBuildCallback(container =>
             {
                 var laserBeamStats = container.Resolve<StatRegistry<LaserBeamStats>>();

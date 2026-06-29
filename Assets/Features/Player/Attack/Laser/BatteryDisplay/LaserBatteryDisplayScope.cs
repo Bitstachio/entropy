@@ -4,15 +4,15 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Features.Player.Attack.Laser.Battery
+namespace Features.Player.Attack.Laser.BatteryDisplay
 {
-    public sealed class LaserBatteryScope : LifetimeScope
+    public sealed class LaserBatteryDisplayScope : LifetimeScope
     {
         [SerializeField] private SegmentedProgressBarView segmentedProgressBarView;
 
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.RegisterEntryPoint<LaserBatteryController>()
+            builder.RegisterEntryPoint<LaserBatteryDisplayController>()
                 .WithParameter<IValueDisplay<float>>(segmentedProgressBarView);
         }
     }

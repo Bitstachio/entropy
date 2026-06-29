@@ -16,11 +16,9 @@ namespace Features.Player.Attack.Laser
         [Header("Stats")]
         [SerializeField] private float baselineDamagePerPulse = 1f;
         [SerializeField] private float baselinePulseInterval = 0.5f;
-        [SerializeField] private float baselineDuration = 3f;
 
         protected override void Configure(IContainerBuilder builder)
         {
-            // TODO: Remove hard-coded values and don't resolve by constructor param name
             builder.RegisterEntryPoint<BatteryService>()
                 .As<IBatteryService>()
                 .WithParameter<IBatteryState>(new BatteryIdleState())
@@ -31,7 +29,8 @@ namespace Features.Player.Attack.Laser
                 var laserBeamStats = container.Resolve<StatRegistry<LaserBeamStats>>();
                 laserBeamStats.Register(LaserBeamStats.DamagePerPulse, baselineDamagePerPulse);
                 laserBeamStats.Register(LaserBeamStats.PulseInterval, baselinePulseInterval);
-                laserBeamStats.Register(LaserBeamStats.Duration, baselineDuration);
+                // TODO: I wonder if this is a code smell
+                laserBeamStats.Register(LaserBeamStats.Duration, laserBatteryConfig.DischargeTime);
             });
 
             builder.Register<ILaserBeamModel, LaserBeamModel>(Lifetime.Singleton);

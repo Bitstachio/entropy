@@ -12,7 +12,7 @@ namespace Features.Player.Attack.Laser
     {
         [SerializeField] private LaserBeamView laserBeamView;
         [SerializeField] private LaserInputHandler laserInputHandler;
-        [SerializeField] private LaserBatteryConfig laserBatteryConfig;
+        [SerializeField] private RechargeableBatteryConfig laserBatteryConfig;
 
         [Header("Stats")]
         [SerializeField] private float baselineDamagePerPulse = 1f;

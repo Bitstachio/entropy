@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67f8535d4f1e452e9c616f1c87b973b0, type: 3}
-  m_Name: Laser Battery Config
+  m_Script: {fileID: 11500000, guid: f11dbbc352ed4058bd5409ad7592b838, type: 3}
+  m_Name: Rechargeable Battery Config
   m_EditorClassIdentifier: 
   chargeTime: 10
   dischargeTime: 5

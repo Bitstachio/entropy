@@ -1,4 +1,3 @@
-using Features.Player.Attack.Laser;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -11,7 +10,7 @@ namespace Core.Services.Battery.Rechargeable
         public float ChargeTime { get; set; }
         public float DischargeTime { get; set; }
 
-        public RechargeableBatteryService(IRechargeableBatteryState state, LaserBatteryConfig config)
+        public RechargeableBatteryService(IRechargeableBatteryState state, RechargeableBatteryConfig config)
         {
             State = state;
             ChargeTime = config.ChargeTime;

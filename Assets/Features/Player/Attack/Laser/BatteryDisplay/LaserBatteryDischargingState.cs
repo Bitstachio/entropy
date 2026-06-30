@@ -5,7 +5,7 @@ namespace Features.Player.Attack.Laser.BatteryDisplay
 {
     public sealed class LaserBatteryDischargingState : ITimedChargeBatteryState, IQuantizableState
     {
-        public ISegmentQuantizer Quantizer { get; } = new LaserBatteryDischargingQuantizer();
+        public ISegmentQuantizer Quantizer { get; } = new StepCountQuantizer(true);
         
         public void Tick(ITimedChargeBatteryService service, float deltaTime)
         {

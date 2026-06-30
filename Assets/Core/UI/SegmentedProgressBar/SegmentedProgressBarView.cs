@@ -1,4 +1,3 @@
-using Features.Player.Attack.Laser.BatteryDisplay;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +7,7 @@ namespace Core.UI.SegmentedProgressBar
     {
         [SerializeField] private LayoutGroup container;
 
-        private ISegmentQuantizer _quantizer = new LaserBatteryDischargingQuantizer();
+        private ISegmentQuantizer _quantizer = new StepCountQuantizer(true);
 
         private CanvasGroup[] _segments;
 

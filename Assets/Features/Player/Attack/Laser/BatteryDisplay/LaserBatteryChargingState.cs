@@ -1,12 +1,11 @@
 using Core.Services.Battery.TimedCharge;
 using Core.UI.SegmentedProgressBar;
-using UnityEngine;
 
 namespace Features.Player.Attack.Laser.BatteryDisplay
 {
     public sealed class LaserBatteryChargingState : ITimedChargeBatteryState, IQuantizableState
     {
-        public ISegmentQuantizer Quantizer { get; } = new LaserBatteryChargingQuantizer();
+        public ISegmentQuantizer Quantizer { get; } = new StepCountQuantizer(false);
         
         public void Tick(ITimedChargeBatteryService service, float deltaTime)
         {

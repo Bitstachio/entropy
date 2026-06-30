@@ -1,6 +1,8 @@
 using System;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
+using Core.Services.Battery.InstantCharge;
+using Features.Player.Shield.BatteryDisplay;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -10,6 +12,7 @@ namespace Features.Player.Shield
     {
         private readonly IEventListener<ShieldCollectedEvent> _shieldCollectedListener;
 
+        private readonly IInstantChargeBatteryService _batteryService;
         private readonly IShieldModel _model;
         private readonly IShieldView _view;
 
@@ -18,17 +21,24 @@ namespace Features.Player.Shield
 
         public ShieldController(
             IEventListener<ShieldCollectedEvent> shieldCollectedListener,
+            IInstantChargeBatteryService batteryService,
             IShieldModel model,
             IShieldView view)
         {
             _shieldCollectedListener = shieldCollectedListener;
+            _batteryService = batteryService;
             _model = model;
             _view = view;
         }
 
         //===== Lifecycle =====
 
-        public void Start() => _shieldCollectedListener.OnPublished += HandleShieldCollected;
+        public void Start()
+        {
+            _shieldCollectedListener.OnPublished += HandleShieldCollected;
+
+            _batteryService.TransitionTo(new ShieldBatteryIdleState());
+        }
 
         public void Dispose() => _shieldCollectedListener.OnPublished -= HandleShieldCollected;
 
@@ -37,7 +47,7 @@ namespace Features.Player.Shield
             _timer += Time.deltaTime;
             if (_timer < _model.Duration || !_isViewOn) return;
 
-            DeactivateShield();
+            Deactivate();
 
             _timer = 0;
         }
@@ -46,20 +56,22 @@ namespace Features.Player.Shield
 
         private void HandleShieldCollected(ShieldCollectedEvent @event)
         {
-            ActivateShield();
+            Activate();
             _timer = 0;
         }
 
         //===== Utilities =====
 
-        private void ActivateShield()
+        private void Activate()
         {
+            _batteryService.TransitionTo(new ShieldBatteryDischargingState());
             _view.On();
             _isViewOn = true;
         }
 
-        private void DeactivateShield()
+        private void Deactivate()
         {
+            _batteryService.TransitionTo(new ShieldBatteryIdleState());
             _view.Off();
             _isViewOn = false;
         }

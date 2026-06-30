@@ -1,5 +1,6 @@
 using Core.Services.Battery.TimedCharge;
 using Core.UI.SegmentedProgressBar;
+using UnityEngine;
 
 namespace Features.Player.Attack.Laser.BatteryDisplay
 {

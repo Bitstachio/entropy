@@ -708,7 +708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &113028459
 Transform:
   m_ObjectHideFlags: 0
@@ -744,7 +744,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   shieldView: {fileID: 1664139024}
-  baselineShieldDuration: 5
+  shieldBatteryConfig: {fileID: 11400000, guid: 25ab751d96f3b409aaf04f86e4c47d46, type: 2}
 --- !u!1 &132090140
 GameObject:
   m_ObjectHideFlags: 0

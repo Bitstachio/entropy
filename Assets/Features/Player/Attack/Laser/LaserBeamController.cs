@@ -4,7 +4,7 @@ using System.Linq;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
 using Core.Interfaces;
-using Core.Services.Battery.Rechargeable;
+using Core.Services.Battery.TimedCharge;
 using Features.Player.Attack.Laser.BatteryDisplay;
 using UnityEngine;
 using VContainer.Unity;
@@ -15,7 +15,7 @@ namespace Features.Player.Attack.Laser
     {
         private readonly IEventPublisher<LaserActivated> _laserActivatedPublisher;
 
-        private readonly IRechargeableBatteryService rechargeableBatteryService;
+        private readonly ITimedChargeBatteryService _batteryService;
         private readonly ILaserBeamModel _model;
         private readonly ILaserBeamView _view;
         private readonly ILaserInputHandler _input;
@@ -27,13 +27,13 @@ namespace Features.Player.Attack.Laser
 
         public LaserBeamController(
             IEventPublisher<LaserActivated> laserActivatedPublisher,
-            IRechargeableBatteryService rechargeableBatteryService,
+            ITimedChargeBatteryService batteryService,
             ILaserBeamModel model,
             ILaserBeamView view,
             ILaserInputHandler input)
         {
             _laserActivatedPublisher = laserActivatedPublisher;
-            this.rechargeableBatteryService = rechargeableBatteryService;
+            _batteryService = batteryService;
             _model = model;
             _view = view;
             _input = input;
@@ -47,7 +47,7 @@ namespace Features.Player.Attack.Laser
             _view.OnExitTrigger += HandleExitTrigger;
             _input.OnActivateInputDetected += HandleActivateInputDetected;
             
-            rechargeableBatteryService.TransitionTo(new LaserBatteryChargingState());
+            _batteryService.TransitionTo(new LaserBatteryChargingState());
         }
 
         public void Dispose()
@@ -71,9 +71,9 @@ namespace Features.Player.Attack.Laser
 
         private void HandleActivateInputDetected()
         {
-            if (Mathf.Approximately(rechargeableBatteryService.Charge, 1))
+            if (Mathf.Approximately(_batteryService.Charge, 1))
             {
-                rechargeableBatteryService.TransitionTo(new LaserBatteryDischargingState());
+                _batteryService.TransitionTo(new LaserBatteryDischargingState());
                 Activate();
             }
             else Debug.Log("Laser battery not fully charged");

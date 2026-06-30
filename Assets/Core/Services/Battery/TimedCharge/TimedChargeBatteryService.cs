@@ -1,16 +1,16 @@
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Core.Services.Battery.Rechargeable
+namespace Core.Services.Battery.TimedCharge
 {
-    public sealed class RechargeableBatteryService : IRechargeableBatteryService, ITickable
+    public sealed class TimedChargeBatteryService : ITimedChargeBatteryService, ITickable
     {
-        public IRechargeableBatteryState State { get; set; }
+        public ITimedChargeBatteryState State { get; set; }
         public float Charge { get; set; }
         public float ChargeTime { get; set; }
         public float DischargeTime { get; set; }
 
-        public RechargeableBatteryService(IRechargeableBatteryState state, RechargeableBatteryConfig config)
+        public TimedChargeBatteryService(ITimedChargeBatteryState state, TimedChargeBatteryConfig config)
         {
             State = state;
             ChargeTime = config.ChargeTime;
@@ -23,7 +23,7 @@ namespace Core.Services.Battery.Rechargeable
 
         //===== API =====
 
-        public void TransitionTo(IRechargeableBatteryState state)
+        public void TransitionTo(ITimedChargeBatteryState state)
         {
             State.Exit(this);
             State = state;

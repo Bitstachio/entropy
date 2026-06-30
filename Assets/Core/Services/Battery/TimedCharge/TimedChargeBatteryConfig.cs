@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace Core.Services.Battery.Rechargeable
+namespace Core.Services.Battery.TimedCharge
 {
-    [CreateAssetMenu(menuName = "Battery/Rechargeable Battery Config")]
-    public class RechargeableBatteryConfig : ScriptableObject
+    [CreateAssetMenu(menuName = "Battery/Timed Charge Battery Config")]
+    public class TimedChargeBatteryConfig : ScriptableObject
     {
         [SerializeField] private float chargeTime = 10f;
         [SerializeField] private float dischargeTime = 5f;

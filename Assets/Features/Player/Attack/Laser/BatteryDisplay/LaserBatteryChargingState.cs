@@ -1,13 +1,13 @@
-using Core.Services.Battery.Rechargeable;
+using Core.Services.Battery.TimedCharge;
 using Core.UI.SegmentedProgressBar;
 
 namespace Features.Player.Attack.Laser.BatteryDisplay
 {
-    public sealed class LaserBatteryChargingState : IRechargeableBatteryState, IQuantizableState
+    public sealed class LaserBatteryChargingState : ITimedChargeBatteryState, IQuantizableState
     {
         public ISegmentQuantizer Quantizer { get; } = new LaserBatteryChargingQuantizer();
         
-        public void Tick(IRechargeableBatteryService service, float deltaTime)
+        public void Tick(ITimedChargeBatteryService service, float deltaTime)
         {
             service.Charge += deltaTime / service.ChargeTime;
             

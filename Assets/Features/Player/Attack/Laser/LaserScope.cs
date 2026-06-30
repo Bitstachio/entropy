@@ -1,4 +1,4 @@
-using Core.Services.Battery.Rechargeable;
+using Core.Services.Battery.TimedCharge;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 using Features.Player.Attack.Laser.BatteryDisplay;
@@ -12,7 +12,7 @@ namespace Features.Player.Attack.Laser
     {
         [SerializeField] private LaserBeamView laserBeamView;
         [SerializeField] private LaserInputHandler laserInputHandler;
-        [SerializeField] private RechargeableBatteryConfig laserBatteryConfig;
+        [SerializeField] private TimedChargeBatteryConfig laserBatteryConfig;
 
         [Header("Stats")]
         [SerializeField] private float baselineDamagePerPulse = 1f;
@@ -20,9 +20,9 @@ namespace Features.Player.Attack.Laser
 
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.RegisterEntryPoint<RechargeableBatteryService>()
-                .As<IRechargeableBatteryService>()
-                .WithParameter<IRechargeableBatteryState>(new LaserBatteryIdleState())
+            builder.RegisterEntryPoint<TimedChargeBatteryService>()
+                .As<ITimedChargeBatteryService>()
+                .WithParameter<ITimedChargeBatteryState>(new LaserBatteryIdleState())
                 .WithParameter(laserBatteryConfig);
             
             builder.RegisterBuildCallback(container =>

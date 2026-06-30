@@ -2,16 +2,16 @@ using Features.Player.Attack.Laser;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Core.Services.Battery
+namespace Core.Services.Battery.Rechargeable
 {
-    public sealed class BatteryService : IBatteryService, ITickable
+    public sealed class RechargeableBatteryService : IRechargeableBatteryService, ITickable
     {
-        public IBatteryState State { get; set; }
+        public IRechargeableBatteryState State { get; set; }
         public float Charge { get; set; }
         public float ChargeTime { get; set; }
         public float DischargeTime { get; set; }
 
-        public BatteryService(IBatteryState state, LaserBatteryConfig config)
+        public RechargeableBatteryService(IRechargeableBatteryState state, LaserBatteryConfig config)
         {
             State = state;
             ChargeTime = config.ChargeTime;
@@ -24,7 +24,7 @@ namespace Core.Services.Battery
 
         //===== API =====
 
-        public void TransitionTo(IBatteryState state)
+        public void TransitionTo(IRechargeableBatteryState state)
         {
             State.Exit(this);
             State = state;

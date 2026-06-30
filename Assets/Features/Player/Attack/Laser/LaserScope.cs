@@ -1,4 +1,4 @@
-using Core.Services.Battery;
+using Core.Services.Battery.Rechargeable;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 using Features.Player.Attack.Laser.BatteryDisplay;
@@ -20,9 +20,9 @@ namespace Features.Player.Attack.Laser
 
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.RegisterEntryPoint<BatteryService>()
-                .As<IBatteryService>()
-                .WithParameter<IBatteryState>(new LaserBatteryIdleState())
+            builder.RegisterEntryPoint<RechargeableBatteryService>()
+                .As<IRechargeableBatteryService>()
+                .WithParameter<IRechargeableBatteryState>(new LaserBatteryIdleState())
                 .WithParameter(laserBatteryConfig);
             
             builder.RegisterBuildCallback(container =>

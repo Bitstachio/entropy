@@ -1,4 +1,4 @@
-using Core.Services.Battery;
+using Core.Services.Battery.Rechargeable;
 using Core.UI.SegmentedProgressBar;
 using VContainer.Unity;
 
@@ -6,14 +6,14 @@ namespace Features.Player.Attack.Laser.BatteryDisplay
 {
     public sealed class LaserBatteryDisplayController : ITickable
     {
-        private readonly IBatteryService _batteryService;
+        private readonly IRechargeableBatteryService rechargeableBatteryService;
         private readonly ISegmentedProgressBarView _view;
 
-        private IBatteryState _prevState;
+        private IRechargeableBatteryState _prevState;
 
-        public LaserBatteryDisplayController(IBatteryService batteryService, ISegmentedProgressBarView view)
+        public LaserBatteryDisplayController(IRechargeableBatteryService rechargeableBatteryService, ISegmentedProgressBarView view)
         {
-            _batteryService = batteryService;
+            this.rechargeableBatteryService = rechargeableBatteryService;
             _view = view;
         }
 
@@ -21,15 +21,15 @@ namespace Features.Player.Attack.Laser.BatteryDisplay
 
         public void Tick()
         {
-            var currState = _batteryService.State;
+            var currState = rechargeableBatteryService.State;
 
             if (_prevState != currState)
             {
                 if (currState is IQuantizableState quantizable) _view.SetQuantizer(quantizable.Quantizer);
-                _prevState = _batteryService.State;
+                _prevState = rechargeableBatteryService.State;
             }
 
-            _view.Set(_batteryService.Charge);
+            _view.Set(rechargeableBatteryService.Charge);
         }
     }
 }

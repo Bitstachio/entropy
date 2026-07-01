@@ -5792,7 +5792,7 @@ GameObject:
   - component: {fileID: 1060540049}
   - component: {fileID: 1060540050}
   m_Layer: 0
-  m_Name: AttackOrigin
+  m_Name: Attack Origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,6 +12,7 @@ namespace Features.Player.Attack.Laser
     {
         [SerializeField] private LaserBeamView laserBeamView;
         [SerializeField] private LaserInputHandler laserInputHandler;
+        [SerializeField] private LaserControllerConfig laserControllerConfig;
         [SerializeField] private TimedChargeBatteryConfig laserBatteryConfig;
 
         [Header("Stats")]
@@ -37,7 +38,8 @@ namespace Features.Player.Attack.Laser
             builder.Register<ILaserBeamModel, LaserBeamModel>(Lifetime.Singleton);
             builder.RegisterComponent(laserBeamView).As<ILaserBeamView>();
             builder.RegisterComponent(laserInputHandler).As<ILaserInputHandler>();
-            builder.RegisterEntryPoint<LaserBeamController>();
+            builder.RegisterEntryPoint<LaserBeamController>()
+                .WithParameter(laserControllerConfig);
         }
     }
 }

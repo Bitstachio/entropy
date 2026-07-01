@@ -24,6 +24,8 @@ namespace Features.Player.Attack.Laser
 
         private readonly Dictionary<IDamageable, float> _targetPulseTimers = new();
 
+        private readonly int _disableDelay;
+
         private bool _isActive;
         private float _timer;
 
@@ -33,7 +35,8 @@ namespace Features.Player.Attack.Laser
             ITimedChargeBatteryService batteryService,
             ILaserBeamModel model,
             ILaserBeamView view,
-            ILaserInputHandler input)
+            ILaserInputHandler input,
+            LaserControllerConfig config)
         {
             _laserActivatedPublisher = laserActivatedPublisher;
             _laserDeactivatedPublisher = laserDeactivatedPublisher;
@@ -41,6 +44,7 @@ namespace Features.Player.Attack.Laser
             _model = model;
             _view = view;
             _input = input;
+            _disableDelay = config.LaserDisableDelayMs;
         }
 
         //===== Lifecycle =====
@@ -112,7 +116,7 @@ namespace Features.Player.Attack.Laser
             
             _laserDeactivatedPublisher.Publish(new LaserDeactivated());
             
-            DisableView(_view, 250);
+            DisableView(_view, _disableDelay);
         }
         
         // Delay disabling the view to allow the power-down animation to finish playing

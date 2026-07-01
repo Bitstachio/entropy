@@ -4,6 +4,8 @@ namespace Core.Audio.Sfx
 {
     public interface ISfxPlayer
     {
-        void Play(AudioClip audioClip, float volume);
+        void PlayOneShot(AudioClip clip, float volume);
+        void PlayLooped(AudioClip clip, float volume, float delay = 0f);
+        void Stop();
     }
 }

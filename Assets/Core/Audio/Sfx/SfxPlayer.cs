@@ -9,10 +9,26 @@ namespace Core.Audio.Sfx
 
         //===== Lifecycle =====
 
-        private void Awake() => _audioSource = GetComponent<AudioSource>();
+        private void Awake()
+        {
+            _audioSource = GetComponent<AudioSource>();
+            
+            // Loop is always true because all one-time SFX are routed through PlayOneShot,
+            // which plays on a separate voice and ignores this property entirely
+            _audioSource.loop = true;
+        }
 
-        //===== Interface Implementation =====
+        //===== API =====
 
-        public void Play(AudioClip audioClip, float volume) => _audioSource.PlayOneShot(audioClip, volume);
+        public void PlayOneShot(AudioClip clip, float volume) => _audioSource.PlayOneShot(clip, volume);
+        
+        public void PlayLooped(AudioClip clip, float volume, float delay = 0f)
+        {
+            _audioSource.clip = clip;
+            _audioSource.volume = volume;
+            _audioSource.PlayDelayed(delay);
+        }
+
+        public void Stop() => _audioSource.Stop();
     }
 }

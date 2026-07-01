@@ -43,7 +43,7 @@ namespace Features.Menu
 
         public void LoadGameScene()
         {
-            sfxPlayer.Play(clickClip, 1f);
+            sfxPlayer.PlayOneShot(clickClip, 1f);
             StartCoroutine(ExecuteAfterDelayCoroutine(0.2f));
         }
 
@@ -57,7 +57,7 @@ namespace Features.Menu
 
         private void ShowPage(Page page)
         {
-            sfxPlayer.Play(clickClip, 1f);
+            sfxPlayer.PlayOneShot(clickClip, 1f);
             backButton.SetActive(page != Page.Main);
             foreach (var (key, value) in _pageMap)
                 value.SetActive(key == page);

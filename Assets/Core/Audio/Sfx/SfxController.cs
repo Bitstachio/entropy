@@ -33,6 +33,6 @@ namespace Core.Audio.Sfx
 
         //===== Utilities =====
 
-        private void Play(T _) => _sfxPlayer.Play(_clip, _config.Volume);
+        private void Play(T _) => _sfxPlayer.PlayOneShot(_clip, _config.Volume);
     }
 }

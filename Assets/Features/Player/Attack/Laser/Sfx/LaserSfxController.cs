@@ -1,7 +1,7 @@
 using System;
+using Core.Audio.Sfx;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
-using UnityEngine;
 using VContainer.Unity;
 
 namespace Features.Player.Attack.Laser.Sfx
@@ -10,19 +10,19 @@ namespace Features.Player.Attack.Laser.Sfx
     {
         private readonly IEventListener<LaserActivated> _laserActivatedListener;
         private readonly IEventListener<LaserDeactivated> _laserDeactivatedListener;
-        
-        private readonly AudioSource _audioSource;
+
+        private readonly ISfxPlayer _sfxPlayer;
         private readonly LaserSfxConfig _config;
-        
+
         public LaserSfxController(
             IEventListener<LaserActivated> laserActivatedListener,
             IEventListener<LaserDeactivated> laserDeactivatedListener,
-            AudioSource audioSource,
+            ISfxPlayer sfxPlayer,
             LaserSfxConfig config)
         {
             _laserActivatedListener = laserActivatedListener;
             _laserDeactivatedListener = laserDeactivatedListener;
-            _audioSource = audioSource;
+            _sfxPlayer = sfxPlayer;
             _config = config;
         }
 
@@ -42,23 +42,18 @@ namespace Features.Player.Attack.Laser.Sfx
 
         //===== Lifecycle =====
 
+        // TODO: Remove hard-coded volumes
+
         private void HandleLaserActivated(LaserActivated @event)
         {
-            _audioSource.Stop();
-            _audioSource.loop = false;
-            
-            _audioSource.PlayOneShot(_config.LaserStartClip);
-            
-            _audioSource.clip = _config.LaserActiveClip;
-            _audioSource.loop = true;
-            _audioSource.PlayDelayed(_config.LaserStartClip.length);
+            _sfxPlayer.PlayOneShot(_config.LaserStartClip, 1f);
+            _sfxPlayer.PlayLooped(_config.LaserActiveClip, 1f, _config.LaserStartClip.length);
         }
 
         private void HandleLaserDeactivated(LaserDeactivated @event)
         {
-            _audioSource.loop = false;
-            _audioSource.Stop();
-            _audioSource.PlayOneShot(_config.LaserEndClip);
+            _sfxPlayer.Stop();
+            _sfxPlayer.PlayOneShot(_config.LaserEndClip, 1f);
         }
     }
 }

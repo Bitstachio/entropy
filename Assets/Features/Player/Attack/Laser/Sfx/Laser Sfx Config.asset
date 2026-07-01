@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3628f256d8a341588d51182ff3dd942b, type: 3}
+  m_Name: Laser Sfx Config
+  m_EditorClassIdentifier: 
+  laserStartClip: {fileID: 8300000, guid: 2a10899963ce24c6d9f67863c9f3779e, type: 3}
+  laserActiveClip: {fileID: 8300000, guid: d90394d6e98af4f3cbfdfb3894fa16d0, type: 3}
+  laserEndClip: {fileID: 8300000, guid: 51d4be6ecdbc642408fec5716ad21c71, type: 3}

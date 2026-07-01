@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
 using Core.Interfaces;
@@ -14,6 +15,7 @@ namespace Features.Player.Attack.Laser
     public sealed class LaserBeamController : IStartable, IDisposable, ITickable
     {
         private readonly IEventPublisher<LaserActivated> _laserActivatedPublisher;
+        private readonly IEventPublisher<LaserDeactivated> _laserDeactivatedPublisher;
 
         private readonly ITimedChargeBatteryService _batteryService;
         private readonly ILaserBeamModel _model;
@@ -27,12 +29,14 @@ namespace Features.Player.Attack.Laser
 
         public LaserBeamController(
             IEventPublisher<LaserActivated> laserActivatedPublisher,
+            IEventPublisher<LaserDeactivated> laserDeactivatedPublisher,
             ITimedChargeBatteryService batteryService,
             ILaserBeamModel model,
             ILaserBeamView view,
             ILaserInputHandler input)
         {
             _laserActivatedPublisher = laserActivatedPublisher;
+            _laserDeactivatedPublisher = laserDeactivatedPublisher;
             _batteryService = batteryService;
             _model = model;
             _view = view;
@@ -96,6 +100,7 @@ namespace Features.Player.Attack.Laser
             _isActive = true;
             _timer = 0; // Not redundant; resets duration if the laser is re-activated while already running
             _view.On();
+            
             _laserActivatedPublisher.Publish(new LaserActivated());
         }
 
@@ -104,7 +109,24 @@ namespace Features.Player.Attack.Laser
             _isActive = false;
             _timer = 0;
             _targetPulseTimers.Clear();
-            _view.Off();
+            
+            _laserDeactivatedPublisher.Publish(new LaserDeactivated());
+            
+            DisableView(_view, 250);
+        }
+        
+        // Delay disabling the view to allow the power-down animation to finish playing
+        private static async void DisableView(ILaserBeamView view, int delay)
+        {
+            try
+            {
+                await Task.Delay(delay);
+                view.Off();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"Failed to disable laser view: {e.Message}");
+            }
         }
 
         private void ProcessActiveTargets()

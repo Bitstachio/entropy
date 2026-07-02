@@ -9,7 +9,7 @@ namespace Features.Player.Shield.BatteryDisplay
 {
     public sealed class ShieldBatteryDisplayController : IStartable, IDisposable, ITickable
     {
-        private readonly IEventListener<ShieldCollectedEvent> _shieldCollectedListener;
+        private readonly IEventListener<ShieldActivatedEvent> _shieldCollectedListener;
 
         private readonly IInstantChargeBatteryService _batteryService;
         private readonly ISegmentedProgressBarView _view;
@@ -17,7 +17,7 @@ namespace Features.Player.Shield.BatteryDisplay
         private IInstantChargeBatteryState _prevState;
 
         public ShieldBatteryDisplayController(
-            IEventListener<ShieldCollectedEvent> shieldCollectedListener,
+            IEventListener<ShieldActivatedEvent> shieldCollectedListener,
             IInstantChargeBatteryService batteryService,
             ISegmentedProgressBarView view)
         {
@@ -47,6 +47,6 @@ namespace Features.Player.Shield.BatteryDisplay
 
         //===== Event Handlers =====
 
-        private void HandleShieldCollected(ShieldCollectedEvent @event) => _batteryService.Charge = 1f;
+        private void HandleShieldCollected(ShieldActivatedEvent @event) => _batteryService.Charge = 1f;
     }
 }

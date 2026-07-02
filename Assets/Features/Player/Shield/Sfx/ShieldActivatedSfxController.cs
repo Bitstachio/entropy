@@ -5,10 +5,10 @@ using Core.Events.Interfaces;
 
 namespace Features.Player.Shield.Sfx
 {
-    public sealed class ShieldActivatedSfxController : SfxController<ShieldCollectedEvent>
+    public sealed class ShieldActivatedSfxController : SfxController<ShieldActivatedEvent>
     {
         public ShieldActivatedSfxController(
-            IEventListener<ShieldCollectedEvent> listener,
+            IEventListener<ShieldActivatedEvent> listener,
             ISfxPlayer sfxPlayer,
             AudioClipData data)
             : base(listener, sfxPlayer, data)

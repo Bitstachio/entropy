@@ -1,11 +1,9 @@
 using System.Collections.Generic;
-using Core.Audio;
 using Core.Interfaces;
 using Core.Providers.Position;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 using Core.Tag;
-using Features.Player.Attack.Cannon.Sfx;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -27,10 +25,6 @@ namespace Features.Player.Attack.Cannon
         [SerializeField] private float baselineSpeed;
         [SerializeField] private float baselineDamage;
 
-        [Header("Audio Clips")]
-        [SerializeField] private AudioClip cannonShotClip;
-        [SerializeField] private AudioClipData cannonShotClipData ;
-        
         protected override void Configure(IContainerBuilder builder)
         {
             builder.RegisterBuildCallback(container =>

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3628f256d8a341588d51182ff3dd942b, type: 3}
-  m_Name: Laser Sfx Config
+  m_Name: Laser SFX Config
   m_EditorClassIdentifier: 
-  laserStartClip: {fileID: 8300000, guid: 2a10899963ce24c6d9f67863c9f3779e, type: 3}
-  laserActiveClip: {fileID: 8300000, guid: d90394d6e98af4f3cbfdfb3894fa16d0, type: 3}
-  laserEndClip: {fileID: 8300000, guid: 51d4be6ecdbc642408fec5716ad21c71, type: 3}
+  startClipData: {fileID: 11400000, guid: 7ff9e271f485a4e68a04da8f72e9411d, type: 2}
+  activeClipData: {fileID: 11400000, guid: bce522ca9fc494e8099119715f11b281, type: 2}
+  endClipData: {fileID: 11400000, guid: b80061105aa2046edb98f881660b359b, type: 2}

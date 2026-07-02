@@ -50,11 +50,6 @@ namespace Features.Player.Upgrade
 
             builder.RegisterComponent(upgradeView).As<IUpgradeView>();
             builder.RegisterEntryPoint<UpgradeController>();
-
-            builder.RegisterEntryPoint<UpgradePanelOpenedSfxController>()
-                .WithParameter(upgradePanelOpenedClip);
-            builder.RegisterEntryPoint<UpgradePanelClosedSfxController>()
-                .WithParameter(upgradePanelClosedClip);
         }
     }
 }

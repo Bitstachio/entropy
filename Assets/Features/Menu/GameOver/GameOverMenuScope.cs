@@ -20,6 +20,7 @@ namespace Features.Menu.GameOver
             builder.RegisterComponent(gameOverMenuView).As<IGameOverMenuView>();
             builder.RegisterEntryPoint<GameOverMenuController>();
 
+            // TODO: I don't know if I should register it here
             builder.RegisterEntryPoint<MenuOptionSelectedSfxController>()
                 .WithParameter(clickClip);
         }

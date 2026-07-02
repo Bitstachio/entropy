@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 703f740517f14c5283913096f7dad61e, type: 3}
-  m_Name: Cannon Shot Audio Clip Config
+  m_Name: Laser Active Clip Data
   m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: d90394d6e98af4f3cbfdfb3894fa16d0, type: 3}
   volume: 0.6

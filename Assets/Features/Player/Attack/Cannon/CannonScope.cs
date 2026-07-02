@@ -29,7 +29,7 @@ namespace Features.Player.Attack.Cannon
 
         [Header("Audio Clips")]
         [SerializeField] private AudioClip cannonShotClip;
-        [SerializeField] private AudioClipConfig cannonShotClipConfig ;
+        [SerializeField] private AudioClipData cannonShotClipData ;
         
         protected override void Configure(IContainerBuilder builder)
         {
@@ -49,10 +49,6 @@ namespace Features.Player.Attack.Cannon
             builder.Register<IFactory, CannonballFactory>(Lifetime.Singleton)
                 .WithParameter<ISet<string>>(new HashSet<string>(destroyTags));
             builder.RegisterEntryPoint<Cannon>();
-            
-            builder.RegisterEntryPoint<CannonShotSfxController>()
-                .WithParameter(cannonShotClip)
-                .WithParameter(cannonShotClipConfig);
         }
     }
 }

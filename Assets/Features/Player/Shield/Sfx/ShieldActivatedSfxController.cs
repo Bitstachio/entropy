@@ -3,12 +3,12 @@ using Core.Audio.Sfx;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
 
-namespace Features.Player.Attack.Cannon.Sfx
+namespace Features.Player.Shield.Sfx
 {
-    public class CannonShotSfxController : SfxController<CannonShotEvent>
+    public sealed class ShieldActivatedSfxController : SfxController<ShieldCollectedEvent>
     {
-        public CannonShotSfxController(
-            IEventListener<CannonShotEvent> listener,
+        public ShieldActivatedSfxController(
+            IEventListener<ShieldCollectedEvent> listener,
             ISfxPlayer sfxPlayer,
             AudioClipData data)
             : base(listener, sfxPlayer, data)

@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 703f740517f14c5283913096f7dad61e, type: 3}
-  m_Name: Background Music Config
+  m_Name: Laser Start Clip Data
   m_EditorClassIdentifier: 
-  volume: 0.3
+  clip: {fileID: 8300000, guid: 2a10899963ce24c6d9f67863c9f3779e, type: 3}
+  volume: 0.6

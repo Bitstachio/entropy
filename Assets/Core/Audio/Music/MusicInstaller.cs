@@ -9,7 +9,7 @@ namespace Core.Audio.Music
     {
         [SerializeField] private MusicPlayer musicPlayer;
         [SerializeField] private AudioClip backgroundMusic;
-        [SerializeField] private AudioClipConfig audioClipConfig;
+        [SerializeField] private AudioClipData audioClipData;
 
         public override void Install(IContainerBuilder builder)
         {
@@ -17,7 +17,7 @@ namespace Core.Audio.Music
 
             builder.RegisterEntryPoint<GameMusicController>()
                 .WithParameter(backgroundMusic)
-                .WithParameter(audioClipConfig);
+                .WithParameter(audioClipData);
         }
     }
 }

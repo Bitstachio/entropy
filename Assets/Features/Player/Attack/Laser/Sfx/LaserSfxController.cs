@@ -42,18 +42,19 @@ namespace Features.Player.Attack.Laser.Sfx
 
         //===== Lifecycle =====
 
-        // TODO: Remove hard-coded volumes
-
         private void HandleLaserActivated(LaserActivated @event)
         {
-            _sfxPlayer.PlayOneShot(_config.LaserStartClip, 1f);
-            _sfxPlayer.PlayLooped(_config.LaserActiveClip, 1f, _config.LaserStartClip.length);
+            _sfxPlayer.PlayOneShot(_config.StartClipData.Clip, _config.StartClipData.Volume);
+            _sfxPlayer.PlayLooped(
+                _config.ActiveClipData.Clip,
+                _config.ActiveClipData.Volume,
+                _config.StartClipData.Clip.length);
         }
 
         private void HandleLaserDeactivated(LaserDeactivated @event)
         {
             _sfxPlayer.Stop();
-            _sfxPlayer.PlayOneShot(_config.LaserEndClip, 1f);
+            _sfxPlayer.PlayOneShot(_config.EndClipData.Clip, _config.EndClipData.Volume);
         }
     }
 }

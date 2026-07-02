@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 703f740517f14c5283913096f7dad61e, type: 3}
-  m_Name: Rock Destroyed Audio Clip Config
+  m_Name: Upgrade Panel Closed Clip Data
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 88526df67e67647b08f7c37d02748580, type: 3}
-  volume: 0.2
+  clip: {fileID: 8300000, guid: fbbe41d17d6ef4bf0a225b811480f99e, type: 3}
+  volume: 1

@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using Core.Collectible;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
-using Features.Player.Shield.Collectible.Sfx;
 using UnityEngine;
 using VContainer;
-using VContainer.Unity;
 
 namespace Features.Player.Shield.Collectible
 {
@@ -29,8 +27,9 @@ namespace Features.Player.Shield.Collectible
 
         protected override void RegisterSfx(IContainerBuilder builder)
         {
-            builder.RegisterEntryPoint<ShieldCollectedSfxController>()
-                .WithParameter(shieldCollectedClip);
+            // TODO: I don't think I want to register SFX here
+            // builder.RegisterEntryPoint<ShieldActivatedSfxController>()
+            //     .WithParameter(shieldCollectedClip);
         }
     }
 }

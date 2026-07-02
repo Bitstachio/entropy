@@ -10,19 +10,16 @@ namespace Core.Audio.Sfx
         private readonly IEventListener<T> _listener;
 
         private readonly ISfxPlayer _sfxPlayer;
-        private readonly AudioClip _clip;
-        private readonly AudioClipConfig _config;
+        private readonly AudioClipData _data;
 
         protected SfxController(
             IEventListener<T> listener,
             ISfxPlayer sfxPlayer,
-            AudioClip clip,
-            AudioClipConfig config)
+            AudioClipData data)
         {
             _listener = listener;
             _sfxPlayer = sfxPlayer;
-            _clip = clip;
-            _config = config ?? ScriptableObject.CreateInstance<AudioClipConfig>();
+            _data = data ?? ScriptableObject.CreateInstance<AudioClipData>();
         }
 
         //===== Lifecycle =====
@@ -33,6 +30,6 @@ namespace Core.Audio.Sfx
 
         //===== Utilities =====
 
-        private void Play(T _) => _sfxPlayer.PlayOneShot(_clip, _config.Volume);
+        private void Play(T _) => _sfxPlayer.PlayOneShot(_data.Clip, _data.Volume);
     }
 }

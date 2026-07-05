@@ -6,7 +6,9 @@ namespace Features.Player.Attack.Laser
     public sealed class LaserControllerConfig : ScriptableObject
     {
         [SerializeField] private int laserDisableDelayMs;
+        [SerializeField] private Color targetHitTint = Color.red;
         
         public int LaserDisableDelayMs => laserDisableDelayMs;
+        public Color TargetHitTint => targetHitTint;
     }
 }

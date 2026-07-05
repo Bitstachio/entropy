@@ -49,8 +49,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1365724ac75469b8d22a8ee0f2755e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 641456730539159574}
   durabilityDisplay: {fileID: 751212647404681237}
   destroyParticles: {fileID: 8125823318909322991, guid: a75ba2c842cdf43f095d461f73c80342, type: 3}
+  tintFadeDuration: 1
 --- !u!50 &5874962051031265861
 Rigidbody2D:
   serializedVersion: 5

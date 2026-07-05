@@ -21,10 +21,9 @@ namespace Features.Player.Attack.Laser
         private readonly ILaserBeamModel _model;
         private readonly ILaserBeamView _view;
         private readonly ILaserInputHandler _input;
+        private readonly LaserControllerConfig _config;
 
         private readonly Dictionary<IDamageable, float> _targetPulseTimers = new();
-
-        private readonly int _disableDelay;
 
         private bool _isActive;
         private float _timer;
@@ -44,7 +43,7 @@ namespace Features.Player.Attack.Laser
             _model = model;
             _view = view;
             _input = input;
-            _disableDelay = config.LaserDisableDelayMs;
+            _config = config;
         }
 
         //===== Lifecycle =====
@@ -90,11 +89,13 @@ namespace Features.Player.Attack.Laser
         private void HandleEnterTrigger(Collider2D other)
         {
             if (other.TryGetComponent<IDamageable>(out var damageable)) _targetPulseTimers[damageable] = 0f;
+            if (other.TryGetComponent<ITintable>(out var tintable)) tintable.SetTint(_config.TargetHitTint);
         }
 
         private void HandleExitTrigger(Collider2D other)
         {
             if (other.TryGetComponent<IDamageable>(out var damageable)) _targetPulseTimers.Remove(damageable);
+            if (other.TryGetComponent<ITintable>(out var tintable)) tintable.ResetTint();
         }
 
         //===== Utilities =====
@@ -116,7 +117,7 @@ namespace Features.Player.Attack.Laser
             
             _laserDeactivatedPublisher.Publish(new LaserDeactivated());
             
-            DisableView(_view, _disableDelay);
+            DisableView(_view, _config.LaserDisableDelayMs);
         }
         
         // Delay disabling the view to allow the power-down animation to finish playing

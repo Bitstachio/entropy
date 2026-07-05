@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durabilityDisplay: {fileID: 751212647404681237}
+  destroyParticles: {fileID: 8125823318909322991, guid: a75ba2c842cdf43f095d461f73c80342, type: 3}
 --- !u!50 &5874962051031265861
 Rigidbody2D:
   serializedVersion: 5

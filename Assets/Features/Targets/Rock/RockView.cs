@@ -9,6 +9,7 @@ namespace Features.Targets.Rock
     public sealed class RockView : MonoBehaviour, IRockView, IDamageable
     {
         [SerializeField] private TextMeshPro durabilityDisplay;
+        [SerializeField] private ParticleSystem destroyParticles;
 
         private Rigidbody2D _rb;
 
@@ -27,12 +28,20 @@ namespace Features.Targets.Rock
 
         public void SetDurability(float durability) => durabilityDisplay.text = Mathf.RoundToInt(durability).ToString();
 
-        public void Destroy() => Destroy(gameObject);
+        public void Destroy()
+        {
+            SpawnDestroyParticles();
+            Destroy(gameObject);
+        }
 
         public void Damage(float amount) => OnDamageTaken?.Invoke(amount);
 
         //===== Physics Callbacks =====
 
         private void OnCollisionEnter2D(Collision2D other) => OnHitObject?.Invoke(other);
+
+        //===== Utilities =====
+        
+        private void SpawnDestroyParticles() => Instantiate(destroyParticles, transform.position, Quaternion.identity);
     }
 }

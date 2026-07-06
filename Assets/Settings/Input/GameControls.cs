@@ -109,6 +109,15 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TogglePause"",
+                    ""type"": ""Button"",
+                    ""id"": ""150531cf-028e-4678-8101-eb4dcd6a9a20"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -155,6 +164,17 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""action"": ""ActivateLaser"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2aac01c5-9f75-4b0e-9fd2-44287e88e4c7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TogglePause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -165,6 +185,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_ActivateLaser = m_Player.FindAction("ActivateLaser", throwIfNotFound: true);
+        m_Player_TogglePause = m_Player.FindAction("TogglePause", throwIfNotFound: true);
     }
 
     ~@GameControls()
@@ -247,6 +268,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_ActivateLaser;
+    private readonly InputAction m_Player_TogglePause;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -266,6 +288,10 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/ActivateLaser".
         /// </summary>
         public InputAction @ActivateLaser => m_Wrapper.m_Player_ActivateLaser;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/TogglePause".
+        /// </summary>
+        public InputAction @TogglePause => m_Wrapper.m_Player_TogglePause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -298,6 +324,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @ActivateLaser.started += instance.OnActivateLaser;
             @ActivateLaser.performed += instance.OnActivateLaser;
             @ActivateLaser.canceled += instance.OnActivateLaser;
+            @TogglePause.started += instance.OnTogglePause;
+            @TogglePause.performed += instance.OnTogglePause;
+            @TogglePause.canceled += instance.OnTogglePause;
         }
 
         /// <summary>
@@ -315,6 +344,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @ActivateLaser.started -= instance.OnActivateLaser;
             @ActivateLaser.performed -= instance.OnActivateLaser;
             @ActivateLaser.canceled -= instance.OnActivateLaser;
+            @TogglePause.started -= instance.OnTogglePause;
+            @TogglePause.performed -= instance.OnTogglePause;
+            @TogglePause.canceled -= instance.OnTogglePause;
         }
 
         /// <summary>
@@ -369,5 +401,12 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnActivateLaser(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TogglePause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTogglePause(InputAction.CallbackContext context);
     }
 }

@@ -4,8 +4,18 @@ namespace Core.Services.TimeScale
 {
     public class TimeScaleService : ITimeScaleService
     {
-        public void Pause() => Time.timeScale = 0f;
+        public bool IsPaused { get; private set; }
 
-        public void Resume() => Time.timeScale = 1f;
+        public void Pause()
+        {
+            IsPaused = true;
+            Time.timeScale = 0f;
+        }
+
+        public void Resume()
+        {
+            IsPaused = false;
+            Time.timeScale = 1f;
+        }
     }
 }

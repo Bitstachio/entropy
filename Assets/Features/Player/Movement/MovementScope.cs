@@ -11,6 +11,7 @@ namespace Features.Player.Movement
     {
         [SerializeField] private MovementView movementView;
         [SerializeField] private HorizontalBoundsProvider horizontalBoundsProvider;
+        [SerializeField] private BoundsConfig boundsConfig;
 
         [Header("Stats")]
         [SerializeField] private float baselineTopSpeed = 5f;
@@ -26,7 +27,8 @@ namespace Features.Player.Movement
             builder.Register<IMovementModel, MovementModel>(Lifetime.Singleton);
             builder.RegisterComponent(movementView).As<IMovementView>();
             builder.RegisterEntryPoint<MovementController>()
-                .WithParameter<IBoundsProvider>(horizontalBoundsProvider);
+                .WithParameter<IBoundsProvider>(horizontalBoundsProvider)
+                .WithParameter(boundsConfig);
         }
     }
 }

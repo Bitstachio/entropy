@@ -5,6 +5,8 @@ namespace Features.Player.Movement
 {
     public sealed class MovementView : MonoBehaviour, IMovementView
     {
+        public float XPosition => transform.position.x;
+        
         private GameControls _controls;
         private Rigidbody2D _rb;
 

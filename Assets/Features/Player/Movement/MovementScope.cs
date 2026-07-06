@@ -1,3 +1,4 @@
+using Core.Providers.Bounds;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 using UnityEngine;
@@ -8,8 +9,8 @@ namespace Features.Player.Movement
 {
     public sealed class MovementScope : LifetimeScope
     {
-        [Header("Components")]
         [SerializeField] private MovementView movementView;
+        [SerializeField] private HorizontalBoundsProvider horizontalBoundsProvider;
 
         [Header("Stats")]
         [SerializeField] private float baselineTopSpeed = 5f;
@@ -24,7 +25,8 @@ namespace Features.Player.Movement
 
             builder.Register<IMovementModel, MovementModel>(Lifetime.Singleton);
             builder.RegisterComponent(movementView).As<IMovementView>();
-            builder.RegisterEntryPoint<MovementController>();
+            builder.RegisterEntryPoint<MovementController>()
+                .WithParameter<IBoundsProvider>(horizontalBoundsProvider);
         }
     }
 }

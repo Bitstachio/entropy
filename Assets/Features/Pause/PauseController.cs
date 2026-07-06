@@ -1,9 +1,8 @@
 using System;
-using Core.Constants;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
+using Core.Services.Scene;
 using Core.Services.TimeScale;
-using Features.Menu;
 using VContainer.Unity;
 
 namespace Features.Pause
@@ -15,6 +14,7 @@ namespace Features.Pause
         private readonly IEventPublisher<MenuOptionSelected> _menuOptionSelectedPublisher;
 
         private readonly ITimeScaleService _timeScaleService;
+        private readonly ISceneService _sceneService;
 
         private readonly IPauseView _view;
         private readonly IPauseInputHandler _input;
@@ -24,6 +24,7 @@ namespace Features.Pause
             IEventPublisher<GameResumedEvent> gameResumedPublisher,
             IEventPublisher<MenuOptionSelected> menuOptionSelectedPublisher,
             ITimeScaleService timeScaleService,
+            ISceneService sceneService,
             IPauseView view,
             IPauseInputHandler input)
         {
@@ -31,6 +32,7 @@ namespace Features.Pause
             _gameResumedPublisher = gameResumedPublisher;
             _menuOptionSelectedPublisher = menuOptionSelectedPublisher;
             _timeScaleService = timeScaleService;
+            _sceneService = sceneService;
             _view = view;
             _input = input;
         }
@@ -69,17 +71,9 @@ namespace Features.Pause
         {
         }
 
-        private void HandleRestartSelected()
-        {
-            MenuUtils.SelectScene(Scenes.Game, _menuOptionSelectedPublisher, 200);
-            _timeScaleService.Resume();
-        }
+        private void HandleRestartSelected() => _sceneService.Load(Scenes.Game);
 
-        private void HandleAbortSelected()
-        {
-            MenuUtils.SelectScene(Scenes.Main, _menuOptionSelectedPublisher, 200);
-            _timeScaleService.Resume();
-        }
+        private void HandleAbortSelected() => _sceneService.Load(Scenes.Main);
 
         //===== Utilities =====
 

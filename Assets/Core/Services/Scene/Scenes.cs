@@ -1,4 +1,4 @@
-namespace Core.Constants
+namespace Core.Services.Scene
 {
     public static class Scenes
     {

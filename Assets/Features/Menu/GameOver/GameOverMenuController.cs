@@ -2,6 +2,7 @@ using System;
 using Core.Constants;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
+using Core.Services.Scene;
 using VContainer.Unity;
 
 namespace Features.Menu.GameOver

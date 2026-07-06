@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Core.Constants;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
+using Core.Services.Scene;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VContainer.Unity;

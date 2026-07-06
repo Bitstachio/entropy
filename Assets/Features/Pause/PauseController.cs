@@ -1,6 +1,7 @@
 using System;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
+using Core.Services.Menu;
 using Core.Services.Scene;
 using Core.Services.TimeScale;
 using VContainer.Unity;
@@ -11,8 +12,8 @@ namespace Features.Pause
     {
         private readonly IEventPublisher<GamePausedEvent> _gamePausedPublisher;
         private readonly IEventPublisher<GameResumedEvent> _gameResumedPublisher;
-        private readonly IEventPublisher<MenuOptionSelected> _menuOptionSelectedPublisher;
 
+        private readonly IMenuService _menuService;
         private readonly ITimeScaleService _timeScaleService;
         private readonly ISceneService _sceneService;
 
@@ -22,7 +23,7 @@ namespace Features.Pause
         public PauseController(
             IEventPublisher<GamePausedEvent> gamePausedPublisher,
             IEventPublisher<GameResumedEvent> gameResumedPublisher,
-            IEventPublisher<MenuOptionSelected> menuOptionSelectedPublisher,
+            IMenuService menuService,
             ITimeScaleService timeScaleService,
             ISceneService sceneService,
             IPauseView view,
@@ -30,7 +31,7 @@ namespace Features.Pause
         {
             _gamePausedPublisher = gamePausedPublisher;
             _gameResumedPublisher = gameResumedPublisher;
-            _menuOptionSelectedPublisher = menuOptionSelectedPublisher;
+            _menuService = menuService;
             _timeScaleService = timeScaleService;
             _sceneService = sceneService;
             _view = view;
@@ -65,15 +66,13 @@ namespace Features.Pause
             else Pause();
         }
 
-        private void HandleResumeSelected() => Resume();
+        private void HandleResumeSelected() => _menuService.SelectOption(Resume);
 
-        private void HandleSettingsSelected()
-        {
-        }
+        private void HandleSettingsSelected() => _menuService.SelectOption(() => { });
 
-        private void HandleRestartSelected() => _sceneService.Load(Scenes.Game);
+        private void HandleRestartSelected() => _menuService.SelectOption(() => _sceneService.Load(Scenes.Game));
 
-        private void HandleAbortSelected() => _sceneService.Load(Scenes.Main);
+        private void HandleAbortSelected() => _menuService.SelectOption(() => _sceneService.Load(Scenes.Main));
 
         //===== Utilities =====
 

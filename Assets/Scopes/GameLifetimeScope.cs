@@ -1,5 +1,4 @@
 using System.Linq;
-using Core.Events.Base;
 using Core.Foundations.Components;
 using Core.Services.Menu;
 using Core.Services.Scene;
@@ -28,11 +27,6 @@ namespace Scopes
             //----- Installers -----
 
             GetComponentsInChildren<Installer>().ToList().ForEach(i => i.Install(builder));
-
-            //----- Event Channels -----
-
-            builder.Register(typeof(EventChannel<>), Lifetime.Singleton)
-                .AsImplementedInterfaces();
 
             //----- Stat Registries -----
 

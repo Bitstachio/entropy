@@ -7,8 +7,8 @@ namespace Core.Foundations.Components
     {
         //===== API =====
         
-        public void On() => gameObject.SetActive(true);
+        public virtual void On() => gameObject.SetActive(true);
 
-        public void Off() => gameObject.SetActive(false);
+        public virtual void Off() => gameObject.SetActive(false);
     }
 }

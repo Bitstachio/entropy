@@ -1,10 +1,11 @@
 using System;
+using Core.Foundations.Components;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Features.Menu.Main
 {
-    public class MainPageView : MonoBehaviour, IMainPageView
+    public sealed class MainPageView : ToggleableView, IMainPageView
     {
         [SerializeField] private Button startButton;
         [SerializeField] private Button guideButton;

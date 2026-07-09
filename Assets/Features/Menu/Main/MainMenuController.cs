@@ -26,6 +26,9 @@ namespace Features.Menu.Main
             _pages.Main.OnStartSelected += HandleStartSelected;
             _pages.Main.OnGuideSelected += HandleGuideSelected;
             _pages.Main.OnCreditsSelected += HandleCreditsSelected;
+            
+            _pages.Guide.OnBackSelected += HandleBackSelected;
+            _pages.Credits.OnBackSelected += HandleBackSelected;
         }
 
         public void Dispose()
@@ -33,18 +36,32 @@ namespace Features.Menu.Main
             _pages.Main.OnStartSelected -= HandleStartSelected;
             _pages.Main.OnGuideSelected -= HandleGuideSelected;
             _pages.Main.OnCreditsSelected -= HandleCreditsSelected;
+            
+            _pages.Guide.OnBackSelected -= HandleBackSelected;
+            _pages.Credits.OnBackSelected -= HandleBackSelected;
         }
 
         //===== Event Handlers =====
 
         private void HandleStartSelected() => _menuService.SelectOption(() => _sceneService.Load(Scenes.Game));
 
-        private void HandleGuideSelected()
+        private void HandleGuideSelected() => _menuService.SelectOption(() =>
         {
-        }
+            _pages.Main.Off();
+            _pages.Guide.On();
+        });
 
-        private void HandleCreditsSelected()
+        private void HandleCreditsSelected() => _menuService.SelectOption(() =>
         {
-        }
+            _pages.Main.Off();
+            _pages.Credits.On();
+        });
+
+        private void HandleBackSelected() => _menuService.SelectOption(() =>
+        {
+            _pages.Main.On();
+            _pages.Guide.Off();
+            _pages.Credits.Off();
+        });
     }
 }

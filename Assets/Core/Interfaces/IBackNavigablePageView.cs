@@ -2,7 +2,7 @@ using System;
 
 namespace Core.Interfaces
 {
-    public interface IBackNavigablePageView
+    public interface IBackNavigablePageView : IToggleable
     {
         event Action OnBackSelected;
     }

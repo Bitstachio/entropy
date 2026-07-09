@@ -1,7 +1,5 @@
 using System;
-using Core.Constants;
-using Core.Events.Channels;
-using Core.Events.Interfaces;
+using Core.Services.Menu;
 using Core.Services.Scene;
 using VContainer.Unity;
 
@@ -9,17 +7,20 @@ namespace Features.Menu.GameOver
 {
     public sealed class GameOverMenuController : IStartable, IDisposable
     {
-        private readonly IEventPublisher<MenuOptionSelected> _menuOptionSelectedPublisher;
+        private readonly IMenuService _menuService;
+        private readonly ISceneService _sceneService;
 
         private readonly IGameOverMenuModel _model;
         private readonly IGameOverMenuView _view;
 
         public GameOverMenuController(
-            IEventPublisher<MenuOptionSelected> menuOptionSelectedPublisher,
+            IMenuService menuService,
+            ISceneService sceneService,
             IGameOverMenuModel model,
             IGameOverMenuView view)
         {
-            _menuOptionSelectedPublisher = menuOptionSelectedPublisher;
+            _menuService = menuService;
+            _sceneService = sceneService;
             _model = model;
             _view = view;
         }
@@ -46,9 +47,9 @@ namespace Features.Menu.GameOver
         //===== Event Handlers =====
 
         private void HandleRetrySelected() =>
-            MenuUtils.SelectScene(Scenes.Game, _menuOptionSelectedPublisher, _model.SceneLoadDelay);
+            _menuService.SelectOption(() => _sceneService.Load(Scenes.Game));
 
         private void HandleHomeSelected() =>
-            MenuUtils.SelectScene(Scenes.Main, _menuOptionSelectedPublisher, _model.SceneLoadDelay);
+            _menuService.SelectOption(() => _sceneService.Load(Scenes.Main));
     }
 }

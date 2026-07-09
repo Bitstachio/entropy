@@ -6,13 +6,11 @@ namespace Features.Menu.GameOver
 {
     public sealed class GameOverMenuScope : LifetimeScope
     {
-        [SerializeField] private GameOverMenuConfig config;
         [SerializeField] private GameOverMenuView gameOverMenuView;
 
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.Register<IGameOverMenuModel, GameOverMenuModel>(Lifetime.Singleton)
-                .WithParameter(config);
+            builder.Register<IGameOverMenuModel, GameOverMenuModel>(Lifetime.Singleton);
             builder.RegisterComponent(gameOverMenuView).As<IGameOverMenuView>();
             builder.RegisterEntryPoint<GameOverMenuController>();
         }

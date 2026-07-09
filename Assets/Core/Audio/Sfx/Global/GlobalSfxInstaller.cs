@@ -1,5 +1,4 @@
 using Core.Foundations.Components;
-using Features.Menu.Sfx;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;

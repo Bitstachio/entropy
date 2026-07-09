@@ -1,9 +1,7 @@
-using Core.Audio;
-using Core.Audio.Sfx;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
 
-namespace Features.Menu.Sfx
+namespace Core.Audio.Sfx.Global
 {
     public sealed class MenuOptionSelectedSfxController : SfxController<MenuOptionSelected>
     {

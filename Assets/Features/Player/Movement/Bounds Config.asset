@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d106a0a40fb41abb0f7d7b1b2ee6117, type: 3}
   m_Name: Bounds Config
   m_EditorClassIdentifier: 
-  overshoot: 1
+  overshoot: 0.5

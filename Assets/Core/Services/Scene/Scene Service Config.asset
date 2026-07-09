@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4751cf8e0564e82b479e537a16c328b, type: 3}
   m_Name: Scene Service Config
   m_EditorClassIdentifier: 
-  delay: 200
+  delay: 100

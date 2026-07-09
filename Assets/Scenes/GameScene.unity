@@ -877,7 +877,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0.00 s
+  m_text: 00.00 s
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02089f74310a048fca55f83e0045146f, type: 2}
   m_sharedMaterial: {fileID: 3921597946503423288, guid: 02089f74310a048fca55f83e0045146f, type: 2}
@@ -6769,7 +6769,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 420, y: 0}
-  m_SizeDelta: {x: 420, y: 140}
+  m_SizeDelta: {x: 460, y: 140}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1006748876
 MonoBehaviour:
@@ -10502,7 +10502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6798751449741377855, guid: 5e01d634f038c47fa9a1d5b1a66a2b37, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 70
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6798751449741377855, guid: 5e01d634f038c47fa9a1d5b1a66a2b37, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -11909,7 +11909,7 @@ MonoBehaviour:
     TypeName: Features.Orchestration.OrchestrationScope
   autoRun: 1
   autoInjectGameObjects: []
-  gameOverClipData: {fileID: 0}
+  gameOverClipData: {fileID: 11400000, guid: 01aa693903ea94b0b872ffd5229168c8, type: 2}
 --- !u!1 &1980956050
 GameObject:
   m_ObjectHideFlags: 0
@@ -12248,7 +12248,6 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  sceneServiceConfig: {fileID: 11400000, guid: 98bb915790ee742bd9a5630d090a9a1b, type: 2}
 --- !u!4 &2037558911
 Transform:
   m_ObjectHideFlags: 0

@@ -9,11 +9,11 @@ namespace Core.Foundations.Components
     {
         [SerializeField] private Button backButton;
 
-        public event Action OnBackSelected;
+        public event Action<IBackNavigablePageView> OnBackSelected;
 
         //===== Lifecycle =====
 
-        private void Awake() => backButton.onClick.AddListener(() => OnBackSelected?.Invoke());
+        private void Awake() => backButton.onClick.AddListener(() => OnBackSelected?.Invoke(this));
 
         //===== API =====
 

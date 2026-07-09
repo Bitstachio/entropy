@@ -1,4 +1,5 @@
 using System;
+using Core.Interfaces;
 using Core.Services.Menu;
 using Core.Services.Scene;
 using VContainer.Unity;
@@ -26,7 +27,7 @@ namespace Features.Menu.Main
             _pages.Main.OnStartSelected += HandleStartSelected;
             _pages.Main.OnGuideSelected += HandleGuideSelected;
             _pages.Main.OnCreditsSelected += HandleCreditsSelected;
-            
+
             _pages.Guide.OnBackSelected += HandleBackSelected;
             _pages.Credits.OnBackSelected += HandleBackSelected;
         }
@@ -36,7 +37,7 @@ namespace Features.Menu.Main
             _pages.Main.OnStartSelected -= HandleStartSelected;
             _pages.Main.OnGuideSelected -= HandleGuideSelected;
             _pages.Main.OnCreditsSelected -= HandleCreditsSelected;
-            
+
             _pages.Guide.OnBackSelected -= HandleBackSelected;
             _pages.Credits.OnBackSelected -= HandleBackSelected;
         }
@@ -57,11 +58,10 @@ namespace Features.Menu.Main
             _pages.Credits.On();
         });
 
-        private void HandleBackSelected() => _menuService.SelectOption(() =>
+        private void HandleBackSelected(IBackNavigablePageView view) => _menuService.SelectOption(() =>
         {
             _pages.Main.On();
-            _pages.Guide.Off();
-            _pages.Credits.Off();
+            view.Off();
         });
     }
 }

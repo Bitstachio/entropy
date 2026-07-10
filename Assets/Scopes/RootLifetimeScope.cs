@@ -3,6 +3,7 @@ using Core.Events.Base;
 using Core.Foundations.Components;
 using Core.Services.Menu;
 using Core.Services.Scene;
+using Core.Services.Settings;
 using Core.Services.TimeScale;
 using Core.Session;
 using UnityEngine;
@@ -28,6 +29,7 @@ namespace Scopes
             builder.Register<ISceneService, SceneService>(Lifetime.Singleton)
                 .WithParameter(sceneServiceConfig);
             builder.Register<IMenuService, MenuService>(Lifetime.Singleton);
+            builder.Register<ISettingsService, SettingsService>(Lifetime.Singleton);
 
             //----- Sessions -----
 

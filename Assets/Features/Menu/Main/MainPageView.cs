@@ -10,9 +10,11 @@ namespace Features.Menu.Main
         [SerializeField] private Button startButton;
         [SerializeField] private Button guideButton;
         [SerializeField] private Button settingsButton;
+        [SerializeField] private Button creditsButton;
 
         public event Action OnStartSelected;
         public event Action OnGuideSelected;
+        public event Action OnSettingsSelected;
         public event Action OnCreditsSelected;
 
         //===== Lifecycle =====
@@ -21,7 +23,8 @@ namespace Features.Menu.Main
         {
             startButton.onClick.AddListener(HandleStartSelected);
             guideButton.onClick.AddListener(HandleGuideSelected);
-            settingsButton.onClick.AddListener(HandleCreditsSelected);
+            settingsButton.onClick.AddListener(HandleSettingsSelected);
+            creditsButton.onClick.AddListener(HandleCreditsSelected);
         }
 
         //===== Event Handlers =====
@@ -30,6 +33,8 @@ namespace Features.Menu.Main
 
         private void HandleGuideSelected() => OnGuideSelected?.Invoke();
 
+        private void HandleSettingsSelected() => OnSettingsSelected?.Invoke();
+        
         private void HandleCreditsSelected() => OnCreditsSelected?.Invoke();
     }
 }

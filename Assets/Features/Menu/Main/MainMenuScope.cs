@@ -9,12 +9,13 @@ namespace Features.Menu.Main
     {
         [SerializeField] private MainPageView mainPageView;
         [SerializeField] private BackNavigablePageView guidePageView;
+        [SerializeField] private BackNavigablePageView settingsPageView;
         [SerializeField] private BackNavigablePageView creditsPageView;
 
         protected override void Configure(IContainerBuilder builder)
         {
             builder.Register(_ =>
-                new MainMenuPages(mainPageView, guidePageView, creditsPageView), Lifetime.Singleton);
+                new MainMenuPages(mainPageView, guidePageView, settingsPageView, creditsPageView), Lifetime.Singleton);
             builder.RegisterEntryPoint<MainMenuController>();
         }
     }

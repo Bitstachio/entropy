@@ -26,9 +26,11 @@ namespace Features.Menu.Main
         {
             _pages.Main.OnStartSelected += HandleStartSelected;
             _pages.Main.OnGuideSelected += HandleGuideSelected;
+            _pages.Main.OnSettingsSelected += HandleSettingsSelected;
             _pages.Main.OnCreditsSelected += HandleCreditsSelected;
 
             _pages.Guide.OnBackSelected += HandleBackSelected;
+            _pages.Settings.OnBackSelected += HandleBackSelected;
             _pages.Credits.OnBackSelected += HandleBackSelected;
         }
 
@@ -36,9 +38,11 @@ namespace Features.Menu.Main
         {
             _pages.Main.OnStartSelected -= HandleStartSelected;
             _pages.Main.OnGuideSelected -= HandleGuideSelected;
+            _pages.Main.OnSettingsSelected -= HandleSettingsSelected;
             _pages.Main.OnCreditsSelected -= HandleCreditsSelected;
 
             _pages.Guide.OnBackSelected -= HandleBackSelected;
+            _pages.Settings.OnBackSelected -= HandleBackSelected;
             _pages.Credits.OnBackSelected -= HandleBackSelected;
         }
 
@@ -50,6 +54,12 @@ namespace Features.Menu.Main
         {
             _pages.Main.Off();
             _pages.Guide.On();
+        });
+
+        private void HandleSettingsSelected() => _menuService.SelectOption(() =>
+        {
+            _pages.Main.Off();
+            _pages.Settings.On();
         });
 
         private void HandleCreditsSelected() => _menuService.SelectOption(() =>

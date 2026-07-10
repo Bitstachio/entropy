@@ -7,6 +7,7 @@ namespace Features.Menu.Main
     {
         event Action OnStartSelected;
         event Action OnGuideSelected;
+        event Action OnSettingsSelected;
         event Action OnCreditsSelected;
     }
 }

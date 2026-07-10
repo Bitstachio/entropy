@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Core.Foundations.Components
 {
-    public abstract class ToggleableView : MonoBehaviour, IToggleable
+    public class ToggleableView : MonoBehaviour, IToggleable
     {
         //===== API =====
         

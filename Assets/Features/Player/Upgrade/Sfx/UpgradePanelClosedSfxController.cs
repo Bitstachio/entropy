@@ -2,6 +2,7 @@ using Core.Audio;
 using Core.Audio.Sfx;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
+using Core.Services.Settings;
 
 namespace Features.Player.Upgrade.Sfx
 {
@@ -9,9 +10,10 @@ namespace Features.Player.Upgrade.Sfx
     {
         public UpgradePanelClosedSfxController(
             IEventListener<UpgradePanelClosed> listener,
+            ISettingsService settingsService,
             ISfxPlayer sfxPlayer,
             AudioClipData data)
-            : base(listener, sfxPlayer, data)
+            : base(listener, settingsService, sfxPlayer, data)
         {
         }
     }

@@ -1,5 +1,6 @@
 using System;
 using Core.Events.Interfaces;
+using Core.Services.Settings;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -9,15 +10,19 @@ namespace Core.Audio.Sfx
     {
         private readonly IEventListener<T> _listener;
 
+        private readonly ISettingsService _settingsService;
+
         private readonly ISfxPlayer _sfxPlayer;
         private readonly AudioClipData _data;
 
         protected SfxController(
             IEventListener<T> listener,
+            ISettingsService settingsService,
             ISfxPlayer sfxPlayer,
             AudioClipData data)
         {
             _listener = listener;
+            _settingsService = settingsService;
             _sfxPlayer = sfxPlayer;
             _data = data ?? ScriptableObject.CreateInstance<AudioClipData>();
         }
@@ -30,6 +35,7 @@ namespace Core.Audio.Sfx
 
         //===== Utilities =====
 
-        private void Play(T _) => _sfxPlayer.PlayOneShot(_data.Clip, _data.Volume);
+        private void Play(T _) =>
+            _sfxPlayer.PlayOneShot(_data.Clip, _data.Volume * _settingsService.Load().SfxVolume);
     }
 }

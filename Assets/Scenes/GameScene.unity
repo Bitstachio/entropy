@@ -6955,7 +6955,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &959774983
 Transform:
   m_ObjectHideFlags: 0
@@ -6992,6 +6992,9 @@ MonoBehaviour:
   cannonballDamageUpgrade: {fileID: 11400000, guid: 7110142cc6963406091f5c07b935bf58, type: 2}
   cannonFireRateUpgrade: {fileID: 11400000, guid: 0191d79a3b35c4e4f9cd88103eca4e48, type: 2}
   cannonProjectileSpeedUpgrade: {fileID: 11400000, guid: f8e77d02fce2149fa8535a2c91b7ff1e, type: 2}
+  laserDamageUpgrade: {fileID: 11400000, guid: 9ca3658f3dd40456b93f03a8fcbb5ec2, type: 2}
+  laserPulseIntervalUpgrade: {fileID: 11400000, guid: f970ace1d99914f3eb0365e5101ddb66, type: 2}
+  laserDurationUpgrade: {fileID: 11400000, guid: cf6e6494274ad45d2a24318b8580b1d2, type: 2}
   shieldDurationUpgrade: {fileID: 11400000, guid: 71fdcfa368d2d4db48dce671e2dbf7e8, type: 2}
   shieldDropChanceUpgrade: {fileID: 11400000, guid: 172b4e606316b432fab29451bd80be71, type: 2}
   upgradeView: {fileID: 1576094118}

@@ -1,5 +1,5 @@
 using Core.Foundations.Components;
-using Features.Player.Upgrade;
+using Core.Upgrade;
 using UnityEngine;
 using VContainer;
 

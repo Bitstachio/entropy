@@ -4,7 +4,7 @@ using Core.Events.Channels;
 using Core.Events.Interfaces;
 using Core.Services.Settings;
 
-namespace Features.Player.Upgrade.Sfx
+namespace Core.Upgrade.Sfx
 {
     public sealed class UpgradePanelClosedSfxController : SfxController<UpgradePanelClosed>
     {

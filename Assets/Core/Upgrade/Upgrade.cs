@@ -1,6 +1,6 @@
 using Core.StatRegistry;
 
-namespace Features.Player.Upgrade.Strategies
+namespace Core.Upgrade
 {
     public abstract class Upgrade<TStatKey> : IUpgrade
     {

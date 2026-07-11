@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Features.Player.Upgrade
+namespace Core.Upgrade
 {
     public sealed class UpgradeRegistry : IUpgradeRegistry
     {

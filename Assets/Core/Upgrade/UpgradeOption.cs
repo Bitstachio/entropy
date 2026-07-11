@@ -1,6 +1,6 @@
 using Core.Interfaces;
 
-namespace Features.Player.Upgrade
+namespace Core.Upgrade
 {
     public struct UpgradeOption
     {

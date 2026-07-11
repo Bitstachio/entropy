@@ -1,7 +1,6 @@
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
-using Features.Player.Upgrade;
-using Features.Player.Upgrade.Strategies;
+using Core.Upgrade;
 
 namespace Features.Player.Shield.Upgrade
 {

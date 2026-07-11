@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Core.Interfaces;
 
-namespace Features.Player.Upgrade
+namespace Core.Upgrade
 {
     public interface IUpgradeView : IToggleable
     {

@@ -1,4 +1,4 @@
-namespace Features.Player.Upgrade.Strategies
+namespace Core.Upgrade
 {
     public interface IUpgradeStrategy
     {

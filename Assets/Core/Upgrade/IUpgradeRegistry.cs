@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Features.Player.Upgrade
+namespace Core.Upgrade
 {
     public interface IUpgradeRegistry
     {

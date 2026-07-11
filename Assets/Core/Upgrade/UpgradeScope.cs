@@ -3,7 +3,7 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Features.Player.Upgrade
+namespace Core.Upgrade
 {
     public sealed class UpgradeScope : LifetimeScope
     {

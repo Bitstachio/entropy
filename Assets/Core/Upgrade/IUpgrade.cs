@@ -1,6 +1,4 @@
-using Features.Player.Upgrade.Strategies;
-
-namespace Features.Player.Upgrade
+namespace Core.Upgrade
 {
     public interface IUpgrade : IUpgradeStrategy
     {

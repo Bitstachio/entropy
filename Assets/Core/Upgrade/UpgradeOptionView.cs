@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Features.Player.Upgrade
+namespace Core.Upgrade
 {
     public sealed class UpgradeOptionView : MonoBehaviour
     {

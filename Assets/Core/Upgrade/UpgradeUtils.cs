@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Core.Utils;
 
-namespace Features.Player.Upgrade
+namespace Core.Upgrade
 {
     public static class UpgradeUtils
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using Core.Foundations.Components;
 using UnityEngine;
 
-namespace Features.Player.Upgrade
+namespace Core.Upgrade
 {
     public sealed class UpgradeView : ToggleableView, IUpgradeView
     {

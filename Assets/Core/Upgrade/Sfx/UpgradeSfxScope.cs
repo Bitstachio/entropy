@@ -3,7 +3,7 @@ using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace Features.Player.Upgrade.Sfx
+namespace Core.Upgrade.Sfx
 {
     public sealed class UpgradeSfxScope : LifetimeScope
     {

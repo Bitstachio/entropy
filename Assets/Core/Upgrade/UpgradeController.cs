@@ -8,7 +8,7 @@ using Core.Services.TimeScale;
 using UnityEngine;
 using VContainer.Unity;
 
-namespace Features.Player.Upgrade
+namespace Core.Upgrade
 {
     public sealed class UpgradeController : IStartable, IDisposable, ITickable
     {

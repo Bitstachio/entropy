@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.Player.Upgrade
+namespace Core.Upgrade
 {
     public struct UpgradeData
     {

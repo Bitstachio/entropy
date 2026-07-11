@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.Player.Upgrade
+namespace Core.Upgrade
 {
     [CreateAssetMenu(menuName = "Player/Upgrade Data")]
     public class UpgradeDefinition : ScriptableObject

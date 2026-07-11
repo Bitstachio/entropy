@@ -2,6 +2,7 @@ using System;
 using Core.Audio.Sfx;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
+using Core.Services.Settings;
 using VContainer.Unity;
 
 namespace Features.Player.Attack.Laser.Sfx
@@ -11,17 +12,21 @@ namespace Features.Player.Attack.Laser.Sfx
         private readonly IEventListener<LaserActivated> _laserActivatedListener;
         private readonly IEventListener<LaserDeactivated> _laserDeactivatedListener;
 
+        private readonly ISettingsService _settingsService;
+
         private readonly ISfxPlayer _sfxPlayer;
         private readonly LaserSfxConfig _config;
 
         public LaserSfxController(
             IEventListener<LaserActivated> laserActivatedListener,
             IEventListener<LaserDeactivated> laserDeactivatedListener,
+            ISettingsService settingsService,
             ISfxPlayer sfxPlayer,
             LaserSfxConfig config)
         {
             _laserActivatedListener = laserActivatedListener;
             _laserDeactivatedListener = laserDeactivatedListener;
+            _settingsService = settingsService;
             _sfxPlayer = sfxPlayer;
             _config = config;
         }
@@ -44,17 +49,20 @@ namespace Features.Player.Attack.Laser.Sfx
 
         private void HandleLaserActivated(LaserActivated @event)
         {
-            _sfxPlayer.PlayOneShot(_config.StartClipData.Clip, _config.StartClipData.Volume);
+            var sfxVolume = _settingsService.Load().SfxVolume;
+            _sfxPlayer.PlayOneShot(_config.StartClipData.Clip, _config.StartClipData.Volume * sfxVolume);
             _sfxPlayer.PlayLooped(
                 _config.ActiveClipData.Clip,
-                _config.ActiveClipData.Volume,
+                _config.ActiveClipData.Volume * sfxVolume,
                 _config.StartClipData.Clip.length);
         }
 
         private void HandleLaserDeactivated(LaserDeactivated @event)
         {
             _sfxPlayer.Stop();
-            _sfxPlayer.PlayOneShot(_config.EndClipData.Clip, _config.EndClipData.Volume);
+            _sfxPlayer.PlayOneShot(
+                _config.EndClipData.Clip,
+                _config.EndClipData.Volume * _settingsService.Load().SfxVolume);
         }
     }
 }

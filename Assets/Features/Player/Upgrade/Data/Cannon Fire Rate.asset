@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c377467960490493573f14a5f7b5dc, type: 3}
   m_Name: Cannon Fire Rate
   m_EditorClassIdentifier: 
-  title: Fire Rate
+  title: Cannon Fire Rate
   icon: {fileID: 0}
   mean: 0.9
   deviation: 0.02

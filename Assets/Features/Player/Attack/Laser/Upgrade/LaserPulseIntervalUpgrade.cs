@@ -1,7 +1,9 @@
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
+using Features.Player.Upgrade;
+using Features.Player.Upgrade.Strategies;
 
-namespace Features.Player.Upgrade.Strategies
+namespace Features.Player.Attack.Laser.Upgrade
 {
     public sealed class LaserPulseIntervalUpgrade : MultiplicativeUpgrade<LaserBeamStats>
     {

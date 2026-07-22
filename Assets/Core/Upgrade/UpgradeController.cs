@@ -15,17 +15,19 @@ namespace Core.Upgrade
         private readonly IEventPublisher<UpgradePanelOpened> _upgradePanelOpenedPublisher;
         private readonly IEventPublisher<UpgradePanelClosed> _upgradePanelClosedPublisher;
 
+        private readonly IUpgradeProgressionService _upgradeProgressionService;
+
         private readonly UpgradeControllerConfig _config;
         private readonly IUpgradeRegistry _registry;
         private readonly IUpgradeView _view;
         private readonly ITimeScaleService _timeScaleService;
 
-        private float _timer;
         private IReadOnlyList<ICommand> _commands;
 
         public UpgradeController(
             IEventPublisher<UpgradePanelOpened> upgradePanelOpenedPublisher,
             IEventPublisher<UpgradePanelClosed> upgradePanelClosedPublisher,
+            IUpgradeProgressionService upgradeProgressionService,
             UpgradeControllerConfig config,
             IUpgradeRegistry registry,
             IUpgradeView view,
@@ -33,6 +35,7 @@ namespace Core.Upgrade
         {
             _upgradePanelOpenedPublisher = upgradePanelOpenedPublisher;
             _upgradePanelClosedPublisher = upgradePanelClosedPublisher;
+            _upgradeProgressionService = upgradeProgressionService;
             _config = config;
             _registry = registry;
             _view = view;
@@ -47,17 +50,12 @@ namespace Core.Upgrade
 
         public void Tick()
         {
-            _timer += Time.deltaTime;
-            if (_timer < _config.Interval) return;
+            _upgradeProgressionService.Tick(Time.deltaTime);
 
-            var options = UpgradeUtils.PrepOptions(_registry.Upgrades, _config.OptionCount);
-            _commands = options.Select(o => o.Command).ToList();
-            _view.SetOptions(options.Select(o => new UpgradeData(o.Data.Title, o.Data.Icon, o.Data.Magnitude)));
-            _view.On();
-            _timeScaleService.Pause();
-            _upgradePanelOpenedPublisher.Publish(new UpgradePanelOpened());
+            if (!_upgradeProgressionService.IsIntervalReached) return;
 
-            _timer = 0;
+            OpenUpgradeSelection();
+            _upgradeProgressionService.Reset();
         }
 
         //===== Event Handlers =====
@@ -68,6 +66,19 @@ namespace Core.Upgrade
             _view.Off();
             _timeScaleService.Resume();
             _upgradePanelClosedPublisher.Publish(new UpgradePanelClosed());
+        }
+
+        //===== Utilities =====
+
+        private void OpenUpgradeSelection()
+        {
+            var options = UpgradeUtils.PrepOptions(_registry.Upgrades, _config.OptionCount);
+
+            _commands = options.Select(o => o.Command).ToList();
+            _view.SetOptions(options.Select(o => new UpgradeData(o.Data.Title, o.Data.Icon, o.Data.Magnitude)));
+            _view.On();
+            _timeScaleService.Pause();
+            _upgradePanelOpenedPublisher.Publish(new UpgradePanelOpened());
         }
     }
 }

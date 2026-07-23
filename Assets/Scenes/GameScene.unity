@@ -2055,6 +2055,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   segmentedProgressBarView: {fileID: 8098981127024526369}
+  upgradeProgressionStatusConfig: {fileID: 11400000, guid: 8330214ff2eeb4222b7597fd53865d51, type: 2}
 --- !u!1 &206766768
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,24 +10,18 @@ namespace Core.Upgrade.ProgressionDisplay
         private readonly IUpgradeProgressionService _upgradeProgressionService;
 
         private readonly IUpgradeProgressionDisplayView _view;
-        
-        private readonly IReadOnlyDictionary<float, string> _statusLogs = new Dictionary<float, string>
-        {
-            { 0.00f, "Connecting to Gateway..." },
-            { 0.20f, "Downloading Payload..." },
-            { 0.40f, "Integrating Modules..." },
-            { 0.90f, "Booting Dispatcher..." },
-            { 1f, "Upgrade Ready" }
-        };
+        private readonly IReadOnlyList<UpgradeProgressionStatusConfig.Entry> _statusEntries;
 
         public UpgradeProgressionDisplayController(
             IUpgradeProgressionService upgradeProgressionService,
-            IUpgradeProgressionDisplayView view)
+            IUpgradeProgressionDisplayView view,
+            UpgradeProgressionStatusConfig statusConfig)
         {
             _upgradeProgressionService = upgradeProgressionService;
             _view = view;
-
-            _view.SetQuantizer(new StepCountQuantizer(false));
+            _statusEntries = statusConfig.Entries
+                .OrderBy(entry => entry.threshold)
+                .ToArray();
         }
 
         //===== Lifecycle =====
@@ -36,10 +30,24 @@ namespace Core.Upgrade.ProgressionDisplay
 
         public void Tick()
         {
-            _view.Set(_upgradeProgressionService.ProgressRatio);
-            _view.SetStatus(_statusLogs[
-                _statusLogs.Keys.Where(threshold => _upgradeProgressionService.ProgressRatio >= threshold)
-                    .DefaultIfEmpty(0f).Max()]);
+            var ratio = _upgradeProgressionService.ProgressRatio;
+            _view.Set(ratio);
+            _view.SetStatus(ResolveStatus(ratio));
+        }
+
+        //===== Utilities =====
+
+        private string ResolveStatus(float ratio)
+        {
+            var status = _statusEntries[0].status;
+
+            for (var i = 0; i < _statusEntries.Count; i++)
+            {
+                if (ratio < _statusEntries[i].threshold) break;
+                status = _statusEntries[i].status;
+            }
+
+            return status;
         }
     }
 }

@@ -34,10 +34,14 @@ namespace Scopes
             //----- Sessions -----
 
             builder.Register<GameSessionData>(Lifetime.Singleton);
-            
+
             //----- Installers -----
-            
+
             GetComponentsInChildren<Installer>().ToList().ForEach(i => i.Install(builder));
+
+            //----- Input -----
+
+            builder.Register<GameControls>(Lifetime.Singleton);
         }
     }
 }

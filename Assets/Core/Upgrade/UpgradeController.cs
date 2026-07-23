@@ -20,6 +20,7 @@ namespace Core.Upgrade
         private readonly UpgradeControllerConfig _config;
         private readonly IUpgradeRegistry _registry;
         private readonly IUpgradeView _view;
+        private readonly IUpgradeInputHandler _input;
         private readonly ITimeScaleService _timeScaleService;
 
         private IReadOnlyList<ICommand> _commands;
@@ -32,6 +33,7 @@ namespace Core.Upgrade
             UpgradeControllerConfig config,
             IUpgradeRegistry registry,
             IUpgradeView view,
+            IUpgradeInputHandler input,
             ITimeScaleService timeScaleService)
         {
             _upgradePanelOpenedPublisher = upgradePanelOpenedPublisher;
@@ -40,12 +42,17 @@ namespace Core.Upgrade
             _config = config;
             _registry = registry;
             _view = view;
+            _input = input;
             _timeScaleService = timeScaleService;
         }
 
         //===== Lifecycle =====
 
-        public void Start() => _view.OnUpgradeSelected += HandleUpgradeSelected;
+        public void Start()
+        {
+            _view.OnUpgradeSelected += HandleUpgradeSelected;
+            _input.OnOptionSelected += HandleUpgradeSelected;
+        }
 
         public void Dispose() => _view.OnUpgradeSelected -= HandleUpgradeSelected;
 

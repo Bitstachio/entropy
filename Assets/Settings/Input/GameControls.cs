@@ -118,6 +118,33 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectOption1"",
+                    ""type"": ""Button"",
+                    ""id"": ""e084d205-310a-4dde-9cfd-a25e4e33a8c8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectOption2"",
+                    ""type"": ""Button"",
+                    ""id"": ""f2a517d7-2055-4919-a20b-b4dd448bcff0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectOption3"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d6f7f29-42da-4d4e-9060-5dce758a1be7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -175,6 +202,39 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""action"": ""TogglePause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b74f3e5-d419-4f5e-b123-6859e03ff228"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectOption1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e5c825fb-701c-42da-a57c-d85977bb405f"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectOption2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""57885e34-371c-47ba-8dcd-1e1ca8ce7f38"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectOption3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -186,6 +246,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_ActivateLaser = m_Player.FindAction("ActivateLaser", throwIfNotFound: true);
         m_Player_TogglePause = m_Player.FindAction("TogglePause", throwIfNotFound: true);
+        m_Player_SelectOption1 = m_Player.FindAction("SelectOption1", throwIfNotFound: true);
+        m_Player_SelectOption2 = m_Player.FindAction("SelectOption2", throwIfNotFound: true);
+        m_Player_SelectOption3 = m_Player.FindAction("SelectOption3", throwIfNotFound: true);
     }
 
     ~@GameControls()
@@ -269,6 +332,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_ActivateLaser;
     private readonly InputAction m_Player_TogglePause;
+    private readonly InputAction m_Player_SelectOption1;
+    private readonly InputAction m_Player_SelectOption2;
+    private readonly InputAction m_Player_SelectOption3;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -292,6 +358,18 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/TogglePause".
         /// </summary>
         public InputAction @TogglePause => m_Wrapper.m_Player_TogglePause;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SelectOption1".
+        /// </summary>
+        public InputAction @SelectOption1 => m_Wrapper.m_Player_SelectOption1;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SelectOption2".
+        /// </summary>
+        public InputAction @SelectOption2 => m_Wrapper.m_Player_SelectOption2;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/SelectOption3".
+        /// </summary>
+        public InputAction @SelectOption3 => m_Wrapper.m_Player_SelectOption3;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -327,6 +405,15 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @TogglePause.started += instance.OnTogglePause;
             @TogglePause.performed += instance.OnTogglePause;
             @TogglePause.canceled += instance.OnTogglePause;
+            @SelectOption1.started += instance.OnSelectOption1;
+            @SelectOption1.performed += instance.OnSelectOption1;
+            @SelectOption1.canceled += instance.OnSelectOption1;
+            @SelectOption2.started += instance.OnSelectOption2;
+            @SelectOption2.performed += instance.OnSelectOption2;
+            @SelectOption2.canceled += instance.OnSelectOption2;
+            @SelectOption3.started += instance.OnSelectOption3;
+            @SelectOption3.performed += instance.OnSelectOption3;
+            @SelectOption3.canceled += instance.OnSelectOption3;
         }
 
         /// <summary>
@@ -347,6 +434,15 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @TogglePause.started -= instance.OnTogglePause;
             @TogglePause.performed -= instance.OnTogglePause;
             @TogglePause.canceled -= instance.OnTogglePause;
+            @SelectOption1.started -= instance.OnSelectOption1;
+            @SelectOption1.performed -= instance.OnSelectOption1;
+            @SelectOption1.canceled -= instance.OnSelectOption1;
+            @SelectOption2.started -= instance.OnSelectOption2;
+            @SelectOption2.performed -= instance.OnSelectOption2;
+            @SelectOption2.canceled -= instance.OnSelectOption2;
+            @SelectOption3.started -= instance.OnSelectOption3;
+            @SelectOption3.performed -= instance.OnSelectOption3;
+            @SelectOption3.canceled -= instance.OnSelectOption3;
         }
 
         /// <summary>
@@ -408,5 +504,26 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTogglePause(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectOption1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectOption1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectOption2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectOption2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "SelectOption3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSelectOption3(InputAction.CallbackContext context);
     }
 }

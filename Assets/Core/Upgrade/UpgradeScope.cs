@@ -26,6 +26,8 @@ namespace Core.Upgrade
         protected override void Configure(IContainerBuilder builder)
         {
             builder.Register<IUpgradeProgressionService, UpgradeProgressionService>(Lifetime.Singleton);
+            builder.RegisterEntryPoint<UpgradeInputHandler>()
+                .As<IUpgradeInputHandler>();
 
             cannonUpgradeInstaller.Install(builder);
             laserUpgradeInstaller.Install(builder);

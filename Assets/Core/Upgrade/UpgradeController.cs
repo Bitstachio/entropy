@@ -23,6 +23,7 @@ namespace Core.Upgrade
         private readonly ITimeScaleService _timeScaleService;
 
         private IReadOnlyList<ICommand> _commands;
+        private bool _isSelectionOpen;
 
         public UpgradeController(
             IEventPublisher<UpgradePanelOpened> upgradePanelOpenedPublisher,
@@ -52,16 +53,17 @@ namespace Core.Upgrade
         {
             _upgradeProgressionService.Tick(Time.deltaTime);
 
-            if (!_upgradeProgressionService.IsIntervalReached) return;
+            if (_isSelectionOpen || !_upgradeProgressionService.IsIntervalReached) return;
 
             OpenUpgradeSelection();
-            _upgradeProgressionService.Reset();
         }
 
         //===== Event Handlers =====
 
         private void HandleUpgradeSelected(int index)
         {
+            _upgradeProgressionService.Reset();
+            _isSelectionOpen = false;
             _commands[index].Execute();
             _view.Off();
             _timeScaleService.Resume();
@@ -74,6 +76,7 @@ namespace Core.Upgrade
         {
             var options = UpgradeUtils.PrepOptions(_registry.Upgrades, _config.OptionCount);
 
+            _isSelectionOpen = true;
             _commands = options.Select(o => o.Command).ToList();
             _view.SetOptions(options.Select(o => new UpgradeData(o.Data.Title, o.Data.Icon, o.Data.Magnitude)));
             _view.On();

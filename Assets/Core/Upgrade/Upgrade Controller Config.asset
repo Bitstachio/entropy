@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Upgrade Controller Config
   m_EditorClassIdentifier: 
   optionCount: 3
-  interval: 10
+  interval: 30

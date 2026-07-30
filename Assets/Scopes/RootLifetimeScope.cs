@@ -1,4 +1,5 @@
 using System.Linq;
+using Core.Audio.Sfx;
 using Core.Events.Base;
 using Core.Foundations.Components;
 using Core.Services.Menu;
@@ -30,6 +31,7 @@ namespace Scopes
                 .WithParameter(sceneServiceConfig);
             builder.Register<IMenuService, MenuService>(Lifetime.Singleton);
             builder.Register<ISettingsService, SettingsService>(Lifetime.Singleton);
+            builder.RegisterEntryPoint<SfxService>().As<ISfxService>();
 
             //----- Sessions -----
 

@@ -7,5 +7,7 @@ namespace Core.Audio.Sfx
         void PlayOneShot(AudioClip clip, float volume);
         void PlayLooped(AudioClip clip, float volume, float delay = 0f);
         void Stop();
+        void Pause();
+        void Resume();
     }
 }

@@ -20,18 +20,18 @@ namespace Features.Settings
 
         public void Start()
         {
-            _view.OnSaveSelected += HandleSaveSelected;
+            _view.OnSettingsChanged += HandleSettingsChanged;
 
             var data = _service.Load();
             _view.SetMusicVolume(data.MusicVolume);
             _view.SetSfxVolume(data.SfxVolume);
         }
 
-        public void Dispose() => _view.OnSaveSelected -= HandleSaveSelected;
+        public void Dispose() => _view.OnSettingsChanged -= HandleSettingsChanged;
 
         //===== Event Handlers =====
 
-        private void HandleSaveSelected() => _service.Save(new SettingsData
+        private void HandleSettingsChanged() => _service.Save(new SettingsData
         {
             MusicVolume = _view.MusicVolume,
             SfxVolume = _view.SfxVolume

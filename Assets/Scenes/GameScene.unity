@@ -3907,7 +3907,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2a52726767435598ba1d6a4731064a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveButton: {fileID: 1494059098}
   musicVolumeSlider: {fileID: 2088522729}
   sfxVolumeSlider: {fileID: 877543490}
 --- !u!114 &417323295
@@ -12010,8 +12009,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -3165121498647840979, guid: 246b8f01bebb143199a591dc16ceb7f6, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

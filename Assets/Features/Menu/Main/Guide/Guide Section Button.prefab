@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 7207611197678590096}
   - component: {fileID: 3555882126230814359}
   m_Layer: 5
-  m_Name: Guide Button
+  m_Name: Guide Section Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

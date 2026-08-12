@@ -11,22 +11,24 @@ namespace Core.Foundations.Components
 
         public event Action<IBackNavigablePageView> OnBackSelected;
 
-        //===== Lifecycle =====
-
-        private void Awake() => backButton.onClick.AddListener(() => OnBackSelected?.Invoke(this));
-
         //===== API =====
 
         public override void On()
         {
             base.On();
             backButton.gameObject.SetActive(true);
+            backButton.onClick.AddListener(HandleBackClicked);
         }
 
         public override void Off()
         {
             base.Off();
             backButton.gameObject.SetActive(false);
+            backButton.onClick.RemoveListener(HandleBackClicked);
         }
+
+        //===== Event Handlers =====
+
+        private void HandleBackClicked() => OnBackSelected?.Invoke(this);
     }
 }

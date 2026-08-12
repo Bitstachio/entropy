@@ -3,7 +3,7 @@ using Core.Interfaces;
 
 namespace Features.Menu.Main.Guide
 {
-    public interface IGuidePageView : IToggleable
+    public interface IGuidePageView : IBackNavigablePageView
     {
         event Action OnMissionSelected;
         event Action OnDriverSystemSelected;

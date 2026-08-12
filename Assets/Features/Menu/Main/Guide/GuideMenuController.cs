@@ -54,39 +54,38 @@ namespace Features.Menu.Main.Guide
 
         private void HandleBackSelected(IBackNavigablePageView view) => _menuService.SelectOption(() =>
         {
-            _pages.Menu.On();
             view.Off();
+            _pages.Menu.On();
         });
 
         private void HandleMissionSelected() => _menuService.SelectOption(() =>
         {
-            Debug.Log("Mission selected!");
-            _pages.Mission.On();
             _pages.Menu.Off();
+            _pages.Mission.On();
         });
 
         private void HandleDriverSystemSelected() => _menuService.SelectOption(() =>
         {
-            _pages.DriverSystem.On();
             _pages.Menu.Off();
+            _pages.DriverSystem.On();
         });
 
         private void HandleBlasterSelected() => _menuService.SelectOption(() =>
         {
-            _pages.Blaster.On();
             _pages.Menu.Off();
+            _pages.Blaster.On();
         });
 
         private void HandleLaserSelected() => _menuService.SelectOption(() =>
         {
-            _pages.Laser.On();
             _pages.Menu.Off();
+            _pages.Laser.On();
         });
 
         private void HandleShieldSelected() => _menuService.SelectOption(() =>
         {
-            _pages.Shield.On();
             _pages.Menu.Off();
+            _pages.Shield.On();
         });
     }
 }

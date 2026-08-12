@@ -950,7 +950,7 @@ MonoBehaviour:
     TypeName: Features.Menu.Main.MainMenuScope
   autoRun: 1
   autoInjectGameObjects: []
-  guideMenuView: {fileID: 1054750442}
+  guideMenuPageView: {fileID: 1054750442}
   missionPageView: {fileID: 407781471}
   driverSystemPageView: {fileID: 206167883}
   blasterPageView: {fileID: 1631340856}

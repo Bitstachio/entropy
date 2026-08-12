@@ -4,7 +4,7 @@ namespace Features.Menu.Main.Guide
 {
     public struct GuideMenuPages
     {
-        public IGuidePageView Menu { get; }
+        public IGuideMenuPageView Menu { get; }
         public IBackNavigablePageView Mission { get; }
         public IBackNavigablePageView DriverSystem { get; }
         public IBackNavigablePageView Blaster { get; }
@@ -12,7 +12,7 @@ namespace Features.Menu.Main.Guide
         public IBackNavigablePageView Shield { get; }
 
         public GuideMenuPages(
-            IGuidePageView menu,
+            IGuideMenuPageView menu,
             IBackNavigablePageView mission,
             IBackNavigablePageView driverSystem,
             IBackNavigablePageView blaster,

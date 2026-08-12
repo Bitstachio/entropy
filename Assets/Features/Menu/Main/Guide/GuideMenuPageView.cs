@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Features.Menu.Main.Guide
 {
-    public sealed class GuideMenuView : BackNavigablePageView, IGuidePageView
+    public sealed class GuideMenuPageView : BackNavigablePageView, IGuideMenuPageView
     {
         [SerializeField] private Button missionButton;
         [SerializeField] private Button driverSystemButton;

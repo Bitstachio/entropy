@@ -14,10 +14,7 @@ namespace Features.Player.Attack.Laser
         [SerializeField] private LaserInputHandler laserInputHandler;
         [SerializeField] private LaserControllerConfig laserControllerConfig;
         [SerializeField] private TimedChargeBatteryConfig laserBatteryConfig;
-
-        [Header("Stats")]
-        [SerializeField] private float baselineDamagePerPulse = 1f;
-        [SerializeField] private float baselinePulseInterval = 0.5f;
+        [SerializeField] private LaserBaselineStats baselineStats;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -25,12 +22,12 @@ namespace Features.Player.Attack.Laser
                 .As<ITimedChargeBatteryService>()
                 .WithParameter<ITimedChargeBatteryState>(new LaserBatteryIdleState())
                 .WithParameter(laserBatteryConfig);
-            
+
             builder.RegisterBuildCallback(container =>
             {
                 var laserBeamStats = container.Resolve<StatRegistry<LaserBeamStats>>();
-                laserBeamStats.Register(LaserBeamStats.DamagePerPulse, baselineDamagePerPulse);
-                laserBeamStats.Register(LaserBeamStats.PulseInterval, baselinePulseInterval);
+                laserBeamStats.Register(LaserBeamStats.DamagePerPulse, baselineStats.DamagePerPulse);
+                laserBeamStats.Register(LaserBeamStats.PulseInterval, baselineStats.PulseInterval);
                 // TODO: I wonder if this is a code smell
                 laserBeamStats.Register(LaserBeamStats.Duration, laserBatteryConfig.DischargeTime);
             });

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Features.Player.Attack.Cannon
 {
-    [CreateAssetMenu(menuName = "Player/Weapons/Cannon/Baseline Stats")]
+    [CreateAssetMenu(menuName = "Player/Weapons/Cannon/Cannon Baseline Stats")]
     public sealed class CannonBaselineStats : ScriptableObject
     {
         [SerializeField] private float damage = 1f;

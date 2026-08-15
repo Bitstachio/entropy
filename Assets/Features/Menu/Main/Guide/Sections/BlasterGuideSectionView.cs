@@ -7,26 +7,23 @@ namespace Features.Menu.Main.Guide.Sections
 {
     public sealed class BlasterGuideSectionView : MonoBehaviour
     {
-        [Header("Baseline")]
-        [SerializeField] private CannonBaselineStats baselineStats;
+        [Header("Baseline")] [SerializeField] private CannonBaselineStats baselineStats;
 
-        [Header("Upgrades")]
-        [SerializeField] private UpgradeDefinition damageUpgrade;
+        [Header("Upgrades")] [SerializeField] private UpgradeDefinition damageUpgrade;
         [SerializeField] private UpgradeDefinition fireRateUpgrade;
         [SerializeField] private UpgradeDefinition projectileSpeedUpgrade;
 
-        [Header("Damage")]
-        [SerializeField] private TextMeshProUGUI damageDisplay;
+        [Header("Damage")] [SerializeField] private TextMeshProUGUI damageDisplay;
         [SerializeField] private TextMeshProUGUI damageUpgradeMeanDisplay;
         [SerializeField] private TextMeshProUGUI damageUpgradeDeviationDisplay;
 
-        [Header("Fire Rate")]
-        [SerializeField] private TextMeshProUGUI fireRateDisplay;
+        [Header("Fire Rate")] [SerializeField] private TextMeshProUGUI fireRateDisplay;
         [SerializeField] private TextMeshProUGUI fireRateUpgradeMeanDisplay;
         [SerializeField] private TextMeshProUGUI fireRateUpgradeDeviationDisplay;
 
-        [Header("Projectile Speed")]
-        [SerializeField] private TextMeshProUGUI projectileSpeedDisplay;
+        [Header("Projectile Speed")] [SerializeField]
+        private TextMeshProUGUI projectileSpeedDisplay;
+
         [SerializeField] private TextMeshProUGUI projectileSpeedUpgradeMeanDisplay;
         [SerializeField] private TextMeshProUGUI projectileSpeedUpgradeDeviationDisplay;
 
@@ -85,6 +82,5 @@ namespace Features.Menu.Main.Guide.Sections
             meanDisplay.text = UpgradeUtils.FormatMagnitude(upgrade.Mean);
             deviationDisplay.text = UpgradeUtils.FormatMagnitude(1 - upgrade.Deviation);
         }
-        
     }
 }

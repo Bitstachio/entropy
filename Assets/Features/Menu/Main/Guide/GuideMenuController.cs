@@ -1,7 +1,6 @@
 using System;
 using Core.Interfaces;
 using Core.Services.Menu;
-using UnityEngine;
 using VContainer.Unity;
 
 namespace Features.Menu.Main.Guide

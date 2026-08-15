@@ -8581,14 +8581,12 @@ MonoBehaviour:
     TypeName: Features.Player.PlayerScope
   autoRun: 1
   autoInjectGameObjects: []
+  cannonballView: {fileID: -993602236936489198, guid: 89c92ea532c1c4705a0ab03f803c7043, type: 3}
   destroyTags:
   - AttackBoundary
   - Hazard
-  cannonballView: {fileID: -993602236936489198, guid: 89c92ea532c1c4705a0ab03f803c7043, type: 3}
   transformPositionProvider: {fileID: 1060540050}
-  baselineInterval: 1
-  baselineSpeed: 10
-  baselineDamage: 1
+  baselineStats: {fileID: 11400000, guid: ed2aca7946e04468285d2dcf41ec7f32, type: 2}
 --- !u!1 &1046321444
 GameObject:
   m_ObjectHideFlags: 0

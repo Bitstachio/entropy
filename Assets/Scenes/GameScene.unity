@@ -1758,8 +1758,7 @@ MonoBehaviour:
   laserInputHandler: {fileID: 438074798}
   laserControllerConfig: {fileID: 11400000, guid: a0bafc93fe31b44bcb0e16e87810cb9f, type: 2}
   laserBatteryConfig: {fileID: 11400000, guid: 355c211db1c534712bb43d1e361765f7, type: 2}
-  baselineDamagePerPulse: 1
-  baselinePulseInterval: 0.5
+  baselineStats: {fileID: 11400000, guid: beb6c1e31101447e8a5dc85efd40b4d2, type: 2}
 --- !u!1 &152018615
 GameObject:
   m_ObjectHideFlags: 0

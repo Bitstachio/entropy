@@ -6,7 +6,7 @@ using VContainer.Unity;
 
 namespace Core.Audio.Sfx
 {
-    public abstract class SfxController<T> : IStartable, IDisposable
+    public sealed class SfxController<T> : IStartable, IDisposable
     {
         private readonly IEventListener<T> _listener;
 
@@ -15,7 +15,7 @@ namespace Core.Audio.Sfx
         private readonly ISfxPlayer _sfxPlayer;
         private readonly AudioClipData _data;
 
-        protected SfxController(
+        public SfxController(
             IEventListener<T> listener,
             ISettingsService settingsService,
             ISfxPlayer sfxPlayer,

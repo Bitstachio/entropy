@@ -1,4 +1,6 @@
 using Core.Audio;
+using Core.Audio.Sfx;
+using Core.Events.Channels;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -11,7 +13,7 @@ namespace Features.Player.Shield.Sfx
         
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.RegisterEntryPoint<ShieldActivatedSfxController>()
+            builder.RegisterEntryPoint<SfxController<ShieldActivatedEvent>>()
                 .WithParameter(shieldActivatedClipData);
         }
     }

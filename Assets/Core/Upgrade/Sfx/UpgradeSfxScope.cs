@@ -1,4 +1,6 @@
 using Core.Audio;
+using Core.Audio.Sfx;
+using Core.Events.Channels;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -12,9 +14,9 @@ namespace Core.Upgrade.Sfx
         
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.RegisterEntryPoint<UpgradePanelOpenedSfxController>()
+            builder.RegisterEntryPoint<SfxController<UpgradePanelOpened>>()
                 .WithParameter(upgradePanelOpenedClipData);
-            builder.RegisterEntryPoint<UpgradePanelClosedSfxController>()
+            builder.RegisterEntryPoint<SfxController<UpgradePanelClosed>>()
                 .WithParameter(upgradePanelClosedClipData);
         }
     }

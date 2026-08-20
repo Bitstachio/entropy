@@ -1,3 +1,4 @@
+using Core.Events.Channels;
 using Core.Foundations.Components;
 using UnityEngine;
 using VContainer;
@@ -15,7 +16,7 @@ namespace Core.Audio.Sfx.Global
             builder.RegisterComponentInNewPrefab(sfxPlayer, Lifetime.Singleton)
                 .DontDestroyOnLoad()
                 .As<ISfxPlayer>();
-            builder.RegisterEntryPoint<MenuOptionSelectedSfxController>()
+            builder.RegisterEntryPoint<SfxController<MenuOptionSelected>>()
                 .WithParameter(clickClipData);
         }
     }

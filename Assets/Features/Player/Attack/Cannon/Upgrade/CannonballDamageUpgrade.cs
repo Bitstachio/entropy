@@ -4,10 +4,10 @@ using Core.Upgrade;
 
 namespace Features.Player.Attack.Cannon.Upgrade
 {
-    public sealed class CannonballDamageUpgrade : MultiplicativeUpgrade<CannonballStats>
+    public sealed class CannonballDamageUpgrade : MultiplicativeUpgrade<CannonStats>
     {
-        public CannonballDamageUpgrade(UpgradeDefinition definition, StatRegistry<CannonballStats> stats)
-            : base(definition, stats, CannonballStats.Damage)
+        public CannonballDamageUpgrade(UpgradeDefinition definition, StatRegistry<CannonStats> stats)
+            : base(definition, stats, CannonStats.Damage)
         {
         }
     }

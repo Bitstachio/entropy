@@ -21,15 +21,12 @@ namespace Features.Player.Attack.Cannon
         protected override void Configure(IContainerBuilder builder)
         {
             builder.Register<StatRegistry<CannonStats>>(Lifetime.Singleton);
-            builder.Register<StatRegistry<CannonballStats>>(Lifetime.Singleton);
             builder.RegisterBuildCallback(container =>
             {
-                var cannonStats = container.Resolve<StatRegistry<CannonStats>>();
-                cannonStats.Register(CannonStats.Interval, baselineStats.FireRate);
-                cannonStats.Register(CannonStats.ProjectileSpeed, baselineStats.ProjectileSpeed);
-
-                var cannonballStats = container.Resolve<StatRegistry<CannonballStats>>();
-                cannonballStats.Register(CannonballStats.Damage, baselineStats.Damage);
+                var stats = container.Resolve<StatRegistry<CannonStats>>();
+                stats.Register(CannonStats.Interval, baselineStats.FireRate);
+                stats.Register(CannonStats.ProjectileSpeed, baselineStats.ProjectileSpeed);
+                stats.Register(CannonStats.Damage, baselineStats.Damage);
             });
 
             builder.RegisterComponent(cannonballView).As<ICannonballView>();

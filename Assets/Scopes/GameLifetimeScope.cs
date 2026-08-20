@@ -22,7 +22,6 @@ namespace Scopes
 
             // Weapons
             builder.Register<StatRegistry<CannonStats>>(Lifetime.Singleton);
-            builder.Register<StatRegistry<CannonballStats>>(Lifetime.Singleton);
             builder.Register<StatRegistry<LaserBeamStats>>(Lifetime.Singleton);
         }
     }

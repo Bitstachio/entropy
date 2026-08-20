@@ -5,10 +5,10 @@ namespace Features.Player.Attack.Cannon
 {
     public sealed class CannonballModel : ICannonballModel
     {
-        private readonly StatRegistry<CannonballStats> _stats;
+        private readonly StatRegistry<CannonStats> _stats;
         
-        public CannonballModel(StatRegistry<CannonballStats> stats) => _stats = stats;
+        public CannonballModel(StatRegistry<CannonStats> stats) => _stats = stats;
         
-        public float Damage => _stats.Retrieve(CannonballStats.Damage);
+        public float Damage => _stats.Retrieve(CannonStats.Damage);
     }
 }

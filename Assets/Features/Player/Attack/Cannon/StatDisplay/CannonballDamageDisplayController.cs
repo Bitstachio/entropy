@@ -6,17 +6,17 @@ using Core.StatRegistry.StatKeys;
 
 namespace Features.Player.Attack.Cannon.StatDisplay
 {
-    public sealed class CannonballDamageDisplayController : StatDisplayController<CannonballStats>
+    public sealed class CannonballDamageDisplayController : StatDisplayController<CannonStats>
     {
         public CannonballDamageDisplayController(
-            IEventListener<StatRegistryUpdatedEvent<CannonballStats>> listener,
+            IEventListener<StatRegistryUpdatedEvent<CannonStats>> listener,
             IStatDisplayView view,
-            StatRegistry<CannonballStats> statRegistry)
-            : base(listener, view, statRegistry, CannonballStats.Damage)
+            StatRegistry<CannonStats> statRegistry)
+            : base(listener, view, statRegistry, CannonStats.Damage)
         {
         }
 
-        protected override string FormatStat(StatRegistryUpdatedEvent<CannonballStats> @event) =>
+        protected override string FormatStat(StatRegistryUpdatedEvent<CannonStats> @event) =>
             $"{@event.NewValue:F2} MJ";
     }
 }

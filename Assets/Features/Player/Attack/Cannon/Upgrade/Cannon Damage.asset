@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8c377467960490493573f14a5f7b5dc, type: 3}
-  m_Name: Cannonball Damage
+  m_Name: Cannon Damage
   m_EditorClassIdentifier: 
   title: Cannon Damage
   icon: {fileID: 0}

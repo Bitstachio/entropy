@@ -2,9 +2,9 @@ using Core.StatRegistry;
 
 namespace Core.Upgrade
 {
-    public abstract class MultiplicativeUpgrade<TStatKey> : Upgrade<TStatKey>
+    public sealed class MultiplicativeUpgrade<TStatKey> : Upgrade<TStatKey>
     {
-        protected MultiplicativeUpgrade(UpgradeDefinition definition, StatRegistry<TStatKey> stats, TStatKey key)
+        public MultiplicativeUpgrade(UpgradeDefinition definition, StatRegistry<TStatKey> stats, TStatKey key)
             : base(definition, stats, key)
         {
         }

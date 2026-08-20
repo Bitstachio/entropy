@@ -1,4 +1,5 @@
 using Core.Foundations.Components;
+using Core.StatRegistry.StatKeys;
 using Core.Upgrade;
 using UnityEngine;
 using VContainer;
@@ -7,21 +8,24 @@ namespace Features.Player.Attack.Laser.Upgrade
 {
     public sealed class LaserUpgradeInstaller : Installer
     {
-        [SerializeField] private UpgradeDefinition laserDamageUpgrade;
-        [SerializeField] private UpgradeDefinition laserPulseIntervalUpgrade;
-        [SerializeField] private UpgradeDefinition laserDurationUpgrade;
-        
+        [SerializeField] private UpgradeDefinition damageUpgrade;
+        [SerializeField] private UpgradeDefinition pulseIntervalUpgrade;
+        [SerializeField] private UpgradeDefinition durationUpgrade;
+
         public override void Install(IContainerBuilder builder)
         {
-            builder.Register<LaserDamageUpgrade>(Lifetime.Singleton)
+            builder.Register<MultiplicativeUpgrade<LaserBeamStats>>(Lifetime.Scoped)
                 .As<IUpgrade>()
-                .WithParameter(laserDamageUpgrade);
-            builder.Register<LaserPulseIntervalUpgrade>(Lifetime.Singleton)
+                .WithParameter(damageUpgrade)
+                .WithParameter(LaserBeamStats.DamagePerPulse);
+            builder.Register<MultiplicativeUpgrade<LaserBeamStats>>(Lifetime.Scoped)
                 .As<IUpgrade>()
-                .WithParameter(laserPulseIntervalUpgrade);
-            builder.Register<LaserDurationUpgrade>(Lifetime.Singleton)
+                .WithParameter(pulseIntervalUpgrade)
+                .WithParameter(LaserBeamStats.PulseInterval);
+            builder.Register<MultiplicativeUpgrade<LaserBeamStats>>(Lifetime.Scoped)
                 .As<IUpgrade>()
-                .WithParameter(laserDurationUpgrade);
+                .WithParameter(durationUpgrade)
+                .WithParameter(LaserBeamStats.Duration);
         }
     }
 }

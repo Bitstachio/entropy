@@ -29,7 +29,12 @@ namespace Core.Audio.Sfx
             _audioSource.PlayDelayed(delay);
         }
 
-        public void Stop() => _audioSource.Stop();
+        public void Stop()
+        {
+            _audioSource.Stop();
+            // PlayOneShot scales by AudioSource.volume; restore baseline after looped SFX
+            _audioSource.volume = 1f;
+        }
 
         public void Pause() => _audioSource.Pause();
 

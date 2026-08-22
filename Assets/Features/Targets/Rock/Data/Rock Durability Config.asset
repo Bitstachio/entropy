@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialMean: 3
   initialDeviation: 0.5
-  meanGrowthRate: 0.5
-  deviationGrowthRate: 0.2
+  meanGrowthRate: 0.08
+  deviationGrowthRate: 0.03
   minDurability: 1
   maxDurability: 50
   initialSpawnInterval: 8

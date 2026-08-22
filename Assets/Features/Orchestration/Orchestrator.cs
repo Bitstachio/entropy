@@ -3,7 +3,7 @@ using Core.Constants;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
 using Core.Services.Scene;
-using UnityEngine;
+using Core.Services.TimeScale;
 using VContainer.Unity;
 
 namespace Features.Orchestration
@@ -14,15 +14,18 @@ namespace Features.Orchestration
         private readonly IEventListener<RockHitObjectEvent> _rockHitObjectListener;
 
         private readonly ISceneService _sceneService;
+        private readonly ITimeScaleService _timeScaleService;
 
         public Orchestrator(
             IEventPublisher<GameOverEvent> gameOverPublisher,
             IEventListener<RockHitObjectEvent> rockHitObjectListener,
-            ISceneService sceneService)
+            ISceneService sceneService,
+            ITimeScaleService timeScaleService)
         {
             _gameOverPublisher = gameOverPublisher;
             _rockHitObjectListener = rockHitObjectListener;
             _sceneService = sceneService;
+            _timeScaleService = timeScaleService;
         }
 
         //===== Lifecycle =====
@@ -36,7 +39,7 @@ namespace Features.Orchestration
         private void HandleRockHitObject(RockHitObjectEvent @event)
         {
             if (!@event.Collision.collider.CompareTag(Tags.Player)) return;
-            Time.timeScale = 0f;
+            _timeScaleService.Pause();
             _gameOverPublisher.Publish(new GameOverEvent());
             _sceneService.Load(Scenes.GameOver);
         }

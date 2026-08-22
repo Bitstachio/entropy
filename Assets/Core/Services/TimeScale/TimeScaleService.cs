@@ -4,7 +4,15 @@ namespace Core.Services.TimeScale
 {
     public class TimeScaleService : ITimeScaleService
     {
+        private readonly float _playTimeScale;
+
         public bool IsPaused { get; private set; }
+
+        public TimeScaleService(float playTimeScale)
+        {
+            _playTimeScale = playTimeScale;
+            ApplyPlayTimeScale();
+        }
 
         public void Pause()
         {
@@ -15,7 +23,9 @@ namespace Core.Services.TimeScale
         public void Resume()
         {
             IsPaused = false;
-            Time.timeScale = 1f;
+            ApplyPlayTimeScale();
         }
+
+        private void ApplyPlayTimeScale() => Time.timeScale = _playTimeScale;
     }
 }

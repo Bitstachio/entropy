@@ -16,6 +16,7 @@ namespace Scopes
     public sealed class RootLifetimeScope : LifetimeScope
     {
         [SerializeField] private SceneServiceConfig sceneServiceConfig;
+        [SerializeField] private float playTimeScale = 1.5f;
 
         protected override void Configure(IContainerBuilder builder)
         {
@@ -26,7 +27,8 @@ namespace Scopes
 
             //----- Global Services -----
 
-            builder.Register<ITimeScaleService, TimeScaleService>(Lifetime.Singleton);
+            builder.Register<ITimeScaleService, TimeScaleService>(Lifetime.Singleton)
+                .WithParameter("playTimeScale", playTimeScale);
             builder.Register<ISceneService, SceneService>(Lifetime.Singleton)
                 .WithParameter(sceneServiceConfig);
             builder.Register<IMenuService, MenuService>(Lifetime.Singleton);

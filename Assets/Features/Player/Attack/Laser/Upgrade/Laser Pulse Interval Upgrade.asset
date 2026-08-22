@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Laser Pulse Interval
   icon: {fileID: 0}
-  mean: 1.05
-  deviation: 0.02
+  mean: 0.8
+  deviation: 0.04

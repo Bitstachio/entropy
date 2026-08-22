@@ -7,7 +7,7 @@ namespace Features.Player.Attack.Cannon
     {
         [SerializeField] private float damage = 1f;
         [SerializeField] private float fireRate = 1f;
-        [SerializeField] private float projectileSpeed = 10f;
+        [SerializeField] private float projectileSpeed = 12f;
 
         public float Damage => damage;
         public float FireRate => fireRate;

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Cannon Fire Rate
   icon: {fileID: 0}
-  mean: 0.9
-  deviation: 0.02
+  mean: 0.8
+  deviation: 0.04

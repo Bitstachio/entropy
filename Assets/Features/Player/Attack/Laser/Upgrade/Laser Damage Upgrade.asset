@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Laser Damage
   icon: {fileID: 0}
-  mean: 1.2
-  deviation: 0.05
+  mean: 1.4
+  deviation: 0.08

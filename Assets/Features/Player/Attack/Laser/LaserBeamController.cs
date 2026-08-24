@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Core.Events.Channels;
 using Core.Events.Interfaces;
 using Core.Interfaces;
@@ -125,12 +124,24 @@ namespace Features.Player.Attack.Laser
         {
             try
             {
-                await Task.Delay(delay);
+                await WaitRealtimeAsync(delay / 1000f);
                 view.Off();
             }
             catch (Exception e)
             {
                 Debug.LogError($"Failed to disable laser view: {e.Message}");
+            }
+        }
+
+        private static async Awaitable WaitRealtimeAsync(float seconds)
+        {
+            if (seconds <= 0f) return;
+
+            var elapsed = 0f;
+            while (elapsed < seconds)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                await Awaitable.NextFrameAsync();
             }
         }
 

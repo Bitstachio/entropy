@@ -52,11 +52,19 @@ ExportedObj/
 sysinfo.txt
 
 # Builds
+# Prefer outputting WebGL (and other) builds under /Builds/ — already ignored above as /[Bb]uilds/
 *.apk
 *.aab
 *.unitypackage
 *.unitypackage.meta
 *.app
+*.zip
+/Entropy_*/          # legacy root build folders (prefer Builds/)
+/[Ww]eb[Gg][Ll]/
+
+# Unity auto-generated performance test dumps (do not ship)
+/[Aa]ssets/[Rr]esources/PerformanceTestRun*.json
+/[Aa]ssets/[Rr]esources/PerformanceTestRun*.json.meta
 
 # Crashlytics generated file
 crashlytics-build.properties

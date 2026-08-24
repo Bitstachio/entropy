@@ -1385,7 +1385,7 @@ GameObject:
   - component: {fileID: 133106742}
   - component: {fileID: 133106743}
   m_Layer: 0
-  m_Name: Cannon Stat Display
+  m_Name: Blaster Stat Display
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1419,12 +1419,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
-    TypeName: Features.Player.Attack.Cannon.CannonScope
+    TypeName: Features.Player.Attack.Blaster.BlasterScope
   autoRun: 1
   autoInjectGameObjects: []
-  cannonballDamageDisplayView: {fileID: 1825170812}
-  cannonFireRateDisplayView: {fileID: 1498061699}
-  cannonProjectileSpeedDisplayView: {fileID: 1277923618}
+  blasterDamageDisplayView: {fileID: 1825170812}
+  blasterFireRateDisplayView: {fileID: 1498061699}
+  blasterProjectileSpeedDisplayView: {fileID: 1277923618}
 --- !u!1 &135256003
 GameObject:
   m_ObjectHideFlags: 0
@@ -5104,7 +5104,7 @@ GameObject:
   - component: {fileID: 550180937}
   - component: {fileID: 550180938}
   m_Layer: 0
-  m_Name: Cannon SFX
+  m_Name: Blaster SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5138,10 +5138,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
-    TypeName: Features.Player.Attack.Cannon.CannonScope
+    TypeName: Features.Player.Attack.Blaster.BlasterScope
   autoRun: 1
   autoInjectGameObjects: []
-  cannonShotClipData: {fileID: 11400000, guid: d6b8800266daf42e3b9b36dbda320db3, type: 2}
+  blasterShotClipData: {fileID: 11400000, guid: d6b8800266daf42e3b9b36dbda320db3, type: 2}
 --- !u!1 &553193481
 GameObject:
   m_ObjectHideFlags: 0
@@ -7693,7 +7693,7 @@ MonoBehaviour:
   autoInjectGameObjects: []
   upgradeView: {fileID: 1576094118}
   controllerConfig: {fileID: 11400000, guid: 576cd0fea8f1f43239290c8d9cab7b68, type: 2}
-  cannonUpgradeInstaller: {fileID: 1809455551}
+  blasterUpgradeInstaller: {fileID: 1809455551}
   laserUpgradeInstaller: {fileID: 984317981}
   shieldUpgradeInstaller: {fileID: 521171341}
 --- !u!1 &978080159
@@ -8540,7 +8540,7 @@ GameObject:
   - component: {fileID: 1041094266}
   - component: {fileID: 1041094267}
   m_Layer: 0
-  m_Name: Cannon
+  m_Name: Blaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8580,7 +8580,7 @@ MonoBehaviour:
     TypeName: Features.Player.PlayerScope
   autoRun: 1
   autoInjectGameObjects: []
-  cannonballView: {fileID: -993602236936489198, guid: 89c92ea532c1c4705a0ab03f803c7043, type: 3}
+  boltView: {fileID: -993602236936489198, guid: 89c92ea532c1c4705a0ab03f803c7043, type: 3}
   destroyTags:
   - AttackBoundary
   - Hazard
@@ -13574,7 +13574,7 @@ GameObject:
   - component: {fileID: 1809455550}
   - component: {fileID: 1809455551}
   m_Layer: 0
-  m_Name: Cannon Upgrade Installer
+  m_Name: Blaster Upgrade Installer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

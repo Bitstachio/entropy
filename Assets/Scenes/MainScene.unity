@@ -1639,7 +1639,7 @@ GameObject:
   - component: {fileID: 178863877}
   - component: {fileID: 178863878}
   m_Layer: 5
-  m_Name: Cannon Info Container
+  m_Name: Blaster Info Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

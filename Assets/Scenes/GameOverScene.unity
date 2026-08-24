@@ -2857,7 +2857,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Blaster Cannon:'
+  m_text: 'Blaster:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f11bf84f651444decadcf39aa1cc5f0b, type: 2}
   m_sharedMaterial: {fileID: 7677194549304329806, guid: f11bf84f651444decadcf39aa1cc5f0b, type: 2}
@@ -3023,7 +3023,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1347989742}
   m_Layer: 5
-  m_Name: Blaster Cannon Status Container
+  m_Name: Blaster Status Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

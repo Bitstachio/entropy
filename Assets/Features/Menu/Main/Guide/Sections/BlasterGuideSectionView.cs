@@ -1,5 +1,5 @@
 using Core.Upgrade;
-using Features.Player.Attack.Cannon;
+using Features.Player.Attack.Blaster;
 using TMPro;
 using UnityEngine;
 
@@ -7,7 +7,7 @@ namespace Features.Menu.Main.Guide.Sections
 {
     public sealed class BlasterGuideSectionView : MonoBehaviour
     {
-        [Header("Baseline")] [SerializeField] private CannonBaselineStats baselineStats;
+        [Header("Baseline")] [SerializeField] private BlasterBaselineStats baselineStats;
 
         [Header("Upgrades")] [SerializeField] private UpgradeDefinition damageUpgrade;
         [SerializeField] private UpgradeDefinition fireRateUpgrade;

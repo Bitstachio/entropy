@@ -1,5 +1,6 @@
 using Core.Foundations.Components;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VContainer;
 using VContainer.Unity;
 
@@ -19,7 +20,8 @@ namespace Core.Upgrade
          * avoid a scene traversal at container build time for a fixed, known
          * set of installers.
          */
-        [SerializeField] private Installer cannonUpgradeInstaller;
+        [FormerlySerializedAs("cannonUpgradeInstaller")]
+        [SerializeField] private Installer blasterUpgradeInstaller;
         [SerializeField] private Installer laserUpgradeInstaller;
         [SerializeField] private Installer shieldUpgradeInstaller;
 
@@ -29,7 +31,7 @@ namespace Core.Upgrade
             builder.RegisterEntryPoint<UpgradeInputHandler>()
                 .As<IUpgradeInputHandler>();
 
-            cannonUpgradeInstaller.Install(builder);
+            blasterUpgradeInstaller.Install(builder);
             laserUpgradeInstaller.Install(builder);
             shieldUpgradeInstaller.Install(builder);
 

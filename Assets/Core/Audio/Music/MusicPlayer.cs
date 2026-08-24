@@ -21,6 +21,8 @@ namespace Core.Audio.Music
             _audioSource.Play();
         }
 
+        public void SetVolume(float volume) => _audioSource.volume = volume;
+
         public void Stop() => _audioSource.Stop();
     }
 }

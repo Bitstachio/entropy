@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Core.Services.Settings
@@ -6,6 +7,8 @@ namespace Core.Services.Settings
     {
         private const string MusicVolumeKey = "Settings.MusicVolume";
         private const string SfxVolumeKey = "Settings.SfxVolume";
+
+        public event Action<SettingsData> OnChanged;
 
         public SettingsData Load()
         {
@@ -23,6 +26,7 @@ namespace Core.Services.Settings
             PlayerPrefs.SetFloat(MusicVolumeKey, data.MusicVolume);
             PlayerPrefs.SetFloat(SfxVolumeKey, data.SfxVolume);
             PlayerPrefs.Save();
+            OnChanged?.Invoke(data);
         }
     }
 }

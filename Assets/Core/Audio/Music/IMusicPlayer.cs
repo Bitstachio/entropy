@@ -6,6 +6,7 @@ namespace Core.Audio.Music
     {
         void Play(AudioClip clip);
         void Play(AudioClip clip, float volume);
+        void SetVolume(float volume);
         void Stop();
     }
 }

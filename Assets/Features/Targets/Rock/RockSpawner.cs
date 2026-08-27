@@ -1,4 +1,5 @@
 using Core.Providers.Bounds;
+using Core.Services.RunTime;
 using UnityEngine;
 using VContainer.Unity;
 using Random = UnityEngine.Random;
@@ -9,6 +10,7 @@ namespace Features.Targets.Rock
     {
         private readonly IBoundsProvider _boundsProvider;
         private readonly IRockFactory _rockFactory;
+        private readonly IRunTimeService _runTimeService;
         private readonly RockDurabilityConfig _config;
         private readonly Vector3 _originPosition;
         private readonly float _xSpeedBound;
@@ -19,6 +21,7 @@ namespace Features.Targets.Rock
         public RockSpawner(
             IBoundsProvider boundsProvider,
             IRockFactory rockFactory,
+            IRunTimeService runTimeService,
             RockDurabilityConfig config,
             Vector3 originPosition,
             float xSpeedBound,
@@ -26,6 +29,7 @@ namespace Features.Targets.Rock
         {
             _boundsProvider = boundsProvider;
             _rockFactory = rockFactory;
+            _runTimeService = runTimeService;
             _config = config;
             _originPosition = originPosition;
             _xSpeedBound = xSpeedBound;
@@ -63,7 +67,7 @@ namespace Features.Targets.Rock
         
         private float CalculateCurrentInterval()
         {
-            var elapsedTime = Time.time;
+            var elapsedTime = _runTimeService.ElapsedTime;
             var interval = _config.InitialSpawnInterval - _config.SpawnIntervalDecayRate * elapsedTime;
             return Mathf.Clamp(interval, _config.MinSpawnInterval, _config.MaxSpawnInterval);
         }

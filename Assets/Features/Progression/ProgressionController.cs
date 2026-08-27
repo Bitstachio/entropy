@@ -37,6 +37,9 @@ namespace Features.Progression
             _gameOverListener.OnPublished += HandleGameOver;
             _rockDestroyedListener.OnPublished += HandleRockDestroyed;
 
+            // The session survives scene loads, so the previous run's result must not leak into this one
+            _session.IsNewHighScore = false;
+
             _view.SetScore(_model.CurrentScore);
             _view.SetHighScore(_model.HighScore);
         }

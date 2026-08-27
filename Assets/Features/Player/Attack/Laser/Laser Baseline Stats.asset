@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788e5e535d664e3ea0a3d693510a7e65, type: 3}
   m_Name: Laser Baseline Stats
   m_EditorClassIdentifier: 
-  baselineDamagePerPulse: 1
+  baselineDamagePerPulse: 2
   baselinePulseInterval: 0.5

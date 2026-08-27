@@ -1,5 +1,6 @@
 using System.Linq;
 using Core.Foundations.Components;
+using Core.Services.RunTime;
 using Core.StatRegistry;
 using Core.StatRegistry.StatKeys;
 using VContainer;
@@ -14,6 +15,11 @@ namespace Scopes
             //----- Installers -----
 
             GetComponentsInChildren<Installer>().ToList().ForEach(i => i.Install(builder));
+
+            //----- Run Services -----
+
+            builder.RegisterEntryPoint<RunTimeService>()
+                .As<IRunTimeService>();
 
             //----- Stat Registries -----
 

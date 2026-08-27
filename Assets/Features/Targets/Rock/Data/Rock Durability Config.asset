@@ -18,7 +18,7 @@ MonoBehaviour:
   deviationGrowthRate: 0.03
   minDurability: 1
   maxDurability: 50
-  initialSpawnInterval: 8
+  initialSpawnInterval: 6
   spawnIntervalDecayRate: 0.01
   minSpawnInterval: 0.5
   maxSpawnInterval: 10

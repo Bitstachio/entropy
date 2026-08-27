@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11dbbc352ed4058bd5409ad7592b838, type: 3}
   m_Name: Rechargeable Battery Config
   m_EditorClassIdentifier: 
-  chargeTime: 10
+  chargeTime: 20
   dischargeTime: 5

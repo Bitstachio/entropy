@@ -22,7 +22,6 @@ namespace Features.Player.Attack.Blaster
 
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.Register<StatRegistry<BlasterStats>>(Lifetime.Singleton);
             builder.RegisterBuildCallback(container =>
             {
                 var stats = container.Resolve<StatRegistry<BlasterStats>>();
